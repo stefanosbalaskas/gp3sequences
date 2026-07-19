@@ -6,3 +6,4 @@
 * Defined the initial neutral scope and interpretation boundary.
 * Added the initial README and pkgdown website configuration.
 * Added a multi-platform GitHub Actions R CMD check workflow for macOS, Windows, Ubuntu release, and Ubuntu devel.
+* Added a GitHub Actions pkgdown workflow for automated website building and deployment.
