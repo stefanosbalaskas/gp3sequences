@@ -97,6 +97,41 @@
 <span><span class="co">#&gt; 8          s2              4     home</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="current-data-contract-api">Current data-contract API<a class="anchor" aria-label="anchor" href="#current-data-contract-api"></a>
+</h2>
+<p>The initial public API provides three related functions:</p>
+<ul>
+<li>
+<code><a href="reference/audit_sequence_data.html">audit_sequence_data()</a></code> reports structured data-quality issues;</li>
+<li>
+<code><a href="reference/validate_sequence_data.html">validate_sequence_data()</a></code> returns a compact validity contract;</li>
+<li>
+<code><a href="reference/prepare_sequence_data.html">prepare_sequence_data()</a></code> applies explicit preprocessing policies and creates deterministic canonical sequence data.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">audit</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/audit_sequence_data.html">audit_sequence_data</a></span><span class="op">(</span></span>
+<span>  <span class="va">example_sequences</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">validation</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/validate_sequence_data.html">validate_sequence_data</a></span><span class="op">(</span></span>
+<span>  <span class="va">example_sequences</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">prepared</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/prepare_sequence_data.html">prepare_sequence_data</a></span><span class="op">(</span></span>
+<span>  <span class="va">example_sequences</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span>,</span>
+<span>  repeated_state_policy <span class="op">=</span> <span class="st">"preserve"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="interpretation-boundary">Interpretation boundary<a class="anchor" aria-label="anchor" href="#interpretation-boundary"></a>
 </h2>
 <p>Sequence outputs describe behavioural or structural patterns only. They do not independently establish emotion, cognition, comprehension, personality, intention, diagnosis, deception, or other psychological attributes. Substantive interpretation requires an appropriate study design and external evidence.</p>

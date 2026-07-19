@@ -11,3 +11,12 @@
   Windows, Ubuntu release, and Ubuntu devel.
 - Added a GitHub Actions pkgdown workflow for automated website building
   and deployment.
+- Added
+  [`audit_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_data.md)
+  and
+  [`validate_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/validate_sequence_data.md)
+  for structured input diagnostics.
+- Added
+  [`prepare_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_data.md)
+  with explicit missing-state, duplicate-position, repeated-state,
+  duration, and unknown-state policies.
