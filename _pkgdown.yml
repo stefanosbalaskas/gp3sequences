@@ -1,0 +1,25 @@
+url: https://stefanosbalaskas.github.io/gp3sequences/
+
+template:
+  bootstrap: 5
+
+development:
+  mode: auto
+
+home:
+  title: gp3sequences
+  description: >
+    Transparent, reproducible, and auditable tools for analysing ordered
+    categorical sequences and scanpaths in R.
+  links:
+  - text: Personal website
+    href: https://sites.google.com/view/stefbalaskas/
+  - text: ORCID
+    href: https://orcid.org/0000-0003-2444-9796
+  - text: LinkedIn
+    href: https://www.linkedin.com/in/stefanos-balaskas/
+
+navbar:
+  structure:
+    left: [home, news]
+    right: [search, github]

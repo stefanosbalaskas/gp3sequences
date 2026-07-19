@@ -1,0 +1,81 @@
+---
+output:
+  github_document:
+    html_preview: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# gp3sequences
+
+`gp3sequences` is an independent R package for transparent,
+reproducible, and auditable analysis of ordered categorical sequences.
+It is designed for ordinary long-format data frames and is not restricted
+to Gazepoint exports, eye-tracking data, particular hardware, or
+proprietary software.
+
+## Development status
+
+The package is in initial development and does not yet provide a stable
+public analytical API. The first development series prioritises a neutral
+data contract, explicit preprocessing policies, machine-readable
+diagnostics, and deterministic structural summaries.
+
+## Intended applications
+
+Potential applications include:
+
+- eye-tracking AOI scanpaths;
+- website-navigation and customer-journey sequences;
+- behavioural-state and task-action sequences;
+- interface-interaction sequences;
+- educational activity sequences;
+- other repeated ordered categorical data.
+
+## Neutral long-format input
+
+The core data contract will require configurable columns corresponding to
+`sequence_id`, `sequence_order`, and `state`. Optional participant, trial,
+condition, group, timing, duration, weight, and metadata columns may also
+be mapped explicitly.
+
+A minimal input may look like this:
+
+```{r example-input}
+example_sequences <- data.frame(
+  sequence_id = rep(c("s1", "s2"), each = 4L),
+  sequence_order = rep(1:4, times = 2L),
+  state = c(
+    "home", "search", "product", "checkout",
+    "home", "category", "product", "home"
+  ),
+  stringsAsFactors = FALSE
+)
+
+example_sequences
+```
+
+## Interpretation boundary
+
+Sequence outputs describe behavioural or structural patterns only. They do
+not independently establish emotion, cognition, comprehension, personality,
+intention, diagnosis, deception, or other psychological attributes.
+Substantive interpretation requires an appropriate study design and
+external evidence.
+
+## Author
+
+**Stefanos Balaskas**
+
+[ORCID](https://orcid.org/0000-0003-2444-9796) ·
+[Personal website](https://sites.google.com/view/stefbalaskas/) ·
+[LinkedIn](https://www.linkedin.com/in/stefanos-balaskas/)
+
+## Licence
+
+`gp3sequences` is released under the MIT License.

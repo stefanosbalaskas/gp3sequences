@@ -1,0 +1,27 @@
+Package: gp3sequences
+Title: Transparent Analysis of Ordered Categorical Sequences
+Version: 0.0.0.9000
+Authors@R:
+    person(
+      given = "Stefanos",
+      family = "Balaskas",
+      email = "s.balaskas@ac.upatras.gr",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0003-2444-9796")
+    )
+Description: Provides transparent, reproducible, and auditable tools for
+    validating, preparing, encoding, and summarising ordered categorical
+    sequence data. Supports configurable long-format inputs, explicit
+    preprocessing policies, machine-readable diagnostics, structural motif
+    analysis, and focused visualisation for scanpaths, navigation paths,
+    behavioural states, and other ordered state data.
+License: MIT + file LICENSE
+URL: https://stefanosbalaskas.github.io/gp3sequences/,
+    https://github.com/stefanosbalaskas/gp3sequences
+BugReports: https://github.com/stefanosbalaskas/gp3sequences/issues
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0
