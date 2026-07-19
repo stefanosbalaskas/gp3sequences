@@ -57,6 +57,39 @@ example_sequences
 #> 8          s2              4     home
 ```
 
+## Current data-contract API
+
+The initial public API provides three related functions:
+
+- `audit_sequence_data()` reports structured data-quality issues;
+- `validate_sequence_data()` returns a compact validity contract;
+- `prepare_sequence_data()` applies explicit preprocessing policies and
+  creates deterministic canonical sequence data.
+
+``` r
+audit <- audit_sequence_data(
+  example_sequences,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+validation <- validate_sequence_data(
+  example_sequences,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+prepared <- prepare_sequence_data(
+  example_sequences,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  repeated_state_policy = "preserve"
+)
+```
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They

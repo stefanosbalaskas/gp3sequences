@@ -7,3 +7,5 @@
 * Added the initial README and pkgdown website configuration.
 * Added a multi-platform GitHub Actions R CMD check workflow for macOS, Windows, Ubuntu release, and Ubuntu devel.
 * Added a GitHub Actions pkgdown workflow for automated website building and deployment.
+* Added `audit_sequence_data()` and `validate_sequence_data()` for structured input diagnostics.
+* Added `prepare_sequence_data()` with explicit missing-state, duplicate-position, repeated-state, duration, and unknown-state policies.
