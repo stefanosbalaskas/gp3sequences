@@ -20,3 +20,12 @@
   [`prepare_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_data.md)
   with explicit missing-state, duplicate-position, repeated-state,
   duration, and unknown-state policies.
+- Added
+  [`encode_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/encode_sequence_data.md)
+  for deterministic state dictionaries and transparent state codes.
+- Added
+  [`summarise_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_states.md),
+  [`summarise_sequence_transitions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_transitions.md),
+  and
+  [`format_sequence_paths()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_paths.md)
+  for structural sequence summaries.

@@ -94,6 +94,51 @@ prepared <- prepare_sequence_data(
 )
 ```
 
+## Encoding and structural summaries
+
+Related functions support deterministic encoding and descriptive
+sequence summaries without assigning substantive meaning to states:
+
+- [`encode_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/encode_sequence_data.md)
+  creates a transparent state dictionary;
+- [`summarise_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_states.md)
+  reports state frequencies and durations;
+- [`summarise_sequence_transitions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_transitions.md)
+  reports adjacent transition counts;
+- [`format_sequence_paths()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_paths.md)
+  creates compact ordered path strings.
+
+``` r
+
+encoded <- encode_sequence_data(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+state_summary <- summarise_sequence_states(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+transition_summary <- summarise_sequence_transitions(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+paths <- format_sequence_paths(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+```
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They
@@ -124,4 +169,15 @@ website](https://sites.google.com/view/stefbalaskas/) ·
   : Validate Long-Format Sequence Data
 - [`prepare_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_data.md)
   : Prepare Long-Format Sequence Data
+
+## Encoding and structural summaries
+
+- [`encode_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/encode_sequence_data.md)
+  : Encode Ordered Sequence States
+- [`summarise_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_states.md)
+  : Summarise Sequence States
+- [`summarise_sequence_transitions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_transitions.md)
+  : Summarise Adjacent Sequence Transitions
+- [`format_sequence_paths()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_paths.md)
+  : Format Ordered Sequence Paths
 

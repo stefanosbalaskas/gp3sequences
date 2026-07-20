@@ -132,6 +132,49 @@
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="encoding-and-structural-summaries">Encoding and structural summaries<a class="anchor" aria-label="anchor" href="#encoding-and-structural-summaries"></a>
+</h2>
+<p>Related functions support deterministic encoding and descriptive sequence summaries without assigning substantive meaning to states:</p>
+<ul>
+<li>
+<code><a href="reference/encode_sequence_data.html">encode_sequence_data()</a></code> creates a transparent state dictionary;</li>
+<li>
+<code><a href="reference/summarise_sequence_states.html">summarise_sequence_states()</a></code> reports state frequencies and durations;</li>
+<li>
+<code><a href="reference/summarise_sequence_transitions.html">summarise_sequence_transitions()</a></code> reports adjacent transition counts;</li>
+<li>
+<code><a href="reference/format_sequence_paths.html">format_sequence_paths()</a></code> creates compact ordered path strings.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">encoded</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/encode_sequence_data.html">encode_sequence_data</a></span><span class="op">(</span></span>
+<span>  <span class="va">prepared</span><span class="op">$</span><span class="va">data</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">state_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/summarise_sequence_states.html">summarise_sequence_states</a></span><span class="op">(</span></span>
+<span>  <span class="va">prepared</span><span class="op">$</span><span class="va">data</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">transition_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/summarise_sequence_transitions.html">summarise_sequence_transitions</a></span><span class="op">(</span></span>
+<span>  <span class="va">prepared</span><span class="op">$</span><span class="va">data</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/format_sequence_paths.html">format_sequence_paths</a></span><span class="op">(</span></span>
+<span>  <span class="va">prepared</span><span class="op">$</span><span class="va">data</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="interpretation-boundary">Interpretation boundary<a class="anchor" aria-label="anchor" href="#interpretation-boundary"></a>
 </h2>
 <p>Sequence outputs describe behavioural or structural patterns only. They do not independently establish emotion, cognition, comprehension, personality, intention, diagnosis, deception, or other psychological attributes. Substantive interpretation requires an appropriate study design and external evidence.</p>
