@@ -90,6 +90,46 @@ prepared <- prepare_sequence_data(
 )
 ```
 
+## Encoding and structural summaries
+
+Related functions support deterministic encoding and descriptive
+sequence summaries without assigning substantive meaning to states:
+
+- `encode_sequence_data()` creates a transparent state dictionary;
+- `summarise_sequence_states()` reports state frequencies and durations;
+- `summarise_sequence_transitions()` reports adjacent transition counts;
+- `format_sequence_paths()` creates compact ordered path strings.
+
+``` r
+encoded <- encode_sequence_data(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+state_summary <- summarise_sequence_states(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+transition_summary <- summarise_sequence_transitions(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+paths <- format_sequence_paths(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+```
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They
