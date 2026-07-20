@@ -9,3 +9,5 @@
 * Added a GitHub Actions pkgdown workflow for automated website building and deployment.
 * Added `audit_sequence_data()` and `validate_sequence_data()` for structured input diagnostics.
 * Added `prepare_sequence_data()` with explicit missing-state, duplicate-position, repeated-state, duration, and unknown-state policies.
+* Added `encode_sequence_data()` for deterministic state dictionaries and transparent state codes.
+* Added `summarise_sequence_states()`, `summarise_sequence_transitions()`, and `format_sequence_paths()` for structural sequence summaries.

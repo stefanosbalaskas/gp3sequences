@@ -30,3 +30,9 @@ reference:
   - audit_sequence_data
   - validate_sequence_data
   - prepare_sequence_data
+- title: Encoding and structural summaries
+  contents:
+  - encode_sequence_data
+  - summarise_sequence_states
+  - summarise_sequence_transitions
+  - format_sequence_paths
