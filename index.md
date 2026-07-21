@@ -139,6 +139,49 @@ paths <- format_sequence_paths(
 )
 ```
 
+## Contiguous motif analysis
+
+The motif workflow enumerates contiguous state windows only and retains
+explicit structural definitions:
+
+- [`extract_sequence_ngrams()`](https://stefanosbalaskas.github.io/gp3sequences/reference/extract_sequence_ngrams.md)
+  extracts auditable motif occurrences;
+- [`summarise_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_motifs.md)
+  reports counts and sequence prevalence;
+- [`filter_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/reference/filter_sequence_motifs.md)
+  applies explicit transparent thresholds;
+- [`format_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_motifs.md)
+  creates stable report-ready tables.
+
+``` r
+
+motif_occurrences <- extract_sequence_ngrams(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  min_length = 2,
+  max_length = 4,
+  overlap = "allow"
+)
+
+motif_summary <- summarise_sequence_motifs(motif_occurrences)
+
+motif_filter <- filter_sequence_motifs(
+  motif_summary,
+  min_sequences = 2,
+  min_prevalence = 0.10,
+  top_n = 20,
+  ties = "include"
+)
+
+motif_table <- format_sequence_motifs(
+  motif_filter,
+  prevalence = "percent",
+  digits = 1
+)
+```
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They

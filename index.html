@@ -175,6 +175,47 @@
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="contiguous-motif-analysis">Contiguous motif analysis<a class="anchor" aria-label="anchor" href="#contiguous-motif-analysis"></a>
+</h2>
+<p>The motif workflow enumerates contiguous state windows only and retains explicit structural definitions:</p>
+<ul>
+<li>
+<code><a href="reference/extract_sequence_ngrams.html">extract_sequence_ngrams()</a></code> extracts auditable motif occurrences;</li>
+<li>
+<code><a href="reference/summarise_sequence_motifs.html">summarise_sequence_motifs()</a></code> reports counts and sequence prevalence;</li>
+<li>
+<code><a href="reference/filter_sequence_motifs.html">filter_sequence_motifs()</a></code> applies explicit transparent thresholds;</li>
+<li>
+<code><a href="reference/format_sequence_motifs.html">format_sequence_motifs()</a></code> creates stable report-ready tables.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">motif_occurrences</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_sequence_ngrams.html">extract_sequence_ngrams</a></span><span class="op">(</span></span>
+<span>  <span class="va">prepared</span><span class="op">$</span><span class="va">data</span>,</span>
+<span>  sequence_id_col <span class="op">=</span> <span class="st">"sequence_id"</span>,</span>
+<span>  order_col <span class="op">=</span> <span class="st">"sequence_order"</span>,</span>
+<span>  state_col <span class="op">=</span> <span class="st">"state"</span>,</span>
+<span>  min_length <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  max_length <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  overlap <span class="op">=</span> <span class="st">"allow"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">motif_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/summarise_sequence_motifs.html">summarise_sequence_motifs</a></span><span class="op">(</span><span class="va">motif_occurrences</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">motif_filter</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/filter_sequence_motifs.html">filter_sequence_motifs</a></span><span class="op">(</span></span>
+<span>  <span class="va">motif_summary</span>,</span>
+<span>  min_sequences <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  min_prevalence <span class="op">=</span> <span class="fl">0.10</span>,</span>
+<span>  top_n <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>  ties <span class="op">=</span> <span class="st">"include"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">motif_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/format_sequence_motifs.html">format_sequence_motifs</a></span><span class="op">(</span></span>
+<span>  <span class="va">motif_filter</span>,</span>
+<span>  prevalence <span class="op">=</span> <span class="st">"percent"</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
 <h2 id="interpretation-boundary">Interpretation boundary<a class="anchor" aria-label="anchor" href="#interpretation-boundary"></a>
 </h2>
 <p>Sequence outputs describe behavioural or structural patterns only. They do not independently establish emotion, cognition, comprehension, personality, intention, diagnosis, deception, or other psychological attributes. Substantive interpretation requires an appropriate study design and external evidence.</p>
