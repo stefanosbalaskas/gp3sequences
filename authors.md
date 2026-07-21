@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/stefanosbalaskas/gp3sequences/blob/master/inst/CITATION)
+[`inst/CITATION`](https://github.com/stefanosbalaskas/gp3sequences/blob/v0.1.0/inst/CITATION)
 
 Balaskas S (2026). *gp3sequences: Transparent Analysis of Ordered
 Categorical Sequences*. R package version 0.1.0,
