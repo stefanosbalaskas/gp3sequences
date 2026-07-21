@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use gp3sequences in your work, please cite the software using the metadata below."
+type: software
+title: "gp3sequences: Transparent Analysis of Ordered Categorical Sequences"
+version: "0.1.0"
+license: "MIT"
+abstract: >-
+  gp3sequences provides transparent, reproducible, and auditable tools for
+  validating, preparing, encoding, and summarising ordered categorical
+  sequence data. It supports explicit preprocessing policies,
+  machine-readable diagnostics, contiguous motif analysis, motif-position
+  summaries, and focused structural visualisations.
+authors:
+  - family-names: "Balaskas"
+    given-names: "Stefanos"
+    email: "s.balaskas@ac.upatras.gr"
+    orcid: "https://orcid.org/0000-0003-2444-9796"
+repository-code: "https://github.com/stefanosbalaskas/gp3sequences"
+url: "https://stefanosbalaskas.github.io/gp3sequences/"
+keywords:
+  - "categorical sequences"
+  - "sequence analysis"
+  - "contiguous motifs"
+  - "scanpaths"
+  - "reproducible research"
+  - "R package"

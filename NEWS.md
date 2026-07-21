@@ -1,5 +1,6 @@
-# gp3sequences 0.0.0.9000
+# gp3sequences 0.1.0
 
+* Initial public release.
 * Created the independent `gp3sequences` package scaffold.
 * Added MIT licensing and package-level documentation.
 * Added the initial testthat edition 3 infrastructure.
