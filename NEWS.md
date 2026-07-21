@@ -11,3 +11,5 @@
 * Added `prepare_sequence_data()` with explicit missing-state, duplicate-position, repeated-state, duration, and unknown-state policies.
 * Added `encode_sequence_data()` for deterministic state dictionaries and transparent state codes.
 * Added `summarise_sequence_states()`, `summarise_sequence_transitions()`, and `format_sequence_paths()` for structural sequence summaries.
+* Added `extract_sequence_ngrams()` for deterministic contiguous motif enumeration with explicit overlap handling.
+* Added `summarise_sequence_motifs()`, `filter_sequence_motifs()`, and `format_sequence_motifs()` for transparent motif prevalence, filtering, and reporting.
