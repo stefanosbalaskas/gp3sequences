@@ -1,5 +1,5 @@
 
-# gp3sequences
+# gp3sequences <a href="https://stefanosbalaskas.github.io/gp3sequences/"><img src="man/figures/logo.png" align="right" height="139" alt="gp3sequences website" /></a>
 
 `gp3sequences` is an independent R package for transparent,
 reproducible, and auditable analysis of ordered categorical sequences.
