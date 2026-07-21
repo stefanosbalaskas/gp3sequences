@@ -9,3 +9,6 @@
 ^\.Ruserdata$
 ^\.github$
 ^pkgdown$
+^CITATION\.cff$
+^cran-comments\.md$
+^CRAN-SUBMISSION$

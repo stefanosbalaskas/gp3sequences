@@ -1,0 +1,15 @@
+citHeader("To cite gp3sequences in publications, use:")
+
+bibentry(
+  bibtype = "Manual",
+  title = "{gp3sequences}: Transparent Analysis of Ordered Categorical Sequences",
+  author = person(
+    given = "Stefanos",
+    family = "Balaskas",
+    email = "s.balaskas@ac.upatras.gr",
+    comment = c(ORCID = "0000-0003-2444-9796")
+  ),
+  year = "2026",
+  note = "R package version 0.1.0",
+  url = "https://stefanosbalaskas.github.io/gp3sequences/"
+)
