@@ -2,6 +2,8 @@
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/404.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/LICENSE-text.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/LICENSE.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/articles/contiguous-motif-workflow.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/articles/index.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/authors.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/index.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/news/index.html</loc></url>
@@ -9,11 +11,15 @@
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/encode_sequence_data.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/extract_sequence_ngrams.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/filter_sequence_motifs.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_motif_positions.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_motifs.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_paths.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/gp3sequences-package.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/index.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_motif_positions.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_motifs.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_data.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_motif_positions.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_motifs.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_states.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_transitions.html</loc></url>

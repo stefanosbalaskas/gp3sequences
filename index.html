@@ -214,6 +214,46 @@
 <span>  prevalence <span class="op">=</span> <span class="st">"percent"</span>,</span>
 <span>  digits <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="motif-positions-and-visualisation">Motif positions and visualisation<a class="anchor" aria-label="anchor" href="#motif-positions-and-visualisation"></a>
+</h3>
+<p>Motif occurrences can be summarised and plotted without adding analytical dependencies:</p>
+<ul>
+<li>
+<code><a href="reference/summarise_sequence_motif_positions.html">summarise_sequence_motif_positions()</a></code> reports structural locations;</li>
+<li>
+<code><a href="reference/format_sequence_motif_positions.html">format_sequence_motif_positions()</a></code> produces explicit report tables;</li>
+<li>
+<code><a href="reference/plot_sequence_motifs.html">plot_sequence_motifs()</a></code> plots prevalence or occurrence metrics;</li>
+<li>
+<code><a href="reference/plot_sequence_motif_positions.html">plot_sequence_motif_positions()</a></code> plots occurrence locations.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">position_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/summarise_sequence_motif_positions.html">summarise_sequence_motif_positions</a></span><span class="op">(</span></span>
+<span>  <span class="va">motif_occurrences</span>,</span>
+<span>  position <span class="op">=</span> <span class="st">"centre"</span>,</span>
+<span>  scale <span class="op">=</span> <span class="st">"relative"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">position_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/format_sequence_motif_positions.html">format_sequence_motif_positions</a></span><span class="op">(</span></span>
+<span>  <span class="va">position_summary</span>,</span>
+<span>  position_units <span class="op">=</span> <span class="st">"percent"</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/plot_sequence_motifs.html">plot_sequence_motifs</a></span><span class="op">(</span></span>
+<span>  <span class="va">motif_summary</span>,</span>
+<span>  metric <span class="op">=</span> <span class="st">"sequence_prevalence"</span>,</span>
+<span>  top_n <span class="op">=</span> <span class="fl">10</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/plot_sequence_motif_positions.html">plot_sequence_motif_positions</a></span><span class="op">(</span></span>
+<span>  <span class="va">motif_occurrences</span>,</span>
+<span>  position <span class="op">=</span> <span class="st">"centre"</span>,</span>
+<span>  scale <span class="op">=</span> <span class="st">"relative"</span>,</span>
+<span>  top_n <span class="op">=</span> <span class="fl">5</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="interpretation-boundary">Interpretation boundary<a class="anchor" aria-label="anchor" href="#interpretation-boundary"></a>

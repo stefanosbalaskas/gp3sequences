@@ -30,3 +30,11 @@
   : Filter Sequence Motif Summaries
 - [`format_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_motifs.md)
   : Format Sequence Motif Summaries
+- [`summarise_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_motif_positions.md)
+  : Summarise Sequence Motif Positions
+- [`format_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_motif_positions.md)
+  : Format Sequence Motif Position Summaries
+- [`plot_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_motifs.md)
+  : Plot Sequence Motif Summaries
+- [`plot_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_motif_positions.md)
+  : Plot Sequence Motif Positions

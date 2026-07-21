@@ -182,6 +182,48 @@ motif_table <- format_sequence_motifs(
 )
 ```
 
+### Motif positions and visualisation
+
+Motif occurrences can be summarised and plotted without adding
+analytical dependencies:
+
+- [`summarise_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_motif_positions.md)
+  reports structural locations;
+- [`format_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/format_sequence_motif_positions.md)
+  produces explicit report tables;
+- [`plot_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_motifs.md)
+  plots prevalence or occurrence metrics;
+- [`plot_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_motif_positions.md)
+  plots occurrence locations.
+
+``` r
+
+position_summary <- summarise_sequence_motif_positions(
+  motif_occurrences,
+  position = "centre",
+  scale = "relative"
+)
+
+position_table <- format_sequence_motif_positions(
+  position_summary,
+  position_units = "percent",
+  digits = 1
+)
+
+plot_sequence_motifs(
+  motif_summary,
+  metric = "sequence_prevalence",
+  top_n = 10
+)
+
+plot_sequence_motif_positions(
+  motif_occurrences,
+  position = "centre",
+  scale = "relative",
+  top_n = 5
+)
+```
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They
