@@ -13,3 +13,5 @@
 * Added `summarise_sequence_states()`, `summarise_sequence_transitions()`, and `format_sequence_paths()` for structural sequence summaries.
 * Added `extract_sequence_ngrams()` for deterministic contiguous motif enumeration with explicit overlap handling.
 * Added `summarise_sequence_motifs()`, `filter_sequence_motifs()`, and `format_sequence_motifs()` for transparent motif prevalence, filtering, and reporting.
+* Added `summarise_sequence_motif_positions()` and `format_sequence_motif_positions()` for deterministic structural location summaries.
+* Added dependency-free `plot_sequence_motifs()` and `plot_sequence_motif_positions()` visualisations plus a synthetic contiguous-motif workflow article.

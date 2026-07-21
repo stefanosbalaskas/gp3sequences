@@ -42,3 +42,7 @@ reference:
   - summarise_sequence_motifs
   - filter_sequence_motifs
   - format_sequence_motifs
+  - summarise_sequence_motif_positions
+  - format_sequence_motif_positions
+  - plot_sequence_motifs
+  - plot_sequence_motif_positions

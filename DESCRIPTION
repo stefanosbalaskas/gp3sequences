@@ -20,9 +20,15 @@ URL: https://stefanosbalaskas.github.io/gp3sequences/,
     https://github.com/stefanosbalaskas/gp3sequences
 BugReports: https://github.com/stefanosbalaskas/gp3sequences/issues
 Suggests:
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
 Config/testthat/edition: 3
 Config/Needs/website: pkgdown
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 8.0.0
+Imports:
+    graphics,
+    stats
+VignetteBuilder: knitr
