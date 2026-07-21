@@ -36,3 +36,9 @@ reference:
   - summarise_sequence_states
   - summarise_sequence_transitions
   - format_sequence_paths
+- title: Contiguous motif analysis
+  contents:
+  - extract_sequence_ngrams
+  - summarise_sequence_motifs
+  - filter_sequence_motifs
+  - format_sequence_motifs
