@@ -37,9 +37,9 @@ network <- create_transition_network(sequences)
 if (requireNamespace("igraph", quietly = TRUE)) {
   as_igraph_transition_network(network)
 }
-#> IGRAPH ecd5c5a DNW- 4 9 -- 
+#> IGRAPH de62c50 DNW- 4 9 -- 
 #> + attr: name (v/c), weight (e/n), count (e/n), sequence_count (e/n),
 #> | sequence_prevalence (e/n)
-#> + edges from ecd5c5a (vertex names):
+#> + edges from de62c50 (vertex names):
 #> [1] A->A A->B B->A B->C C->A C->B C->C C->D D->C
 ```

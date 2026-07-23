@@ -2,6 +2,10 @@
 
 ## gp3sequences 0.1.0.9000
 
+- Added four integrated, user-oriented articles covering getting
+  started, validation and preparation, method selection, and a
+  reproducible synthetic case study.
+
 - Added the complete advanced sequence-analysis roadmap.
 
 - Added deterministic aligned-position consensus sequences and agreement

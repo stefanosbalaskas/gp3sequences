@@ -1,11 +1,15 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/LICENSE-text.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/LICENSE.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/choosing-a-sequence-analysis-method.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/consensus-and-group-comparisons.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/contiguous-motif-workflow.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/distances-clustering-and-stability.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/getting-started-with-gp3sequences.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/index.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/latent-models-and-optional-adapters.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/reproducible-sequence-analysis-case-study.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/sequence-data-validation-and-preparation.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/articles/transition-networks-and-higher-order-models.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/authors.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/dev/index.html</loc></url>
