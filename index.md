@@ -6,12 +6,14 @@ It is designed for ordinary long-format data frames and is not
 restricted to Gazepoint exports, eye-tracking data, particular hardware,
 or proprietary software.
 
-## Development status
+## Current release
 
-The package is in initial development and does not yet provide a stable
-public analytical API. The first development series prioritises a
-neutral data contract, explicit preprocessing policies, machine-readable
-diagnostics, and deterministic structural summaries.
+Version 0.2.0 expands the neutral data contract and contiguous-motif
+foundation with auditable consensus and group comparisons, sequence
+distances, clustering and stability workflows, transition networks,
+higher-order models, categorical and mixture hidden Markov models,
+optional specialist-package adapters, and nine synthetic workflow
+articles.
 
 ## Intended applications
 
@@ -224,6 +226,26 @@ plot_sequence_motif_positions(
 )
 ```
 
+## Documentation
+
+The package website now provides nine synthetic, reproducible articles:
+
+- getting started with the complete structural workflow;
+- sequence-data validation and policy-driven preparation;
+- choosing among motifs, consensus, distances, clustering, networks,
+  higher-order models, HMMs, and adapters;
+- a reproducible integrated synthetic case study;
+- contiguous motif analysis and motif positions;
+- consensus sequences and descriptive group comparisons;
+- sequence distances, clustering, representatives, ensembles, and
+  stability;
+- transition networks and higher-order models;
+- latent sequence models and optional ecosystem adapters.
+
+The articles use ordinary data frames and synthetic data. They preserve
+the package interpretation boundary and do not infer psychological or
+causal attributes from structural sequence outputs.
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They
@@ -243,3 +265,20 @@ website](https://sites.google.com/view/stefbalaskas/) ·
 ## Licence
 
 `gp3sequences` is released under the MIT License.
+
+## Advanced sequence-analysis methods
+
+Version 0.2.0 extends the audited sequence contract with:
+
+- aligned-position consensus sequences and agreement diagnostics;
+- descriptive between-group comparisons;
+- edit, LCS, optimal-matching, and transition-profile distances;
+- clustering, validation, representatives, ensembles, and stability
+  analysis;
+- transition networks, centrality, communities, and higher-order models;
+- categorical HMMs, mixture HMMs, and state decoding;
+- optional adapters to specialist sequence-analysis packages.
+
+These outputs are structural and statistical. They do not independently
+establish emotion, cognition, comprehension, personality, intention,
+diagnosis, deception, causality, or other psychological attributes.

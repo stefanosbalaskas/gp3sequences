@@ -30,7 +30,7 @@
 
     <a class="navbar-brand me-2" href="index.html">gp3sequences</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,8 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="articles/index.html">Articles</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -61,9 +63,9 @@
 </div>
 <p><code>gp3sequences</code> is an independent R package for transparent, reproducible, and auditable analysis of ordered categorical sequences. It is designed for ordinary long-format data frames and is not restricted to Gazepoint exports, eye-tracking data, particular hardware, or proprietary software.</p>
 <div class="section level2">
-<h2 id="development-status">Development status<a class="anchor" aria-label="anchor" href="#development-status"></a>
+<h2 id="current-release">Current release<a class="anchor" aria-label="anchor" href="#current-release"></a>
 </h2>
-<p>The package is in initial development and does not yet provide a stable public analytical API. The first development series prioritises a neutral data contract, explicit preprocessing policies, machine-readable diagnostics, and deterministic structural summaries.</p>
+<p>Version 0.2.0 expands the neutral data contract and contiguous-motif foundation with auditable consensus and group comparisons, sequence distances, clustering and stability workflows, transition networks, higher-order models, categorical and mixture hidden Markov models, optional specialist-package adapters, and nine synthetic workflow articles.</p>
 </div>
 <div class="section level2">
 <h2 id="intended-applications">Intended applications<a class="anchor" aria-label="anchor" href="#intended-applications"></a>
@@ -265,6 +267,23 @@
 </div>
 </div>
 <div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<p>The package website now provides nine synthetic, reproducible articles:</p>
+<ul>
+<li>getting started with the complete structural workflow;</li>
+<li>sequence-data validation and policy-driven preparation;</li>
+<li>choosing among motifs, consensus, distances, clustering, networks, higher-order models, HMMs, and adapters;</li>
+<li>a reproducible integrated synthetic case study;</li>
+<li>contiguous motif analysis and motif positions;</li>
+<li>consensus sequences and descriptive group comparisons;</li>
+<li>sequence distances, clustering, representatives, ensembles, and stability;</li>
+<li>transition networks and higher-order models;</li>
+<li>latent sequence models and optional ecosystem adapters.</li>
+</ul>
+<p>The articles use ordinary data frames and synthetic data. They preserve the package interpretation boundary and do not infer psychological or causal attributes from structural sequence outputs.</p>
+</div>
+<div class="section level2">
 <h2 id="interpretation-boundary">Interpretation boundary<a class="anchor" aria-label="anchor" href="#interpretation-boundary"></a>
 </h2>
 <p>Sequence outputs describe behavioural or structural patterns only. They do not independently establish emotion, cognition, comprehension, personality, intention, diagnosis, deception, or other psychological attributes. Substantive interpretation requires an appropriate study design and external evidence.</p>
@@ -279,6 +298,22 @@
 <h2 id="licence">Licence<a class="anchor" aria-label="anchor" href="#licence"></a>
 </h2>
 <p><code>gp3sequences</code> is released under the MIT License.</p>
+<!-- advanced-roadmap-start -->
+</div>
+<div class="section level2">
+<h2 id="advanced-sequence-analysis-methods">Advanced sequence-analysis methods<a class="anchor" aria-label="anchor" href="#advanced-sequence-analysis-methods"></a>
+</h2>
+<p>Version 0.2.0 extends the audited sequence contract with:</p>
+<ul>
+<li>aligned-position consensus sequences and agreement diagnostics;</li>
+<li>descriptive between-group comparisons;</li>
+<li>edit, LCS, optimal-matching, and transition-profile distances;</li>
+<li>clustering, validation, representatives, ensembles, and stability analysis;</li>
+<li>transition networks, centrality, communities, and higher-order models;</li>
+<li>categorical HMMs, mixture HMMs, and state decoding;</li>
+<li>optional adapters to specialist sequence-analysis packages.</li>
+</ul>
+<p>These outputs are structural and statistical. They do not independently establish emotion, cognition, comprehension, personality, intention, diagnosis, deception, causality, or other psychological attributes. <!-- advanced-roadmap-end --></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
