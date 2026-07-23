@@ -19,11 +19,13 @@ It is designed for ordinary long-format data frames and is not restricted
 to Gazepoint exports, eye-tracking data, particular hardware, or
 proprietary software.
 
-## Development status
+## Current release
 
-Version 0.1.0 established the neutral data contract and contiguous-motif MVP.
-The development version adds auditable advanced sequence methods while retaining
-explicit interpretation boundaries and optional specialist-package adapters.
+Version 0.2.0 expands the neutral data contract and contiguous-motif
+foundation with auditable consensus and group comparisons, sequence
+distances, clustering and stability workflows, transition networks,
+higher-order models, categorical and mixture hidden Markov models,
+optional specialist-package adapters, and nine synthetic workflow articles.
 
 ## Intended applications
 
@@ -244,9 +246,9 @@ external evidence.
 `gp3sequences` is released under the MIT License.
 
 <!-- advanced-roadmap-start -->
-## Advanced sequence-analysis roadmap
+## Advanced sequence-analysis methods
 
-The development API extends the audited sequence contract with:
+Version 0.2.0 extends the audited sequence contract with:
 
 - aligned-position consensus sequences and agreement diagnostics;
 - descriptive between-group comparisons;

@@ -1,4 +1,9 @@
-# gp3sequences 0.1.0.9000
+# gp3sequences 0.2.0
+
+* Released the advanced standalone sequence-analysis API with 46 exported functions and 47 manual pages.
+* Added four integrated workflow articles, bringing the package website to nine synthetic, reproducible articles.
+* Prepared the complete reference and article collection for publication at the main package website.
+* Configured pkgdown so future validated `master` updates publish directly to the main website.
 
 * Added four integrated, user-oriented articles covering getting started, validation and preparation, method selection, and a reproducible synthetic case study.
 * Added the complete advanced sequence-analysis roadmap.
