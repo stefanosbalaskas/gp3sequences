@@ -1,0 +1,395 @@
+# gp3sequences
+
+`gp3sequences` is an independent R package for transparent,
+reproducible, and auditable analysis of ordered categorical sequences.
+It is designed for ordinary long-format data frames and is not
+restricted to Gazepoint exports, eye-tracking data, particular hardware,
+or proprietary software.
+
+## Development status
+
+Version 0.1.0 established the neutral data contract and contiguous-motif
+MVP. The development version adds auditable advanced sequence methods
+while retaining explicit interpretation boundaries and optional
+specialist-package adapters.
+
+## Intended applications
+
+Potential applications include:
+
+- eye-tracking AOI scanpaths;
+- website-navigation and customer-journey sequences;
+- behavioural-state and task-action sequences;
+- interface-interaction sequences;
+- educational activity sequences;
+- other repeated ordered categorical data.
+
+## Neutral long-format input
+
+The core data contract will require configurable columns corresponding
+to `sequence_id`, `sequence_order`, and `state`. Optional participant,
+trial, condition, group, timing, duration, weight, and metadata columns
+may also be mapped explicitly.
+
+A minimal input may look like this:
+
+``` r
+
+example_sequences <- data.frame(
+  sequence_id = rep(c("s1", "s2"), each = 4L),
+  sequence_order = rep(1:4, times = 2L),
+  state = c(
+    "home", "search", "product", "checkout",
+    "home", "category", "product", "home"
+  ),
+  stringsAsFactors = FALSE
+)
+
+example_sequences
+#>   sequence_id sequence_order    state
+#> 1          s1              1     home
+#> 2          s1              2   search
+#> 3          s1              3  product
+#> 4          s1              4 checkout
+#> 5          s2              1     home
+#> 6          s2              2 category
+#> 7          s2              3  product
+#> 8          s2              4     home
+```
+
+## Current data-contract API
+
+The initial public API provides three related functions:
+
+- [`audit_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/audit_sequence_data.md)
+  reports structured data-quality issues;
+- [`validate_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/validate_sequence_data.md)
+  returns a compact validity contract;
+- [`prepare_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/prepare_sequence_data.md)
+  applies explicit preprocessing policies and creates deterministic
+  canonical sequence data.
+
+``` r
+
+audit <- audit_sequence_data(
+  example_sequences,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+validation <- validate_sequence_data(
+  example_sequences,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+prepared <- prepare_sequence_data(
+  example_sequences,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  repeated_state_policy = "preserve"
+)
+```
+
+## Encoding and structural summaries
+
+Related functions support deterministic encoding and descriptive
+sequence summaries without assigning substantive meaning to states:
+
+- [`encode_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/encode_sequence_data.md)
+  creates a transparent state dictionary;
+- [`summarise_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_states.md)
+  reports state frequencies and durations;
+- [`summarise_sequence_transitions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_transitions.md)
+  reports adjacent transition counts;
+- [`format_sequence_paths()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_sequence_paths.md)
+  creates compact ordered path strings.
+
+``` r
+
+encoded <- encode_sequence_data(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+state_summary <- summarise_sequence_states(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+transition_summary <- summarise_sequence_transitions(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+
+paths <- format_sequence_paths(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state"
+)
+```
+
+## Contiguous motif analysis
+
+The motif workflow enumerates contiguous state windows only and retains
+explicit structural definitions:
+
+- [`extract_sequence_ngrams()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/extract_sequence_ngrams.md)
+  extracts auditable motif occurrences;
+- [`summarise_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_motifs.md)
+  reports counts and sequence prevalence;
+- [`filter_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/filter_sequence_motifs.md)
+  applies explicit transparent thresholds;
+- [`format_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_sequence_motifs.md)
+  creates stable report-ready tables.
+
+``` r
+
+motif_occurrences <- extract_sequence_ngrams(
+  prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  min_length = 2,
+  max_length = 4,
+  overlap = "allow"
+)
+
+motif_summary <- summarise_sequence_motifs(motif_occurrences)
+
+motif_filter <- filter_sequence_motifs(
+  motif_summary,
+  min_sequences = 2,
+  min_prevalence = 0.10,
+  top_n = 20,
+  ties = "include"
+)
+
+motif_table <- format_sequence_motifs(
+  motif_filter,
+  prevalence = "percent",
+  digits = 1
+)
+```
+
+### Motif positions and visualisation
+
+Motif occurrences can be summarised and plotted without adding
+analytical dependencies:
+
+- [`summarise_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_motif_positions.md)
+  reports structural locations;
+- [`format_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_sequence_motif_positions.md)
+  produces explicit report tables;
+- [`plot_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/plot_sequence_motifs.md)
+  plots prevalence or occurrence metrics;
+- [`plot_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/plot_sequence_motif_positions.md)
+  plots occurrence locations.
+
+``` r
+
+position_summary <- summarise_sequence_motif_positions(
+  motif_occurrences,
+  position = "centre",
+  scale = "relative"
+)
+
+position_table <- format_sequence_motif_positions(
+  position_summary,
+  position_units = "percent",
+  digits = 1
+)
+
+plot_sequence_motifs(
+  motif_summary,
+  metric = "sequence_prevalence",
+  top_n = 10
+)
+
+plot_sequence_motif_positions(
+  motif_occurrences,
+  position = "centre",
+  scale = "relative",
+  top_n = 5
+)
+```
+
+## Interpretation boundary
+
+Sequence outputs describe behavioural or structural patterns only. They
+do not independently establish emotion, cognition, comprehension,
+personality, intention, diagnosis, deception, or other psychological
+attributes. Substantive interpretation requires an appropriate study
+design and external evidence.
+
+## Author
+
+**Stefanos Balaskas**
+
+[ORCID](https://orcid.org/0000-0003-2444-9796) · [Personal
+website](https://sites.google.com/view/stefbalaskas/) ·
+[LinkedIn](https://www.linkedin.com/in/stefanos-balaskas/)
+
+## Licence
+
+`gp3sequences` is released under the MIT License.
+
+## Advanced sequence-analysis roadmap
+
+The development API extends the audited sequence contract with:
+
+- aligned-position consensus sequences and agreement diagnostics;
+- descriptive between-group comparisons;
+- edit, LCS, optimal-matching, and transition-profile distances;
+- clustering, validation, representatives, ensembles, and stability
+  analysis;
+- transition networks, centrality, communities, and higher-order models;
+- categorical HMMs, mixture HMMs, and state decoding;
+- optional adapters to specialist sequence-analysis packages.
+
+These outputs are structural and statistical. They do not independently
+establish emotion, cognition, comprehension, personality, intention,
+diagnosis, deception, causality, or other psychological attributes.
+
+# Package index
+
+## Sequence data contract
+
+- [`audit_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/audit_sequence_data.md)
+  : Audit Long-Format Sequence Data
+- [`validate_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/validate_sequence_data.md)
+  : Validate Long-Format Sequence Data
+- [`prepare_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/prepare_sequence_data.md)
+  : Prepare Long-Format Sequence Data
+
+## Encoding and structural summaries
+
+- [`encode_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/encode_sequence_data.md)
+  : Encode Ordered Sequence States
+- [`summarise_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_states.md)
+  : Summarise Sequence States
+- [`summarise_sequence_transitions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_transitions.md)
+  : Summarise Adjacent Sequence Transitions
+- [`format_sequence_paths()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_sequence_paths.md)
+  : Format Ordered Sequence Paths
+
+## Contiguous motif analysis
+
+- [`extract_sequence_ngrams()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/extract_sequence_ngrams.md)
+  : Extract Contiguous Sequence N-Grams
+- [`summarise_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_motifs.md)
+  : Summarise Contiguous Sequence Motifs
+- [`filter_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/filter_sequence_motifs.md)
+  : Filter Sequence Motif Summaries
+- [`format_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_sequence_motifs.md)
+  : Format Sequence Motif Summaries
+- [`summarise_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_motif_positions.md)
+  : Summarise Sequence Motif Positions
+- [`format_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_sequence_motif_positions.md)
+  : Format Sequence Motif Position Summaries
+- [`plot_sequence_motifs()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/plot_sequence_motifs.md)
+  : Plot Sequence Motif Summaries
+- [`plot_sequence_motif_positions()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/plot_sequence_motif_positions.md)
+  : Plot Sequence Motif Positions
+
+## Consensus and group comparisons
+
+- [`create_consensus_sequence()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/create_consensus_sequence.md)
+  : Create an aligned-position consensus sequence
+- [`summarise_consensus_agreement()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_consensus_agreement.md)
+  : Summarise consensus agreement
+- [`format_consensus_sequence()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/format_consensus_sequence.md)
+  : Format consensus sequences as paths
+- [`plot_consensus_sequence()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/plot_consensus_sequence.md)
+  : Plot a consensus sequence
+- [`compare_sequence_groups()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/compare_sequence_groups.md)
+  : Compare sequence groups descriptively
+- [`plot_sequence_group_comparison()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/plot_sequence_group_comparison.md)
+  : Plot a descriptive sequence-group comparison
+
+## Distances, clustering, and stability
+
+- [`compute_sequence_distance()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/compute_sequence_distance.md)
+  : Compute pairwise sequence distances
+- [`summarise_sequence_distance()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_distance.md)
+  : Summarise a sequence-distance object
+- [`cluster_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/cluster_sequences.md)
+  : Cluster sequences from a distance object
+- [`validate_sequence_clusters()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/validate_sequence_clusters.md)
+  : Validate sequence clusters descriptively
+- [`extract_representative_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/extract_representative_sequences.md)
+  : Extract representative sequences from clusters
+- [`create_sequence_cluster_ensemble()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/create_sequence_cluster_ensemble.md)
+  : Create a sequence-cluster ensemble
+- [`bootstrap_sequence_clusters()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/bootstrap_sequence_clusters.md)
+  : Bootstrap sequence-cluster stability
+- [`summarise_sequence_cluster_stability()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_cluster_stability.md)
+  : Summarise sequence-cluster stability
+
+## Transition networks and higher-order models
+
+- [`create_transition_network()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/create_transition_network.md)
+  : Create a transition network from ordered sequences
+- [`summarise_transition_centrality()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_transition_centrality.md)
+  : Summarise transition-network centrality
+- [`detect_transition_communities()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/detect_transition_communities.md)
+  : Detect descriptive transition communities
+- [`fit_higher_order_transition_model()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/fit_higher_order_transition_model.md)
+  : Fit a higher-order transition model
+- [`predict_next_state()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/predict_next_state.md)
+  : Predict the next state from a transition model
+- [`bootstrap_transition_network()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/bootstrap_transition_network.md)
+  : Bootstrap transition-network edge weights
+
+## Hidden and mixture sequence models
+
+- [`fit_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/fit_sequence_hmm.md)
+  : Fit a categorical hidden Markov model
+- [`fit_sequence_hmm_mixture()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/fit_sequence_hmm_mixture.md)
+  : Fit a mixture of categorical hidden Markov models
+- [`decode_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/decode_sequence_states.md)
+  : Decode hidden states from a fitted HMM
+- [`summarise_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/summarise_sequence_hmm.md)
+  : Summarise a fitted sequence HMM
+- [`compare_sequence_hmms()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/compare_sequence_hmms.md)
+  : Compare fitted sequence HMMs descriptively
+
+## Optional ecosystem adapters
+
+- [`as_traminer_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/as_traminer_sequences.md)
+  : Convert sequence data to a TraMineR state-sequence object
+- [`as_arules_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/as_arules_sequences.md)
+  : Convert sequence data to cSPADE transaction input
+- [`as_grpstring_data()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/as_grpstring_data.md)
+  : Create GrpString-compatible event and string inputs
+- [`as_seqhmm_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/as_seqhmm_sequences.md)
+  : Convert sequence data to seqHMM observations
+- [`as_igraph_transition_network()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/as_igraph_transition_network.md)
+  : Convert a transition network to an igraph object
+- [`prepare_gp3tools_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/dev/reference/prepare_gp3tools_sequences.md)
+  : Prepare common gp3tools-style sequence outputs
+
+# Articles
+
+### All vignettes
+
+- [Consensus Sequences and Descriptive Group
+  Comparisons](https://stefanosbalaskas.github.io/gp3sequences/dev/articles/consensus-and-group-comparisons.md):
+- [Contiguous Motif
+  Workflow](https://stefanosbalaskas.github.io/gp3sequences/dev/articles/contiguous-motif-workflow.md):
+- [Sequence Distances, Clustering, and
+  Stability](https://stefanosbalaskas.github.io/gp3sequences/dev/articles/distances-clustering-and-stability.md):
+- [Latent Sequence Models and Optional
+  Adapters](https://stefanosbalaskas.github.io/gp3sequences/dev/articles/latent-models-and-optional-adapters.md):
+- [Transition Networks and Higher-Order
+  Models](https://stefanosbalaskas.github.io/gp3sequences/dev/articles/transition-networks-and-higher-order-models.md):
