@@ -1,0 +1,310 @@
+---
+title: "Reproducible Sequence Analysis: A Synthetic Case Study"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Reproducible Sequence Analysis: A Synthetic Case Study}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 4.5
+)
+library(gp3sequences)
+```
+
+## Study objective
+
+This synthetic example examines navigation-path structure under two assigned
+interface conditions. It demonstrates an auditable workflow rather than a
+claim that sequence structure reveals hidden attention, preference, cognition,
+emotion, intention, or causality.
+
+## Synthetic study data
+
+The data contain 12 independent participant-level sequences of equal maximum
+length. Interface condition is assigned as sequence-level metadata and all
+state labels are directly observed navigation locations.
+
+```{r case-data}
+paths <- list(
+  s01 = c("home", "search", "product", "cart", "checkout", "confirmation"),
+  s02 = c("home", "search", "product", "reviews", "cart", "checkout"),
+  s03 = c("home", "category", "product", "cart", "checkout", "confirmation"),
+  s04 = c("home", "search", "category", "product", "cart", "checkout"),
+  s05 = c("home", "category", "product", "reviews", "cart", "checkout"),
+  s06 = c("home", "search", "product", "cart", "home", "search"),
+  s07 = c("home", "category", "search", "product", "checkout", "confirmation"),
+  s08 = c("home", "category", "product", "compare", "cart", "checkout"),
+  s09 = c("home", "search", "compare", "product", "checkout", "home"),
+  s10 = c("home", "category", "compare", "product", "cart", "checkout"),
+  s11 = c("home", "search", "product", "compare", "cart", "checkout"),
+  s12 = c("home", "category", "product", "checkout", "confirmation", "home")
+)
+
+case_data <- do.call(
+  rbind,
+  lapply(seq_along(paths), function(i) {
+    data.frame(
+      sequence_id = names(paths)[i],
+      sequence_order = seq_along(paths[[i]]),
+      state = paths[[i]],
+      duration = 75 + 6 * seq_along(paths[[i]]) + 2 * i,
+      participant_id = sprintf("p%02d", i),
+      interface = if (i <= 6L) "interface_a" else "interface_b",
+      stringsAsFactors = FALSE
+    )
+  })
+)
+
+head(case_data, 12L)
+```
+
+## Prespecified preparation
+
+The synthetic input is expected to be complete and uniquely ordered. Policies
+therefore refuse missing states and duplicate positions while preserving
+repeated states and positive durations.
+
+```{r case-prepare}
+case_audit <- audit_sequence_data(
+  case_data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  duration_col = "duration",
+  metadata_cols = c("participant_id", "interface")
+)
+
+case_prepared <- prepare_sequence_data(
+  case_data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  duration_col = "duration",
+  metadata_cols = c("participant_id", "interface"),
+  missing_state_policy = "error",
+  duplicate_position_policy = "error",
+  repeated_state_policy = "preserve",
+  zero_duration_policy = "preserve",
+  unknown_state_policy = "preserve",
+  unused_state_levels = "preserve"
+)
+
+case_audit
+case_prepared$status
+case_prepared$decisions
+```
+
+## Structural summaries
+
+```{r case-summaries}
+state_summary <- summarise_sequence_states(
+  case_prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  duration_col = "duration",
+  metadata_cols = c("participant_id", "interface")
+)
+
+transition_summary <- summarise_sequence_transitions(
+  case_prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  metadata_cols = c("participant_id", "interface"),
+  include_self = TRUE
+)
+
+path_summary <- format_sequence_paths(
+  case_prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  metadata_cols = c("participant_id", "interface")
+)
+
+state_summary$overall
+head(transition_summary$overall)
+path_summary$paths
+```
+
+## Recurring contiguous motifs
+
+```{r case-motifs}
+case_motifs <- extract_sequence_ngrams(
+  case_prepared$data,
+  sequence_id_col = "sequence_id",
+  order_col = "sequence_order",
+  state_col = "state",
+  metadata_cols = "interface",
+  min_length = 2L,
+  max_length = 3L,
+  overlap = "allow"
+)
+
+case_motif_summary <- summarise_sequence_motifs(case_motifs)
+case_motif_filter <- filter_sequence_motifs(
+  case_motif_summary,
+  min_occurrences = 2L,
+  min_sequences = 2L,
+  min_prevalence = 0.15,
+  motif_lengths = c(2L, 3L),
+  top_n = 12L,
+  rank_by = "sequence_prevalence",
+  ties = "include"
+)
+
+format_sequence_motifs(
+  case_motif_filter,
+  prevalence = "percent",
+  digits = 1L
+)$table
+```
+
+## Consensus and condition contrasts
+
+```{r case-groups}
+state_order <- sort(unique(case_prepared$data$state), method = "radix")
+
+case_consensus <- create_consensus_sequence(
+  case_prepared$data,
+  group_cols = "interface",
+  tie_method = "first",
+  state_levels = state_order
+)
+
+case_comparison <- compare_sequence_groups(
+  case_prepared$data,
+  group_col = "interface"
+)
+
+format_consensus_sequence(case_consensus, include_agreement = TRUE)
+summarise_consensus_agreement(case_consensus, by = "group")
+head(case_comparison$state_contrasts)
+head(case_comparison$transition_contrasts)
+case_comparison$length_contrasts
+```
+
+## Distance, clustering, and representatives
+
+The clustering layer is declared in advance as normalised LCS distance,
+two-cluster average-linkage hierarchical clustering, and standard structural
+validation summaries.
+
+```{r case-clustering}
+case_distance <- compute_sequence_distance(
+  case_prepared$data,
+  method = "lcs",
+  normalise = "max_length"
+)
+
+case_cluster <- cluster_sequences(
+  case_distance,
+  k = 2L,
+  method = "hierarchical",
+  linkage = "average"
+)
+
+case_cluster_validation <- validate_sequence_clusters(case_cluster)
+case_representatives <- extract_representative_sequences(case_cluster)
+
+summarise_sequence_distance(case_distance)$overall
+case_cluster$assignments
+case_cluster_validation$overall
+case_representatives
+```
+
+## Transition network and recent-context model
+
+```{r case-network}
+case_network <- create_transition_network(
+  case_prepared$data,
+  normalise = "from",
+  include_self = TRUE
+)
+
+case_centrality <- summarise_transition_centrality(case_network)
+case_communities <- detect_transition_communities(case_network)
+
+case_order2 <- fit_higher_order_transition_model(
+  case_prepared$data,
+  order = 2L,
+  smoothing = 0.5,
+  backoff = TRUE
+)
+
+case_network
+case_centrality
+case_communities
+predict_next_state(case_order2, c("home", "search"))
+predict_next_state(case_order2, c("unseen"))
+```
+
+## Compact categorical HMM sensitivity description
+
+The native HMM is included as a compact statistical summary, not as a source of
+substantive state labels. A one-state and two-state model are compared
+descriptively using the same observations and symbol coding.
+
+```{r case-hmm}
+one_state <- fit_sequence_hmm(
+  case_prepared$data,
+  n_states = 1L,
+  max_iter = 30L,
+  seed = 42L
+)
+
+two_state <- fit_sequence_hmm(
+  case_prepared$data,
+  n_states = 2L,
+  max_iter = 50L,
+  seed = 42L
+)
+
+summarise_sequence_hmm(two_state)$fit
+head(decode_sequence_states(two_state, method = "viterbi"))
+compare_sequence_hmms(one_state = one_state, two_state = two_state)
+```
+
+## Assemble report-ready evidence
+
+```{r case-report}
+case_evidence <- list(
+  preparation_status = case_prepared$status,
+  preparation_decisions = case_prepared$decisions,
+  state_summary = state_summary$overall,
+  motif_summary = case_motif_filter$motifs,
+  consensus = format_consensus_sequence(
+    case_consensus,
+    include_agreement = TRUE
+  ),
+  group_state_contrasts = case_comparison$state_contrasts,
+  distance_summary = summarise_sequence_distance(case_distance)$overall,
+  cluster_validation = case_cluster_validation$overall,
+  representatives = case_representatives,
+  network = case_network,
+  centrality = case_centrality,
+  hmm_comparison = compare_sequence_hmms(
+    one_state = one_state,
+    two_state = two_state
+  )
+)
+
+names(case_evidence)
+```
+
+## Interpretation boundary
+
+The workflow documents recurring paths, aligned-position support, descriptive
+condition contrasts, dissimilarity, clustering reproducibility, transition
+structure, recent-context probabilities, and latent statistical summaries.
+None of these outputs independently identifies attention, preference,
+comprehension, emotion, cognition, intention, diagnosis, deception, or causal
+mechanisms. Such interpretation requires an appropriate design, external
+measurement, and independent validation.

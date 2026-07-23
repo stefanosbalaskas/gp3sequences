@@ -87,3 +87,22 @@ reference:
   - as_seqhmm_sequences
   - as_igraph_transition_network
   - prepare_gp3tools_sequences
+
+articles:
+- title: Getting started and integrated workflows
+  contents:
+  - getting-started-with-gp3sequences
+  - sequence-data-validation-and-preparation
+  - choosing-a-sequence-analysis-method
+  - reproducible-sequence-analysis-case-study
+- title: Core structural workflows
+  contents:
+  - contiguous-motif-workflow
+  - consensus-and-group-comparisons
+- title: Distances and clustering
+  contents:
+  - distances-clustering-and-stability
+- title: Networks, latent models, and interoperability
+  contents:
+  - transition-networks-and-higher-order-models
+  - latent-models-and-optional-adapters

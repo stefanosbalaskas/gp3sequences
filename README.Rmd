@@ -205,6 +205,24 @@ plot_sequence_motif_positions(
 )
 ```
 
+## Documentation
+
+The package website now provides nine synthetic, reproducible articles:
+
+- getting started with the complete structural workflow;
+- sequence-data validation and policy-driven preparation;
+- choosing among motifs, consensus, distances, clustering, networks, higher-order models, HMMs, and adapters;
+- a reproducible integrated synthetic case study;
+- contiguous motif analysis and motif positions;
+- consensus sequences and descriptive group comparisons;
+- sequence distances, clustering, representatives, ensembles, and stability;
+- transition networks and higher-order models;
+- latent sequence models and optional ecosystem adapters.
+
+The articles use ordinary data frames and synthetic data. They preserve the
+package interpretation boundary and do not infer psychological or causal
+attributes from structural sequence outputs.
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They do
