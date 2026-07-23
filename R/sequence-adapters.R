@@ -87,9 +87,11 @@ as_arules_sequences <- function(data,
   sequence_id <- match(as.character(x$data[[sequence_id_col]]), x$sequence_ids)
   event_id <- stats::ave(seq_len(nrow(x$data)), as.character(x$data[[sequence_id_col]]),
                   FUN = seq_along)
-  information <- arules::transactionInfo(transactions)
-  information$sequenceID <- as.integer(sequence_id)
-  information$eventID <- as.integer(event_id)
+  information <- data.frame(
+    sequenceID = as.integer(sequence_id),
+    eventID = as.integer(event_id),
+    stringsAsFactors = FALSE
+  )
   transactions <- arules::`transactionInfo<-`(
     transactions,
     value = information

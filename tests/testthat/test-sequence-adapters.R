@@ -41,6 +41,15 @@ test_that("arules adapter is guarded or returns sequential metadata", {
     transactions <- as_arules_sequences(data)
     info <- arules::transactionInfo(transactions)
     expect_true(all(c("sequenceID", "eventID") %in% names(info)))
+    expect_equal(nrow(info), nrow(data))
+    expect_identical(
+      info$sequenceID,
+      rep(seq_len(8L), each = 5L)
+    )
+    expect_identical(
+      info$eventID,
+      rep(seq_len(5L), times = 8L)
+    )
     expect_true(all(info$sequenceID > 0L))
     expect_true(all(info$eventID > 0L))
   } else {
