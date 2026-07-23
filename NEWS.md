@@ -1,4 +1,14 @@
-# gp3sequences 0.1.0
+# gp3sequences 0.1.0.9000
+
+* Added the complete advanced sequence-analysis roadmap.
+* Added deterministic aligned-position consensus sequences and agreement summaries.
+* Added descriptive between-group state, transition, and length comparisons.
+* Added Levenshtein, LCS, optimal-matching, and transition-profile distances.
+* Added hierarchical, PAM, and CLARA clustering interfaces, validation metrics, representatives, ensembles, and stability resampling.
+* Added transition networks, centrality, communities, higher-order transition models, prediction, and sequence-level bootstrap intervals.
+* Added dependency-light categorical HMM and mixture-HMM estimation, decoding, summaries, and model-comparison tables.
+* Added optional adapters for TraMineR, arulesSequences, GrpString, seqHMM, igraph, and common gp3tools-style data frames.
+* Added four synthetic workflow articles, deterministic tests, and an end-to-end smoke test.
 
 * Initial public release.
 * Created the independent `gp3sequences` package scaffold.

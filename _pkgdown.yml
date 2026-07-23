@@ -21,7 +21,7 @@ home:
 
 navbar:
   structure:
-    left: [home, news]
+    left: [home, reference, articles, news]
     right: [search, github]
 
 reference:
@@ -46,3 +46,44 @@ reference:
   - format_sequence_motif_positions
   - plot_sequence_motifs
   - plot_sequence_motif_positions
+- title: Consensus and group comparisons
+  contents:
+  - create_consensus_sequence
+  - summarise_consensus_agreement
+  - format_consensus_sequence
+  - plot_consensus_sequence
+  - compare_sequence_groups
+  - plot_sequence_group_comparison
+- title: Distances, clustering, and stability
+  contents:
+  - compute_sequence_distance
+  - summarise_sequence_distance
+  - cluster_sequences
+  - validate_sequence_clusters
+  - extract_representative_sequences
+  - create_sequence_cluster_ensemble
+  - bootstrap_sequence_clusters
+  - summarise_sequence_cluster_stability
+- title: Transition networks and higher-order models
+  contents:
+  - create_transition_network
+  - summarise_transition_centrality
+  - detect_transition_communities
+  - fit_higher_order_transition_model
+  - predict_next_state
+  - bootstrap_transition_network
+- title: Hidden and mixture sequence models
+  contents:
+  - fit_sequence_hmm
+  - fit_sequence_hmm_mixture
+  - decode_sequence_states
+  - summarise_sequence_hmm
+  - compare_sequence_hmms
+- title: Optional ecosystem adapters
+  contents:
+  - as_traminer_sequences
+  - as_arules_sequences
+  - as_grpstring_data
+  - as_seqhmm_sequences
+  - as_igraph_transition_network
+  - prepare_gp3tools_sequences

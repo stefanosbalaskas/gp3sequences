@@ -9,10 +9,10 @@ or proprietary software.
 
 ## Development status
 
-The package is in initial development and does not yet provide a stable
-public analytical API. The first development series prioritises a
-neutral data contract, explicit preprocessing policies, machine-readable
-diagnostics, and deterministic structural summaries.
+Version 0.1.0 established the neutral data contract and contiguous-motif
+MVP. The development version adds auditable advanced sequence methods
+while retaining explicit interpretation boundaries and optional
+specialist-package adapters.
 
 ## Intended applications
 
@@ -224,3 +224,23 @@ website](https://sites.google.com/view/stefbalaskas/) ·
 ## Licence
 
 `gp3sequences` is released under the MIT License.
+
+<!-- advanced-roadmap-start -->
+
+## Advanced sequence-analysis roadmap
+
+The development API extends the audited sequence contract with:
+
+- aligned-position consensus sequences and agreement diagnostics;
+- descriptive between-group comparisons;
+- edit, LCS, optimal-matching, and transition-profile distances;
+- clustering, validation, representatives, ensembles, and stability
+  analysis;
+- transition networks, centrality, communities, and higher-order models;
+- categorical HMMs, mixture HMMs, and state decoding;
+- optional adapters to specialist sequence-analysis packages.
+
+These outputs are structural and statistical. They do not independently
+establish emotion, cognition, comprehension, personality, intention,
+diagnosis, deception, causality, or other psychological attributes.
+<!-- advanced-roadmap-end -->

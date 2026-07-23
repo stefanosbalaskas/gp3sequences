@@ -1,0 +1,78 @@
+---
+title: "Consensus Sequences and Descriptive Group Comparisons"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Consensus Sequences and Descriptive Group Comparisons}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(gp3sequences)
+```
+
+## Scope
+
+This workflow describes aligned states and differences in observed sequence
+structure. A consensus is not a behavioural norm, and a between-group
+difference is not evidence of a psychological or causal mechanism.
+
+## Synthetic sequences
+
+```{r data}
+paths <- list(
+  s1 = c("home", "search", "product", "checkout"),
+  s2 = c("home", "search", "product", "home"),
+  s3 = c("home", "category", "product", "checkout"),
+  s4 = c("home", "category", "home", "home")
+)
+sequence_data <- do.call(rbind, lapply(seq_along(paths), function(i) {
+  data.frame(
+    sequence_id = names(paths)[i],
+    sequence_order = seq_along(paths[[i]]),
+    state = paths[[i]],
+    group = rep(c("interface_a", "interface_b"), each = 2L)[i],
+    stringsAsFactors = FALSE
+  )
+}))
+sequence_data
+```
+
+## Aligned-position consensus
+
+```{r consensus}
+consensus <- create_consensus_sequence(
+  sequence_data,
+  group_cols = "group",
+  tie_method = "first",
+  state_levels = c("home", "search", "category", "product", "checkout")
+)
+consensus
+summarise_consensus_agreement(consensus, by = "group")
+format_consensus_sequence(consensus, include_agreement = TRUE)
+```
+
+```{r consensus-plot, fig.width=7, fig.height=4}
+plot_consensus_sequence(consensus, type = "agreement", group = "interface_a")
+```
+
+## Descriptive group comparison
+
+```{r comparison}
+comparison <- compare_sequence_groups(
+  sequence_data,
+  group_col = "group"
+)
+comparison$groups
+head(comparison$state_contrasts)
+head(comparison$transition_contrasts)
+comparison$length_contrasts
+```
+
+```{r comparison-plot, fig.width=7, fig.height=5}
+plot_sequence_group_comparison(comparison, component = "state", top_n = 5L)
+```
+
+The output reports counts, shares, prevalence, differences, and ratios. It does
+not compute a significance test or automatically rank one group as preferable.
