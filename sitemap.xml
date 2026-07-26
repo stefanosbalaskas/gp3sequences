@@ -26,11 +26,13 @@
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/as_igraph_transition_network.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/as_seqhmm_sequences.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/as_traminer_sequences.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_analysis.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_data.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/bootstrap_sequence_clusters.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/bootstrap_sequence_group_difference.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/bootstrap_transition_network.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/cluster_sequences.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_analysis_results.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_groups.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_hmms.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_panel_changes.html</loc></url>
@@ -83,6 +85,7 @@
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_gp3tools_sequences.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_data.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_panel.html</loc></url>
+<url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/sequence_capabilities.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_consensus_agreement.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_covariate_sequence_hmm.html</loc></url>
 <url><loc>https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_multichannel_sequence_hmm.html</loc></url>

@@ -2,16 +2,34 @@
 
 ## gp3sequences 0.2.0.9000
 
+- Added a common analysis-contract and provenance foundation for
+  systematic 0.3.0 hardening.
+
+- Added
+  [`sequence_capabilities()`](https://stefanosbalaskas.github.io/gp3sequences/reference/sequence_capabilities.md),
+  [`audit_sequence_analysis()`](https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_analysis.md),
+  and
+  [`compare_sequence_analysis_results()`](https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_analysis_results.md)
+  for machine-readable capability, contract, and reproducibility audits.
+
+- Added deterministic contract, metamorphic, and adversarial test
+  foundations plus a machine-readable public-API validation ledger.
+
 - Added auditable longitudinal and panel-sequence preparation,
   summaries, change metrics, and plots.
+
 - Added bounded non-contiguous subsequence enumeration, prevalence
   summaries, group comparisons, and plots.
+
 - Added optional mgcv-based time-varying state and transition models
   with participant random-effect support.
+
 - Added dependency-light multichannel and covariate-dependent
   categorical hidden Markov models.
+
 - Added design-aware permutation and bootstrap comparisons with explicit
   associational and causal guardrails.
+
 - Added six focused visualisation helpers, deterministic tests, an
   installed-package smoke test, and six synthetic articles.
 

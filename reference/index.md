@@ -9,6 +9,15 @@
 - [`prepare_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_data.md)
   : Prepare Long-Format Sequence Data
 
+## Analysis contracts and provenance
+
+- [`sequence_capabilities()`](https://stefanosbalaskas.github.io/gp3sequences/reference/sequence_capabilities.md)
+  : Report gp3sequences capabilities and optional integrations
+- [`audit_sequence_analysis()`](https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_analysis.md)
+  : Audit a gp3sequences analysis object
+- [`compare_sequence_analysis_results()`](https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_analysis_results.md)
+  : Compare two gp3sequences analysis results
+
 ## Encoding and structural summaries
 
 - [`encode_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/encode_sequence_data.md)
