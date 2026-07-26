@@ -1,0 +1,87 @@
+---
+title: "Longitudinal and Panel Sequence Workflows"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Longitudinal and Panel Sequence Workflows}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(gp3sequences)
+```
+
+## Scope
+
+Panel sequences are repeated ordered-state records from the same independent
+unit. The workflow preserves the panel identifier, occasion, sequence identity,
+and preprocessing decisions. Distance between occasions is a structural change
+measure; it is not evidence of learning, adaptation, or causality by itself.
+
+## Synthetic data
+
+```{r data}
+base <- data.frame(
+  participant_id = rep(paste0("p", 1:4), each = 8L),
+  occasion = rep(rep(c(1, 2), each = 4L), times = 4L),
+  sequence_id = rep(paste0("s", 1:8), each = 4L),
+  sequence_order = rep(1:4, times = 8L),
+  state = c(
+    "A", "B", "C", "D", "A", "B", "D", "D",
+    "A", "C", "C", "D", "A", "C", "D", "D",
+    "D", "C", "B", "A", "D", "C", "A", "A",
+    "D", "B", "B", "A", "D", "B", "A", "A"
+  ),
+  stringsAsFactors = FALSE
+)
+head(base)
+```
+
+## Prepare and audit the panel
+
+```{r prepare}
+panel <- prepare_sequence_panel(
+  base,
+  panel_id_col = "participant_id",
+  occasion_col = "occasion"
+)
+panel$index
+```
+
+A unique panel/occasion combination is required by default. This prevents two
+sequences from being silently treated as the same repeated observation.
+
+## Summarise occasions and states
+
+```{r summaries}
+panel_summary <- summarise_sequence_panel(panel)
+panel_summary$occasions
+head(panel_summary$states)
+```
+
+## Quantify within-panel change
+
+```{r change}
+changes <- compare_sequence_panel_changes(
+  panel,
+  method = "levenshtein",
+  normalise = "max_length"
+)
+changes
+```
+
+Alternative distance methods use the same explicit arguments as
+`compute_sequence_distance()`. The result compares consecutive occasions within
+each panel only.
+
+```{r plot, fig.width=7, fig.height=4}
+plot_sequence_panel_changes(changes, metric = "distance", type = "individual")
+plot_sequence_panel_changes(changes, metric = "distance", type = "summary")
+```
+
+## Reporting
+
+Report the panel unit, occasion ordering, distance method, normalisation,
+sequence counts at each occasion, and any missing occasions. Treat change as a
+structural description unless a separate design supports stronger inference.
