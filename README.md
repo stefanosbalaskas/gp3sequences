@@ -209,7 +209,7 @@ plot_sequence_motif_positions(
 
 ## Documentation
 
-The package website now provides nine synthetic, reproducible articles:
+The package website now provides 15 synthetic, reproducible articles:
 
 - getting started with the complete structural workflow;
 - sequence-data validation and policy-driven preparation;
@@ -222,6 +222,12 @@ The package website now provides nine synthetic, reproducible articles:
   stability;
 - transition networks and higher-order models;
 - latent sequence models and optional ecosystem adapters.
+- longitudinal and panel sequence workflows;
+- non-contiguous subsequence mining;
+- time-varying condition models;
+- multichannel and covariate hidden Markov models;
+- design-aware sequence inference and randomization;
+- extended sequence visualisations.
 
 The articles use ordinary data frames and synthetic data. They preserve
 the package interpretation boundary and do not infer psychological or
