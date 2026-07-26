@@ -115,3 +115,82 @@
   : Convert a transition network to an igraph object
 - [`prepare_gp3tools_sequences()`](https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_gp3tools_sequences.md)
   : Prepare common gp3tools-style sequence outputs
+
+## Longitudinal and time-varying extensions
+
+- [`prepare_sequence_panel()`](https://stefanosbalaskas.github.io/gp3sequences/reference/prepare_sequence_panel.md)
+  : Prepare longitudinal or panel sequence data
+- [`summarise_sequence_panel()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_panel.md)
+  : Summarise a sequence panel
+- [`compare_sequence_panel_changes()`](https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_panel_changes.md)
+  : Compare within-panel sequence changes
+- [`plot_sequence_panel_changes()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_panel_changes.md)
+  : Plot longitudinal sequence changes
+- [`fit_time_varying_sequence_model()`](https://stefanosbalaskas.github.io/gp3sequences/reference/fit_time_varying_sequence_model.md)
+  : Fit a time-varying sequence condition model
+- [`predict_time_varying_sequence_model()`](https://stefanosbalaskas.github.io/gp3sequences/reference/predict_time_varying_sequence_model.md)
+  : Predict a time-varying sequence model
+- [`summarise_time_varying_sequence_model()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_time_varying_sequence_model.md)
+  : Summarise a time-varying sequence model
+- [`plot_time_varying_sequence_model()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_time_varying_sequence_model.md)
+  : Plot predicted time-varying sequence probabilities
+
+## Non-contiguous subsequences
+
+- [`extract_sequence_subsequences()`](https://stefanosbalaskas.github.io/gp3sequences/reference/extract_sequence_subsequences.md)
+  : Extract bounded non-contiguous sequence subsequences
+- [`summarise_sequence_subsequences()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_subsequences.md)
+  : Summarise non-contiguous subsequences
+- [`filter_sequence_subsequences()`](https://stefanosbalaskas.github.io/gp3sequences/reference/filter_sequence_subsequences.md)
+  : Filter non-contiguous subsequence summaries
+- [`compare_sequence_subsequences()`](https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_subsequences.md)
+  : Compare subsequence prevalence between groups
+- [`plot_sequence_subsequences()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_subsequences.md)
+  : Plot non-contiguous subsequence summaries
+
+## Multichannel and covariate HMMs
+
+- [`fit_multichannel_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/reference/fit_multichannel_sequence_hmm.md)
+  : Fit a multichannel categorical hidden Markov model
+- [`decode_multichannel_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/reference/decode_multichannel_sequence_states.md)
+  : Decode latent states from a multichannel HMM
+- [`summarise_multichannel_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_multichannel_sequence_hmm.md)
+  : Summarise a multichannel sequence HMM
+- [`plot_multichannel_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_multichannel_sequence_hmm.md)
+  : Plot multichannel HMM emission profiles
+- [`fit_covariate_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/reference/fit_covariate_sequence_hmm.md)
+  : Fit a covariate-dependent categorical hidden Markov model
+- [`predict_covariate_transition_probabilities()`](https://stefanosbalaskas.github.io/gp3sequences/reference/predict_covariate_transition_probabilities.md)
+  : Predict covariate-dependent transition probabilities
+- [`decode_covariate_sequence_states()`](https://stefanosbalaskas.github.io/gp3sequences/reference/decode_covariate_sequence_states.md)
+  : Decode states from a covariate-dependent HMM
+- [`summarise_covariate_sequence_hmm()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_covariate_sequence_hmm.md)
+  : Summarise a covariate-dependent HMM
+
+## Design-aware inference
+
+- [`declare_sequence_comparison_design()`](https://stefanosbalaskas.github.io/gp3sequences/reference/declare_sequence_comparison_design.md)
+  : Declare a sequence group-comparison design
+- [`test_sequence_group_difference()`](https://stefanosbalaskas.github.io/gp3sequences/reference/test_sequence_group_difference.md)
+  : Test a sequence group difference
+- [`bootstrap_sequence_group_difference()`](https://stefanosbalaskas.github.io/gp3sequences/reference/bootstrap_sequence_group_difference.md)
+  : Bootstrap a sequence group difference
+- [`summarise_sequence_group_inference()`](https://stefanosbalaskas.github.io/gp3sequences/reference/summarise_sequence_group_inference.md)
+  : Summarise sequence group inference
+- [`plot_sequence_group_inference()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_group_inference.md)
+  : Plot sequence group inference
+
+## Extended visualisations
+
+- [`plot_sequence_index()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_index.md)
+  : Plot a sequence index heatmap
+- [`plot_sequence_state_distribution()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_state_distribution.md)
+  : Plot state distributions over aligned positions
+- [`plot_sequence_entropy()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_entropy.md)
+  : Plot position-wise state entropy
+- [`plot_sequence_distance_heatmap()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_distance_heatmap.md)
+  : Plot a sequence-distance heatmap
+- [`plot_transition_network()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_transition_network.md)
+  : Plot a first-order transition network
+- [`plot_sequence_cluster_silhouette()`](https://stefanosbalaskas.github.io/gp3sequences/reference/plot_sequence_cluster_silhouette.md)
+  : Plot sequence-cluster silhouette values

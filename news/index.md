@@ -1,5 +1,20 @@
 # Changelog
 
+## gp3sequences 0.2.0.9000
+
+- Added auditable longitudinal and panel-sequence preparation,
+  summaries, change metrics, and plots.
+- Added bounded non-contiguous subsequence enumeration, prevalence
+  summaries, group comparisons, and plots.
+- Added optional mgcv-based time-varying state and transition models
+  with participant random-effect support.
+- Added dependency-light multichannel and covariate-dependent
+  categorical hidden Markov models.
+- Added design-aware permutation and bootstrap comparisons with explicit
+  associational and causal guardrails.
+- Added six focused visualisation helpers, deterministic tests, an
+  installed-package smoke test, and six synthetic articles.
+
 ## gp3sequences 0.2.0
 
 - Released the advanced standalone sequence-analysis API with 46

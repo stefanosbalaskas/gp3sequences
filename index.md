@@ -246,6 +246,27 @@ The articles use ordinary data frames and synthetic data. They preserve
 the package interpretation boundary and do not infer psychological or
 causal attributes from structural sequence outputs.
 
+## Advanced extension roadmap
+
+The post-0.2.0 development series adds the following explicitly governed
+workflows:
+
+- longitudinal and panel sequence preparation, summaries, change
+  metrics, and plots;
+- bounded non-contiguous subsequence mining with explicit gap, span, and
+  combination limits;
+- optional time-varying state and transition models using `mgcv`;
+- multichannel and covariate-dependent categorical hidden Markov models;
+- design-aware permutation and bootstrap group comparisons;
+- sequence-index, state-distribution, entropy, distance, network, and
+  silhouette plots.
+
+These extensions preserve ordinary-data-frame inputs, explicit method
+parameters, deterministic seeds, and structural interpretation
+boundaries. Inferential helpers record the independent unit and study
+design; observational contrasts remain associational, and randomized
+contrasts require valid assignment and implementation.
+
 ## Interpretation boundary
 
 Sequence outputs describe behavioural or structural patterns only. They

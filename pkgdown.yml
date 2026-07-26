@@ -6,12 +6,18 @@ articles:
   consensus-and-group-comparisons: consensus-and-group-comparisons.html
   contiguous-motif-workflow: contiguous-motif-workflow.html
   distances-clustering-and-stability: distances-clustering-and-stability.html
+  extended-sequence-visualisations: extended-sequence-visualisations.html
   getting-started-with-gp3sequences: getting-started-with-gp3sequences.html
   latent-models-and-optional-adapters: latent-models-and-optional-adapters.html
+  longitudinal-panel-sequences: longitudinal-panel-sequences.html
+  multichannel-and-covariate-hmms: multichannel-and-covariate-hmms.html
+  noncontiguous-subsequence-mining: noncontiguous-subsequence-mining.html
   reproducible-sequence-analysis-case-study: reproducible-sequence-analysis-case-study.html
   sequence-data-validation-and-preparation: sequence-data-validation-and-preparation.html
+  sequence-inference-and-randomization: sequence-inference-and-randomization.html
+  time-varying-condition-models: time-varying-condition-models.html
   transition-networks-and-higher-order-models: transition-networks-and-higher-order-models.html
-last_built: 2026-07-23T22:26Z
+last_built: 2026-07-26T00:50Z
 urls:
   reference: https://stefanosbalaskas.github.io/gp3sequences/reference
   article: https://stefanosbalaskas.github.io/gp3sequences/articles

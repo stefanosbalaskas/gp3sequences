@@ -30,7 +30,7 @@
 
     <a class="navbar-brand me-2" href="index.html">gp3sequences</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -282,6 +282,20 @@
 <li>latent sequence models and optional ecosystem adapters.</li>
 </ul>
 <p>The articles use ordinary data frames and synthetic data. They preserve the package interpretation boundary and do not infer psychological or causal attributes from structural sequence outputs.</p>
+</div>
+<div class="section level2">
+<h2 id="advanced-extension-roadmap">Advanced extension roadmap<a class="anchor" aria-label="anchor" href="#advanced-extension-roadmap"></a>
+</h2>
+<p>The post-0.2.0 development series adds the following explicitly governed workflows:</p>
+<ul>
+<li>longitudinal and panel sequence preparation, summaries, change metrics, and plots;</li>
+<li>bounded non-contiguous subsequence mining with explicit gap, span, and combination limits;</li>
+<li>optional time-varying state and transition models using <code>mgcv</code>;</li>
+<li>multichannel and covariate-dependent categorical hidden Markov models;</li>
+<li>design-aware permutation and bootstrap group comparisons;</li>
+<li>sequence-index, state-distribution, entropy, distance, network, and silhouette plots.</li>
+</ul>
+<p>These extensions preserve ordinary-data-frame inputs, explicit method parameters, deterministic seeds, and structural interpretation boundaries. Inferential helpers record the independent unit and study design; observational contrasts remain associational, and randomized contrasts require valid assignment and implementation.</p>
 </div>
 <div class="section level2">
 <h2 id="interpretation-boundary">Interpretation boundary<a class="anchor" aria-label="anchor" href="#interpretation-boundary"></a>

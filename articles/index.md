@@ -29,3 +29,18 @@
   Models](https://stefanosbalaskas.github.io/gp3sequences/articles/transition-networks-and-higher-order-models.md):
 - [Latent Sequence Models and Optional
   Adapters](https://stefanosbalaskas.github.io/gp3sequences/articles/latent-models-and-optional-adapters.md):
+
+### Advanced longitudinal, inferential, and modelling extensions
+
+- [Longitudinal and Panel Sequence
+  Workflows](https://stefanosbalaskas.github.io/gp3sequences/articles/longitudinal-panel-sequences.md):
+- [Bounded Non-Contiguous Subsequence
+  Mining](https://stefanosbalaskas.github.io/gp3sequences/articles/noncontiguous-subsequence-mining.md):
+- [Time-Varying Condition
+  Comparisons](https://stefanosbalaskas.github.io/gp3sequences/articles/time-varying-condition-models.md):
+- [Multichannel and Covariate-Dependent
+  HMMs](https://stefanosbalaskas.github.io/gp3sequences/articles/multichannel-and-covariate-hmms.md):
+- [Design-Aware Sequence Group
+  Inference](https://stefanosbalaskas.github.io/gp3sequences/articles/sequence-inference-and-randomization.md):
+- [Extended Sequence
+  Visualisations](https://stefanosbalaskas.github.io/gp3sequences/articles/extended-sequence-visualisations.md):
