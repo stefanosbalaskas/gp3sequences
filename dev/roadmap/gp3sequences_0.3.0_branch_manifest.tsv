@@ -1,0 +1,13 @@
+order	branch	focus	public_or_core_work	other_deliverables
+1	feature/api-contract-hardening	contracts/provenance	sequence_capabilities; audit_sequence_analysis; compare_sequence_analysis_results	validation ledger; contract/adversarial foundations
+2	feature/distance-reference-validation	distance hardening	compare_sequence_distance_methods; summarise_sequence_distance_sensitivity; 3 plots	TraMineR/stringdist references; article
+3	feature/cluster-robustness	cluster robustness	compare_sequence_cluster_solutions; summarise_sequence_cluster_robustness; 3 plots	WeightedCluster/clusterCrit/clue comparisons; article
+4	feature/hmm-recovery-diagnostics	HMM hardening	simulate_sequence_hmm; align_sequence_hmm_states; diagnose_sequence_hmm; assess_sequence_hmm_recovery; compare_sequence_hmm_initializations; 3 plots	seqHMM recovery/reference; article
+5	feature/network-validation	network hardening	summarise_transition_entropy; compare_transition_networks; as_markovchain_transition_model; 3 plots	extend bootstrap_transition_network; igraph/markovchain/tna/Nestimate refs; article
+6	feature/pattern-reference-validation	pattern hardening	compare_sequence_pattern_methods; 2 plots	TraMineR/arulesSequences/GrpString refs; article
+7	feature/distance-inference	distance inference	test_sequence_distance_association; summarise_sequence_distance_association; plot_sequence_distance_association	TraMineR/TraMineRextras/vegan/energy/coin refs
+8	feature/missingness-diagnostics	missingness	summarise_sequence_missingness; plot_sequence_missingness	seqimpute handoff; article
+9	feature/adversarial-testing	adversarial/property QA	.sequence_test_case + invariant suites	failure atlas article
+10	feature/reference-benchmarks	reference/performance	dev/reference + dev/benchmarks	scaling/performance article
+11	feature/hardening-articles	documentation	interoperability + API articles; method-selection rewrite	README/pkgdown/NEWS/crosslinks
+12	feature/release-0.3.0	release	version/NEWS/CITATION/ledger freeze	0/0/0 check; tag/release/site verification

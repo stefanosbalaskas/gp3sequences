@@ -13,3 +13,4 @@
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
 ^tests/smoke$
+^dev$

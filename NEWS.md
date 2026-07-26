@@ -1,4 +1,7 @@
 # gp3sequences 0.2.0.9000
+* Added a common analysis-contract and provenance foundation for systematic 0.3.0 hardening.
+* Added `sequence_capabilities()`, `audit_sequence_analysis()`, and `compare_sequence_analysis_results()` for machine-readable capability, contract, and reproducibility audits.
+* Added deterministic contract, metamorphic, and adversarial test foundations plus a machine-readable public-API validation ledger.
 
 * Added auditable longitudinal and panel-sequence preparation, summaries, change metrics, and plots.
 * Added bounded non-contiguous subsequence enumeration, prevalence summaries, group comparisons, and plots.
