@@ -30,6 +30,11 @@ reference:
   - audit_sequence_data
   - validate_sequence_data
   - prepare_sequence_data
+- title: Analysis contracts and provenance
+  contents:
+  - sequence_capabilities
+  - audit_sequence_analysis
+  - compare_sequence_analysis_results
 - title: Encoding and structural summaries
   contents:
   - encode_sequence_data
