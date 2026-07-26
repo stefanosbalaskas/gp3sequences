@@ -1,0 +1,84 @@
+---
+title: "Design-Aware Sequence Group Inference"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Design-Aware Sequence Group Inference}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(gp3sequences)
+```
+
+## Why declare the design?
+
+Sequence rows are rarely independent. The comparison API requires the group
+column and independent unit, and can additionally record pairs or assignment
+clusters. It aggregates the selected metric before permutation or bootstrap
+resampling.
+
+## Synthetic randomized groups
+
+```{r data}
+paths <- replicate(20, sample(c("A", "B", "C"), 6L, replace = TRUE), simplify = FALSE)
+data <- do.call(rbind, lapply(seq_along(paths), function(i) {
+  data.frame(
+    participant_id = paste0("p", i),
+    sequence_id = paste0("s", i),
+    sequence_order = seq_along(paths[[i]]),
+    state = paths[[i]],
+    group = if (i <= 10L) "control" else "treatment",
+    stringsAsFactors = FALSE
+  )
+}))
+```
+
+## Declare and test
+
+```{r test}
+design <- declare_sequence_comparison_design(
+  group_col = "group",
+  unit_col = "participant_id",
+  design = "randomized"
+)
+
+result <- test_sequence_group_difference(
+  data,
+  design,
+  metric = "state_prevalence",
+  target_state = "A",
+  n_permutations = 999L,
+  seed = 10L
+)
+result$estimate
+```
+
+Supported metrics are deliberately limited to transparent quantities:
+sequence length, transition count, state prevalence, and declared subsequence
+presence.
+
+## Bootstrap interval
+
+```{r bootstrap}
+result <- bootstrap_sequence_group_difference(
+  result,
+  n_boot = 999L,
+  level = 0.95,
+  seed = 11L
+)
+summarise_sequence_group_inference(result)
+```
+
+```{r plots, fig.width=7, fig.height=4}
+plot_sequence_group_inference(result, type = "permutation")
+plot_sequence_group_inference(result, type = "group_means")
+```
+
+## Causal language
+
+For `design = "randomized"`, causal interpretation still depends on valid
+assignment, implementation, attrition handling, and an estimand consistent with
+the design. For `design = "observational"`, the output explicitly describes an
+associational exchangeability-based contrast and does not license causal claims.

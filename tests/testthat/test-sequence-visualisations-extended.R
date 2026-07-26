@@ -1,0 +1,15 @@
+test_that("extended visualisations accept core package objects", {
+  grDevices::pdf(tempfile(fileext = ".pdf"))
+  on.exit(grDevices::dev.off(), add = TRUE)
+  data <- make_extension_sequence_data()
+  distance <- compute_sequence_distance(data, method = "levenshtein")
+  clustering <- cluster_sequences(distance, k = 2L, method = "hierarchical")
+  network <- create_transition_network(data)
+
+  expect_invisible(plot_sequence_index(data))
+  expect_invisible(plot_sequence_state_distribution(data))
+  expect_invisible(plot_sequence_entropy(data))
+  expect_invisible(plot_sequence_distance_heatmap(distance))
+  expect_invisible(plot_transition_network(network))
+  expect_invisible(plot_sequence_cluster_silhouette(clustering, distance))
+})
