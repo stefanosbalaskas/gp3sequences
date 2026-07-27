@@ -19,6 +19,6 @@ This is the first CRAN submission of `gp3sequences`.
 
 ## Additional notes
 
-* All examples, tests, and the vignette use synthetic data.
+* All examples, tests, and vignettes use synthetic data.
 * The package does not require proprietary hardware, software, or data.
 * There are currently no reverse dependencies.

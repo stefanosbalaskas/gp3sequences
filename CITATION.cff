@@ -2,14 +2,17 @@ cff-version: 1.2.0
 message: "If you use gp3sequences in your work, please cite the software using the metadata below."
 type: software
 title: "gp3sequences: Transparent Analysis of Ordered Categorical Sequences"
-version: "0.1.0"
+version: "0.2.0.9000"
 license: "MIT"
 abstract: >-
   gp3sequences provides transparent, reproducible, and auditable tools for
-  validating, preparing, encoding, and summarising ordered categorical
-  sequence data. It supports explicit preprocessing policies,
-  machine-readable diagnostics, contiguous motif analysis, motif-position
-  summaries, and focused structural visualisations.
+  validating, preparing, encoding, summarising, comparing, modelling, and
+  diagnosing ordered categorical sequence data. It supports explicit
+  preprocessing policies, motifs and bounded subsequences, consensus and
+  group comparisons, sequence distances and clustering, transition networks,
+  higher-order models, categorical hidden Markov models, longitudinal and
+  time-varying workflows, design-aware inference, provenance contracts,
+  visual diagnostics, and guarded interoperability with specialist packages.
 authors:
   - family-names: "Balaskas"
     given-names: "Stefanos"
@@ -22,5 +25,8 @@ keywords:
   - "sequence analysis"
   - "contiguous motifs"
   - "scanpaths"
+  - "hidden Markov models"
+  - "transition networks"
+  - "provenance"
   - "reproducible research"
   - "R package"

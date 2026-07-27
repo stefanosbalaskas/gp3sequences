@@ -10,12 +10,15 @@ Authors@R:
       comment = c(ORCID = "0000-0003-2444-9796")
     )
 Description: Provides transparent, reproducible, and auditable tools for validating,
-    preparing, encoding, summarising, comparing, and modelling ordered
-    categorical sequence data. Supports explicit preprocessing policies,
-    contiguous motifs, aligned-position consensus, descriptive group
-    comparisons, edit and transition distances, clustering diagnostics,
-    transition networks, categorical hidden Markov models, and guarded
-    adapters to specialist sequence-analysis packages.
+    preparing, encoding, summarising, comparing, modelling, and diagnosing
+    ordered categorical sequence data. Supports explicit preprocessing
+    policies, contiguous motifs and bounded subsequences, consensus and group
+    comparisons, edit and transition distances, clustering and stability
+    diagnostics, transition networks, higher-order models, categorical,
+    mixture, multichannel, and covariate hidden Markov models, longitudinal
+    panel workflows, time-varying models, design-aware inference, analysis
+    contracts and provenance audits, and guarded adapters to specialist
+    sequence-analysis packages.
 License: MIT + file LICENSE
 URL: https://stefanosbalaskas.github.io/gp3sequences/,
     https://github.com/stefanosbalaskas/gp3sequences
