@@ -8,8 +8,14 @@ long-format data frames.
 
 The package is designed around explicit column mappings, deterministic
 ordering, documented preprocessing policies, machine-readable
-diagnostics, and conservative structural summaries. It is not restricted
-to eye-tracking data or to any particular device or export format.
+diagnostics, reproducible analysis contracts, and conservative
+structural summaries. Current workflows cover motifs and subsequences,
+consensus and group comparisons, distances and clustering, transition
+networks and higher-order models, categorical hidden Markov models,
+longitudinal and time-varying analyses, design-aware inference,
+provenance auditing, visual diagnostics, and guarded interoperability
+with specialist sequence-analysis packages. It is not restricted to
+eye-tracking data or to any particular device or export format.
 
 ## Interpretation boundary
 

@@ -63,9 +63,10 @@
 </div>
 <p><code>gp3sequences</code> is an independent R package for transparent, reproducible, and auditable analysis of ordered categorical sequences. It is designed for ordinary long-format data frames and is not restricted to Gazepoint exports, eye-tracking data, particular hardware, or proprietary software.</p>
 <div class="section level2">
-<h2 id="current-release">Current release<a class="anchor" aria-label="anchor" href="#current-release"></a>
+<h2 id="current-development-status">Current development status<a class="anchor" aria-label="anchor" href="#current-development-status"></a>
 </h2>
-<p>Version 0.2.0 expands the neutral data contract and contiguous-motif foundation with auditable consensus and group comparisons, sequence distances, clustering and stability workflows, transition networks, higher-order models, categorical and mixture hidden Markov models, optional specialist-package adapters, and nine synthetic workflow articles.</p>
+<p>The current development version is <strong>0.2.0.9000</strong>, building on the <strong>0.2.0</strong> release. The package currently exposes <strong>81 public functions</strong> and the website provides <strong>15 synthetic, reproducible articles</strong>.</p>
+<p>The development series combines the audited sequence-data contract with consensus and group comparisons, sequence distances, clustering and stability workflows, transition networks, higher-order models, categorical and mixture hidden Markov models, longitudinal and panel workflows, bounded non-contiguous subsequences, time-varying models, multichannel and covariate-dependent HMMs, design-aware inference, extended visualisations, optional specialist-package adapters, and analysis-contract/provenance auditing.</p>
 </div>
 <div class="section level2">
 <h2 id="intended-applications">Intended applications<a class="anchor" aria-label="anchor" href="#intended-applications"></a>
@@ -110,7 +111,7 @@
 <div class="section level2">
 <h2 id="current-data-contract-api">Current data-contract API<a class="anchor" aria-label="anchor" href="#current-data-contract-api"></a>
 </h2>
-<p>The initial public API provides three related functions:</p>
+<p>The core sequence-data contract provides three related functions:</p>
 <ul>
 <li>
 <code><a href="reference/audit_sequence_data.html">audit_sequence_data()</a></code> reports structured data-quality issues;</li>
@@ -141,6 +142,20 @@
 <span>  state_col <span class="op">=</span> <span class="st">"state"</span>,</span>
 <span>  repeated_state_policy <span class="op">=</span> <span class="st">"preserve"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="analysis-contracts-and-provenance">Analysis contracts and provenance<a class="anchor" aria-label="anchor" href="#analysis-contracts-and-provenance"></a>
+</h2>
+<p>The 0.2.0.9000 hardening series adds three public functions for machine-readable capability, contract, provenance, and reproducibility auditing:</p>
+<ul>
+<li>
+<code><a href="reference/sequence_capabilities.html">sequence_capabilities()</a></code> inventories native, adapter, reference, handoff, and development capabilities without loading optional backend namespaces;</li>
+<li>
+<code><a href="reference/audit_sequence_analysis.html">audit_sequence_analysis()</a></code> validates supported analysis objects against explicit structural contracts and recovers provenance where possible;</li>
+<li>
+<code><a href="reference/compare_sequence_analysis_results.html">compare_sequence_analysis_results()</a></code> compares contracts, provenance, settings, and optionally result values across two analysis objects.</li>
+</ul>
+<p>These functions complement the sequence-data contract and provide the common foundation for the 0.3.0 hardening program.</p>
 </div>
 <div class="section level2">
 <h2 id="encoding-and-structural-summaries">Encoding and structural summaries<a class="anchor" aria-label="anchor" href="#encoding-and-structural-summaries"></a>
@@ -269,7 +284,7 @@
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
-<p>The package website now provides 15 synthetic, reproducible articles:</p>
+<p>The package website now provides <strong>15 synthetic, reproducible articles</strong>:</p>
 <ul>
 <li>getting started with the complete structural workflow;</li>
 <li>sequence-data validation and policy-driven preparation;</li>
@@ -279,7 +294,7 @@
 <li>consensus sequences and descriptive group comparisons;</li>
 <li>sequence distances, clustering, representatives, ensembles, and stability;</li>
 <li>transition networks and higher-order models;</li>
-<li>latent sequence models and optional ecosystem adapters.</li>
+<li>latent sequence models and optional ecosystem adapters;</li>
 <li>longitudinal and panel sequence workflows;</li>
 <li>non-contiguous subsequence mining;</li>
 <li>time-varying condition models;</li>
@@ -290,9 +305,9 @@
 <p>The articles use ordinary data frames and synthetic data. They preserve the package interpretation boundary and do not infer psychological or causal attributes from structural sequence outputs.</p>
 </div>
 <div class="section level2">
-<h2 id="advanced-extension-roadmap">Advanced extension roadmap<a class="anchor" aria-label="anchor" href="#advanced-extension-roadmap"></a>
+<h2 id="current-development-extensions">Current development extensions<a class="anchor" aria-label="anchor" href="#current-development-extensions"></a>
 </h2>
-<p>The post-0.2.0 development series adds the following explicitly governed workflows:</p>
+<p>The 0.2.0.9000 development series includes the following explicitly governed workflows:</p>
 <ul>
 <li>longitudinal and panel sequence preparation, summaries, change metrics, and plots;</li>
 <li>bounded non-contiguous subsequence mining with explicit gap, span, and combination limits;</li>
@@ -323,7 +338,7 @@
 <div class="section level2">
 <h2 id="advanced-sequence-analysis-methods">Advanced sequence-analysis methods<a class="anchor" aria-label="anchor" href="#advanced-sequence-analysis-methods"></a>
 </h2>
-<p>Version 0.2.0 extends the audited sequence contract with:</p>
+<p>The 0.2.0 release established:</p>
 <ul>
 <li>aligned-position consensus sequences and agreement diagnostics;</li>
 <li>descriptive between-group comparisons;</li>
@@ -333,6 +348,7 @@
 <li>categorical HMMs, mixture HMMs, and state decoding;</li>
 <li>optional adapters to specialist sequence-analysis packages.</li>
 </ul>
+<p>The current 0.2.0.9000 development series extends that foundation with longitudinal and panel workflows, bounded non-contiguous subsequences, time-varying models, multichannel and covariate HMMs, design-aware inference, extended visualisations, and analysis-contract/provenance auditing.</p>
 <p>These outputs are structural and statistical. They do not independently establish emotion, cognition, comprehension, personality, intention, diagnosis, deception, causality, or other psychological attributes. <!-- advanced-roadmap-end --></p>
 </div>
 </div>

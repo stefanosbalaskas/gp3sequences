@@ -6,14 +6,20 @@ It is designed for ordinary long-format data frames and is not
 restricted to Gazepoint exports, eye-tracking data, particular hardware,
 or proprietary software.
 
-## Current release
+## Current development status
 
-Version 0.2.0 expands the neutral data contract and contiguous-motif
-foundation with auditable consensus and group comparisons, sequence
-distances, clustering and stability workflows, transition networks,
-higher-order models, categorical and mixture hidden Markov models,
-optional specialist-package adapters, and nine synthetic workflow
-articles.
+The current development version is **0.2.0.9000**, building on the
+**0.2.0** release. The package currently exposes **81 public functions**
+and the website provides **15 synthetic, reproducible articles**.
+
+The development series combines the audited sequence-data contract with
+consensus and group comparisons, sequence distances, clustering and
+stability workflows, transition networks, higher-order models,
+categorical and mixture hidden Markov models, longitudinal and panel
+workflows, bounded non-contiguous subsequences, time-varying models,
+multichannel and covariate-dependent HMMs, design-aware inference,
+extended visualisations, optional specialist-package adapters, and
+analysis-contract/provenance auditing.
 
 ## Intended applications
 
@@ -61,7 +67,7 @@ example_sequences
 
 ## Current data-contract API
 
-The initial public API provides three related functions:
+The core sequence-data contract provides three related functions:
 
 - [`audit_sequence_data()`](https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_data.md)
   reports structured data-quality issues;
@@ -95,6 +101,25 @@ prepared <- prepare_sequence_data(
   repeated_state_policy = "preserve"
 )
 ```
+
+## Analysis contracts and provenance
+
+The 0.2.0.9000 hardening series adds three public functions for
+machine-readable capability, contract, provenance, and reproducibility
+auditing:
+
+- [`sequence_capabilities()`](https://stefanosbalaskas.github.io/gp3sequences/reference/sequence_capabilities.md)
+  inventories native, adapter, reference, handoff, and development
+  capabilities without loading optional backend namespaces;
+- [`audit_sequence_analysis()`](https://stefanosbalaskas.github.io/gp3sequences/reference/audit_sequence_analysis.md)
+  validates supported analysis objects against explicit structural
+  contracts and recovers provenance where possible;
+- [`compare_sequence_analysis_results()`](https://stefanosbalaskas.github.io/gp3sequences/reference/compare_sequence_analysis_results.md)
+  compares contracts, provenance, settings, and optionally result values
+  across two analysis objects.
+
+These functions complement the sequence-data contract and provide the
+common foundation for the 0.3.0 hardening program.
 
 ## Encoding and structural summaries
 
@@ -228,7 +253,8 @@ plot_sequence_motif_positions(
 
 ## Documentation
 
-The package website now provides 15 synthetic, reproducible articles:
+The package website now provides **15 synthetic, reproducible
+articles**:
 
 - getting started with the complete structural workflow;
 - sequence-data validation and policy-driven preparation;
@@ -240,7 +266,7 @@ The package website now provides 15 synthetic, reproducible articles:
 - sequence distances, clustering, representatives, ensembles, and
   stability;
 - transition networks and higher-order models;
-- latent sequence models and optional ecosystem adapters.
+- latent sequence models and optional ecosystem adapters;
 - longitudinal and panel sequence workflows;
 - non-contiguous subsequence mining;
 - time-varying condition models;
@@ -252,10 +278,10 @@ The articles use ordinary data frames and synthetic data. They preserve
 the package interpretation boundary and do not infer psychological or
 causal attributes from structural sequence outputs.
 
-## Advanced extension roadmap
+## Current development extensions
 
-The post-0.2.0 development series adds the following explicitly governed
-workflows:
+The 0.2.0.9000 development series includes the following explicitly
+governed workflows:
 
 - longitudinal and panel sequence preparation, summaries, change
   metrics, and plots;
@@ -295,7 +321,7 @@ website](https://sites.google.com/view/stefbalaskas/) ·
 
 ## Advanced sequence-analysis methods
 
-Version 0.2.0 extends the audited sequence contract with:
+The 0.2.0 release established:
 
 - aligned-position consensus sequences and agreement diagnostics;
 - descriptive between-group comparisons;
@@ -305,6 +331,12 @@ Version 0.2.0 extends the audited sequence contract with:
 - transition networks, centrality, communities, and higher-order models;
 - categorical HMMs, mixture HMMs, and state decoding;
 - optional adapters to specialist sequence-analysis packages.
+
+The current 0.2.0.9000 development series extends that foundation with
+longitudinal and panel workflows, bounded non-contiguous subsequences,
+time-varying models, multichannel and covariate HMMs, design-aware
+inference, extended visualisations, and analysis-contract/provenance
+auditing.
 
 These outputs are structural and statistical. They do not independently
 establish emotion, cognition, comprehension, personality, intention,
