@@ -2,6 +2,10 @@
 
 ## gp3sequences 0.2.0.9000
 
+- Added CRAN status, download, DOI, GitHub Actions, pkgdown, and license
+  badges; added canonical CRAN, website, source, issue, and CRAN-check
+  links; and documented CRAN and GitHub installation paths.
+
 - Synchronized README, package description, citation metadata, and
   pkgdown-facing development status for 0.2.0.9000; README counts are
   now derived from the public NAMESPACE and vignette sources.

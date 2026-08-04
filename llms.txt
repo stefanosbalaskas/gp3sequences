@@ -1,10 +1,36 @@
 # gp3sequences
 
+**Links:** [CRAN](https://CRAN.R-project.org/package=gp3sequences) ·
+[Package website](https://stefanosbalaskas.github.io/gp3sequences/) ·
+[Source code](https://github.com/stefanosbalaskas/gp3sequences) · [Issue
+tracker](https://github.com/stefanosbalaskas/gp3sequences/issues) ·
+[CRAN
+checks](https://CRAN.R-project.org/web/checks/check_results_gp3sequences.html)
+
 `gp3sequences` is an independent R package for transparent,
 reproducible, and auditable analysis of ordered categorical sequences.
 It is designed for ordinary long-format data frames and is not
 restricted to Gazepoint exports, eye-tracking data, particular hardware,
 or proprietary software.
+
+## Installation
+
+Install the current CRAN release:
+
+``` r
+
+install.packages("gp3sequences")
+```
+
+Install the current development version from GitHub:
+
+``` r
+
+pak::pak("stefanosbalaskas/gp3sequences")
+```
+
+The CRAN release is version **0.1.0**, published on **30 July 2026**.
+The source repository currently develops version **0.2.0.9000**.
 
 ## Current development status
 
