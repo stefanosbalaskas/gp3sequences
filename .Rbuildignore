@@ -14,3 +14,4 @@
 ^CRAN-SUBMISSION$
 ^tests/smoke$
 ^dev$
+^paper$
