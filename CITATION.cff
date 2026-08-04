@@ -13,6 +13,9 @@ abstract: >-
   higher-order models, categorical hidden Markov models, longitudinal and
   time-varying workflows, design-aware inference, provenance contracts,
   visual diagnostics, and guarded interoperability with specialist packages.
+identifiers:
+  - type: doi
+    value: "10.32614/CRAN.package.gp3sequences"
 authors:
   - family-names: "Balaskas"
     given-names: "Stefanos"
