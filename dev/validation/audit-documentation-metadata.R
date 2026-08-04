@@ -56,6 +56,22 @@ stopifnot(
   grepl("\n- aligned-position consensus sequences", md, fixed = TRUE)
 )
 
+
+# CRAN/GitHub presence
+stopifnot(
+  grepl("https://CRAN.R-project.org/package=gp3sequences", rmd, fixed = TRUE),
+  grepl("https://github.com/stefanosbalaskas/gp3sequences", rmd, fixed = TRUE),
+  grepl("R-CMD-check.yaml/badge.svg", rmd, fixed = TRUE),
+  grepl("pkgdown.yaml/badge.svg", rmd, fixed = TRUE),
+  grepl("10.32614/CRAN.package.gp3sequences", rmd, fixed = TRUE),
+  grepl('install.packages("gp3sequences")', rmd, fixed = TRUE),
+  grepl('pak::pak("stefanosbalaskas/gp3sequences")', rmd, fixed = TRUE),
+  grepl("10.32614/CRAN.package.gp3sequences", read_text("CITATION.cff"), fixed = TRUE),
+  grepl("published on CRAN on 2026-07-30", cran, fixed = TRUE),
+  grepl("Version 0.1.0 was the first CRAN submission", cran, fixed = TRUE),
+  !grepl("This is the first CRAN submission", cran, fixed = TRUE)
+)
+
 cat(
   "PASS: documentation metadata is internally consistent.\n",
   "Version: ", version, "\n",
