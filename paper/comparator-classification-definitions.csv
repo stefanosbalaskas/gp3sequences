@@ -1,0 +1,8 @@
+"classification","definition"
+"native","Directly implemented as part of the package's general public workflow."
+"native_specialist","Directly implemented and central to the package's specialist purpose."
+"optional_adapter","Exposed by gp3sequences through a guarded optional adapter."
+"via_dependency","Available principally through a required or companion package or object system."
+"partial","Related functionality is documented but does not match the full comparison dimension."
+"not_documented","The reviewed primary sources do not document this capability; this is not proof of absence."
+"outside_scope","The dimension falls outside the package's declared specialist purpose."

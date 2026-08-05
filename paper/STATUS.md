@@ -7,7 +7,7 @@ Package: `gp3sequences` 0.2.0.9000
 | Scope freeze | READY | No new API without paper-critical justification |
 | CRAN 0.2.0 | BLOCKED | Manuscript version installable from CRAN |
 | Archived release | BLOCKED | Permanent version archive and checksum |
-| Comparator audit | IN PROGRESS | All matrix cells verified from primary sources |
+| Comparator audit | COMPLETE | Eight packages and 21 dimensions verified from primary sources |
 | Benchmarks | NOT STARTED | Runtime and memory outputs reproduced from scripts |
 | Integrated case study | NOT STARTED | End-to-end workflow under ten minutes |
 | R Journal manuscript | NOT STARTED | PDF and HTML render from R Markdown |
