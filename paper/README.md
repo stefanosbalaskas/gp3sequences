@@ -36,3 +36,17 @@ comparative evidence, benchmarking, replication materials, and manuscript work.
 7. Pass package, paper, and replication audits.
 
 Only synthetic or openly licensed data may be added.
+
+## Comparator evidence
+
+The comparator milestone uses a controlled classification vocabulary and
+primary-source registry. It distinguishes `not_documented` from
+`outside_scope` and prohibits treating undocumented cells as proof that a
+package lacks a capability.
+
+- `comparator-source-registry.csv` records reviewed primary sources.
+- `comparison-inventory.csv` records package-level positioning.
+- `feature-comparison-matrix.csv` contains all package-feature cells.
+- `comparator-classification-definitions.csv` defines the vocabulary.
+- `results/manuscript-comparison-table.csv` provides the compact paper table.
+- `manuscript/comparator-evidence.md` records defensible and prohibited claims.
