@@ -1,0 +1,17 @@
+# Paper-readiness status
+
+Package: `gp3sequences` 0.2.0.9000
+
+| Gate | Status | Completion criterion |
+|---|---|---|
+| Scope freeze | READY | No new API without paper-critical justification |
+| CRAN 0.2.0 | BLOCKED | Manuscript version installable from CRAN |
+| Archived release | BLOCKED | Permanent version archive and checksum |
+| Comparator audit | IN PROGRESS | All matrix cells verified from primary sources |
+| Benchmarks | NOT STARTED | Runtime and memory outputs reproduced from scripts |
+| Integrated case study | NOT STARTED | End-to-end workflow under ten minutes |
+| R Journal manuscript | NOT STARTED | PDF and HTML render from R Markdown |
+| Submission audit | NOT STARTED | `rjtools::initial_check_article()` passes |
+
+The package is ready for manuscript development. Submission remains blocked
+until CRAN 0.2.0, comparison evidence, benchmarks, and replication are complete.
