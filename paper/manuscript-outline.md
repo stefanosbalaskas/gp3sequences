@@ -53,3 +53,18 @@ combinatorial boundaries, and the absence of automatic method selection.
 
 Record the exact release, permanent archive, replication script, benchmark
 outputs, session information, open data, and generated figures.
+
+## Scaffold mapping
+
+| Manuscript component | Scaffold location |
+|---|---|
+| Main article | `paper/manuscript/rjournal/gp3sequences.Rmd` |
+| Bibliography | `paper/manuscript/rjournal/gp3sequences.bib` |
+| Verified comparison table | `paper/manuscript/rjournal/data/software-comparison.csv` |
+| Synthetic case-study data | `paper/manuscript/rjournal/data/case-study-sequences.csv` |
+| Case-study analysis plan | `paper/manuscript/rjournal/data/case-study-workflow.csv` |
+| Reproducibility scripts | `paper/manuscript/rjournal/scripts/` |
+| Journal checks | `paper/manuscript/rjournal/scripts/05-check-article.R` |
+
+The next manuscript milestone will execute and freeze the complete package
+case study rather than adding public functions solely for the article.

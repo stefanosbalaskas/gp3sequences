@@ -1,0 +1,176 @@
+---
+title: "gp3sequences: Transparent, Reproducible, and Auditable Analysis of Ordered Categorical Sequences in R"
+abstract: >
+  Ordered categorical sequences arise in longitudinal, behavioral, interaction, and process data, but reproducible analysis often requires researchers to coordinate incompatible representations, preprocessing choices, specialist methods, and reporting conventions. gp3sequences is an R package for transparent, reproducible, and auditable analysis of ordered categorical sequences stored in ordinary long-format data frames. It integrates explicit validation and preparation, descriptive summaries, contiguous and bounded noncontiguous pattern extraction, sequence dissimilarities, clustering and stability assessment, transition networks, higher-order and time-varying models, categorical hidden Markov models, declared-design inference, and guarded interoperability with specialist software. Common result structures retain settings, diagnostics, capabilities, provenance, and interpretation boundaries across analytical families. The package is positioned as an integration and audit layer rather than a replacement for specialist packages. A deterministic synthetic case study demonstrates the intended end-to-end workflow, while a primary-source-backed comparison clarifies overlap and delegation across seven established sequence-analysis packages. The software is designed to make analytical decisions inspectable and replayable without treating structural sequence outputs as evidence of psychological mechanisms or causal processes.
+author:
+  - name: Stefanos Balaskas
+    affiliation: "Affiliation to be confirmed before submission"
+    address: "Greece"
+    url: "https://sites.google.com/view/stefbalaskas/"
+    orcid: "0000-0003-2444-9796"
+    email: "stefbalaskas@gmail.com"
+output:
+  rjtools::rjournal_article:
+    toc: false
+    self_contained: true
+bibliography: gp3sequences.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "figures/"
+)
+options(width = 80)
+```
+
+# Introduction
+
+Ordered categorical sequences are used to represent state histories,
+behavioral paths, event streams, interaction traces, and other processes in
+which order matters. Existing R software provides strong specialist methods,
+but applied workflows can become fragmented across data representations,
+preprocessing conventions, model-specific outputs, and reporting practices.
+
+This article presents `gp3sequences`, an integration and audit layer for
+ordered categorical sequence analysis. Its contribution is not a claim to
+replace specialist software. Instead, it provides a common long-format data
+contract, explicit preparation policies, consistent result structures,
+machine-readable diagnostics, interpretation boundaries, guarded adapters,
+and provenance comparison across analytical families.
+
+# Design goals and scope
+
+The package is organized around five design goals: neutral data input,
+explicit analytical decisions, deterministic and inspectable computation,
+consistent structured outputs, and cautious interpretation. Structural
+sequence results are not automatically treated as psychological constructs,
+behavioral mechanisms, or causal effects.
+
+The public API covers validation and preparation, descriptive summaries,
+motif and subsequence extraction, dissimilarities, clustering, transition
+networks, latent-state models, longitudinal comparisons, time-varying
+models, declared-design inference, and analysis auditing.
+
+# Package architecture
+
+## Data contract
+
+The primary interface uses ordinary long-format data frames with explicit
+sequence identifiers, within-sequence order, and categorical states. This
+keeps raw observations inspectable and permits preparation decisions to be
+recorded before conversion to specialist representations.
+
+## Analysis contracts and provenance
+
+Analysis objects retain settings, capabilities, diagnostics, and
+interpretation boundaries. These fields allow related results to be checked
+and compared without assuming that outputs from different analytical
+families are interchangeable.
+
+# Integrated workflow
+
+The intended workflow begins with validation and audit, proceeds through
+explicit preparation and fit-for-purpose analysis, and ends with result
+auditing and provenance comparison.
+
+```{r workflow-plan}
+workflow <- read.csv("data/case-study-workflow.csv", stringsAsFactors = FALSE)
+knitr::kable(
+  workflow[, c(
+    "stage",
+    "manuscript_step",
+    "gp3sequences_functions",
+    "scaffold_status"
+  )],
+  caption = "Planned integrated case-study workflow."
+)
+```
+
+# Software comparison
+
+The comparison is based on documented software purpose rather than raw
+function counts. A capability classified as `not_documented` was not found in
+the reviewed primary sources; this is not proof that every package version
+lacks that capability. A classification of `outside_scope` records a mismatch
+between the comparison dimension and a package's specialist purpose.
+
+```{r software-comparison}
+comparison <- read.csv("data/software-comparison.csv", check.names = TRUE)
+knitr::kable(
+  comparison[, c(
+    "Package",
+    "Primary.contribution",
+    "Relationship.to.gp3sequences",
+    "Comparison.boundary"
+  )],
+  caption = "Primary-source-backed positioning of gp3sequences and specialist comparators."
+)
+```
+
+# Reproducible case study
+
+## Data and declared design
+
+The scaffold includes a deterministic synthetic data set with 72 sequences,
+24 ordered observations per sequence, four categorical states, and two
+declared groups. It is intended to support a compact end-to-end example
+without embedding private or proprietary data in the manuscript.
+
+```{r case-data}
+case_data <- read.csv("data/case-study-sequences.csv", stringsAsFactors = FALSE)
+stopifnot(
+  nrow(case_data) == 72L * 24L,
+  length(unique(case_data$sequence_id)) == 72L,
+  setequal(unique(case_data$state), c("A", "B", "C", "D"))
+)
+
+knitr::kable(
+  utils::head(case_data, 12L),
+  caption = "First observations in the deterministic synthetic case study."
+)
+```
+
+## Planned package analysis
+
+The current manuscript branch establishes the data and analytical plan. The
+next case-study milestone will execute the verified package workflow, freeze
+all generated numerical outputs, and replace this planning subsection with
+fully evaluated package code and interpretation.
+
+# Discussion
+
+The package addresses a practical gap between specialist analytical methods
+and the requirements of transparent applied research. Its principal value is
+workflow integration: data preparation, structural analysis, diagnostics,
+interoperability, and reporting evidence remain connected through explicit
+contracts and provenance.
+
+The comparison also clarifies where delegation is preferable. TraMineR,
+seqHMM, arulesSequences, WeightedCluster, ClickClust, PST, and march retain
+distinct specialist roles. gp3sequences should therefore be evaluated by the
+coherence and auditability of the integrated workflow rather than by a claim
+to subsume all specialist methods.
+
+# Limitations
+
+The manuscript currently uses a deterministic synthetic case study and does
+not yet report frozen end-to-end analytical results. Some specialist
+capabilities are available only through optional packages, and documented
+absence in reviewed sources is not equivalent to proof of nonexistence.
+Submission also remains gated on a stable CRAN release matching the version
+described in the article.
+
+# Reproducibility statement
+
+All manuscript data, scripts, comparison evidence, and generated results are
+stored under the package repository's excluded `paper/` workspace. The
+submitted article will include the code and data required to reproduce every
+reported table and figure. Package and environment information will be
+refreshed immediately before submission.
+
+# Acknowledgements
+
+Acknowledgements will be completed before submission.

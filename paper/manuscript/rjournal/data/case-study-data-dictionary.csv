@@ -1,0 +1,7 @@
+"variable","type","role","allowed_values"
+"sequence_id","character","sequence identifier","S001-S072"
+"position","integer","within-sequence order","1-24"
+"state","character","ordered categorical observation","A; B; C; D"
+"group","character","declared comparison group","reference; comparison"
+"channel","character","sequence channel","primary"
+"weight","numeric","case weight","1"

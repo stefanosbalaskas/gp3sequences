@@ -50,3 +50,16 @@ package lacks a capability.
 - `comparator-classification-definitions.csv` defines the vocabulary.
 - `results/manuscript-comparison-table.csv` provides the compact paper table.
 - `manuscript/comparator-evidence.md` records defensible and prohibited claims.
+
+## R Journal manuscript scaffold
+
+The submission-oriented article workspace is located at
+`paper/manuscript/rjournal/`. It contains a consistently named R Markdown
+article and bibliography, verified comparison inputs, deterministic
+synthetic case-study data, reproducible refresh/render/check scripts, and a
+motivation-letter draft.
+
+The scaffold is structurally complete but is not submission-ready. The
+evaluated package case study, final figures and numerical results, final
+author affiliation, R Journal checks, and stable CRAN 0.2.0 release remain
+pending.
