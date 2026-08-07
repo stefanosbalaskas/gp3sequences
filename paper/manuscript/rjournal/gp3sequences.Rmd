@@ -133,13 +133,162 @@ knitr::kable(
 )
 ```
 
-## Planned package analysis
+## Validation and explicit preparation
 
-The current manuscript branch establishes the data and analytical plan. The
-next case-study milestone will execute the verified package workflow, freeze
-all generated numerical outputs, and replace this planning subsection with
-fully evaluated package code and interpretation.
+The synthetic input was evaluated against the neutral long-format contract
+before analysis. Preparation preserved all rows and consecutive repeats while
+recording every resolved policy. Review-severity diagnostics are reported as
+structural properties rather than silently removed.
 
+```{r evaluated-validation}
+validation_result <- read.csv("results/case-study/validation-summary.csv")
+preparation_result <- read.csv("results/case-study/preparation-decisions.csv")
+knitr::kable(
+  validation_result,
+  caption = "Validation status for the deterministic case-study data."
+)
+knitr::kable(
+  preparation_result,
+  caption = "Explicit preparation decisions applied before analysis."
+)
+```
+
+## State and transition structure
+
+The two declared groups were designed to differ structurally. Comparison
+sequences alternate primarily between states A and C, whereas reference
+sequences distribute observations across all four states. These differences
+are properties of the deterministic generator and are not estimates of an
+external population.
+
+```{r evaluated-states}
+state_result <- read.csv("results/case-study/state-summary-by-group.csv")
+knitr::kable(
+  state_result,
+  digits = 3,
+  caption = "State frequencies and proportions by declared synthetic group."
+)
+knitr::include_graphics(
+  "figures/case-study/state-distribution-by-group.png"
+)
+```
+
+```{r evaluated-transitions}
+transition_result <- read.csv("results/case-study/transition-summary-by-group.csv")
+transition_top <- transition_result[
+  order(
+    transition_result$group,
+    -transition_result$n_transitions,
+    transition_result$from_state,
+    transition_result$to_state
+  ),
+]
+transition_top <- do.call(
+  rbind,
+  lapply(split(transition_top, transition_top$group), utils::head, 6L)
+)
+knitr::kable(
+  transition_top,
+  digits = 3,
+  caption = "Most frequent adjacent transitions within each synthetic group."
+)
+```
+
+## Recurring motifs and bounded subsequences
+
+Contiguous motifs of lengths two and three and bounded noncontiguous
+two-state subsequences were extracted using declared search limits. Reported
+prevalence denotes structural recurrence across synthetic sequences; it is
+not a significance test or a substantive mechanism.
+
+```{r evaluated-patterns}
+motif_result <- read.csv("results/case-study/motif-summary-by-group.csv")
+subsequence_result <- read.csv("results/case-study/subsequence-summary-by-group.csv")
+motif_top <- do.call(
+  rbind,
+  lapply(split(motif_result, motif_result$group), utils::head, 5L)
+)
+subsequence_top <- do.call(
+  rbind,
+  lapply(split(subsequence_result, subsequence_result$group), utils::head, 5L)
+)
+knitr::kable(
+  motif_top,
+  digits = 3,
+  caption = "Most prevalent contiguous motifs within each synthetic group."
+)
+knitr::kable(
+  subsequence_top,
+  digits = 3,
+  caption = "Most prevalent bounded noncontiguous subsequences."
+)
+```
+
+## Dissimilarity and descriptive clustering
+
+Normalized Levenshtein dissimilarities were clustered hierarchically with a
+predeclared two-cluster solution. Silhouette and separation metrics are used
+as descriptive diagnostics. They do not establish latent classes or recover
+substantive types beyond the deterministic construction.
+
+```{r evaluated-clustering}
+distance_result <- read.csv("results/case-study/distance-summary.csv")
+cluster_result <- read.csv("results/case-study/cluster-validation.csv")
+cluster_composition <- read.csv("results/case-study/cluster-composition.csv")
+knitr::kable(
+  distance_result,
+  digits = 3,
+  caption = "Pairwise normalized Levenshtein dissimilarity summary."
+)
+knitr::kable(
+  cluster_result,
+  digits = 3,
+  caption = "Descriptive validation of the two-cluster solution."
+)
+knitr::kable(
+  cluster_composition,
+  digits = 3,
+  caption = "Declared-group composition of the resulting clusters."
+)
+knitr::include_graphics(
+  "figures/case-study/cluster-silhouette.png"
+)
+```
+
+## Transition network and declared group contrast
+
+A first-order directed transition network summarizes structural connectivity.
+The group contrast was declared as observational and uses the sequence as the
+independent unit. Its permutation p-value tests an exchangeability-based
+association in the synthetic data; causal interpretation is explicitly
+unsupported.
+
+```{r evaluated-network-inference}
+centrality_result <- read.csv("results/case-study/transition-centrality.csv")
+inference_result <- read.csv("results/case-study/group-inference.csv")
+knitr::kable(
+  centrality_result,
+  digits = 3,
+  caption = "Structural centrality in the pooled first-order transition network."
+)
+knitr::kable(
+  inference_result,
+  digits = 3,
+  caption = "Declared observational contrast in sequence-level prevalence of state A."
+)
+knitr::include_graphics(
+  "figures/case-study/state-a-prevalence-by-group.png"
+)
+```
+
+## Reproducibility and interpretation boundary
+
+All tables and figures in this section are regenerated by
+`scripts/06-run-evaluated-case-study.R`. A manifest records file hashes,
+row counts, package version, canonical content hashes, repository base commit, analysis-script hash, and the fixed analysis seed.
+The evaluated workflow demonstrates package behavior under known synthetic
+structure; it does not supply empirical evidence about people, behavior, or
+causal processes.
 # Discussion
 
 The package addresses a practical gap between specialist analytical methods
@@ -156,13 +305,14 @@ to subsume all specialist methods.
 
 # Limitations
 
-The manuscript currently uses a deterministic synthetic case study and does
-not yet report frozen end-to-end analytical results. Some specialist
-capabilities are available only through optional packages, and documented
-absence in reviewed sources is not equivalent to proof of nonexistence.
-Submission also remains gated on a stable CRAN release matching the version
-described in the article.
-
+The case study is deterministic and synthetic, so its numerical separation
+reflects the known generator rather than sampling from an external
+population. The evaluated workflow is intended to test integration,
+reproducibility, diagnostics, and interpretation boundaries. Some specialist
+capabilities remain available only through optional packages, and documented
+absence in reviewed sources is not proof of feature nonexistence. Submission
+also remains gated on a stable CRAN release matching the version described
+in the article.
 # Reproducibility statement
 
 All manuscript data, scripts, comparison evidence, and generated results are

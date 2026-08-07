@@ -1,0 +1,17 @@
+"group","subsequence","subsequence_length","occurrence_count","sequence_count","sequence_prevalence"
+"comparison","A > C",2,432,36,1
+"comparison","C > A",2,432,36,1
+"comparison","A > A",2,378,36,1
+"comparison","C > C",2,378,36,1
+"reference","A > B",2,180,36,1
+"reference","B > C",2,180,36,1
+"reference","B > D",2,180,36,1
+"reference","C > D",2,180,36,1
+"reference","D > A",2,180,36,1
+"reference","D > B",2,180,36,1
+"reference","A > C",2,162,36,1
+"reference","C > A",2,162,36,1
+"reference","A > D",2,54,36,1
+"reference","B > A",2,54,36,1
+"reference","C > B",2,54,36,1
+"reference","D > C",2,54,36,1

@@ -1,0 +1,31 @@
+"group","motif","motif_length","n_occurrences","sequence_count","sequence_prevalence"
+"comparison","A > C",2,396,36,1
+"comparison","C > A",2,396,36,1
+"comparison","A > C > A",3,360,36,1
+"comparison","C > A > C",3,360,36,1
+"comparison","A > A",2,18,18,0.5
+"comparison","C > C",2,18,18,0.5
+"comparison","A > A > C",3,18,18,0.5
+"comparison","A > C > C",3,18,18,0.5
+"comparison","C > A > A",3,18,18,0.5
+"comparison","C > C > A",3,18,18,0.5
+"reference","A > B",2,180,36,1
+"reference","B > C",2,180,36,1
+"reference","C > D",2,180,36,1
+"reference","D > A",2,180,36,1
+"reference","A > B > C",3,144,36,1
+"reference","B > C > D",3,144,36,1
+"reference","C > D > A",3,144,36,1
+"reference","D > A > B",3,144,36,1
+"reference","B > D",2,36,36,1
+"reference","D > B",2,36,36,1
+"reference","A > B > D",3,36,36,1
+"reference","B > D > A",3,36,36,1
+"reference","C > D > B",3,36,36,1
+"reference","D > B > C",3,36,36,1
+"reference","A > C",2,18,18,0.5
+"reference","C > A",2,18,18,0.5
+"reference","A > C > D",3,18,18,0.5
+"reference","B > C > A",3,18,18,0.5
+"reference","C > A > B",3,18,18,0.5
+"reference","D > A > C",3,18,18,0.5

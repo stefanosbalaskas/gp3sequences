@@ -63,3 +63,15 @@ The scaffold is structurally complete but is not submission-ready. The
 evaluated package case study, final figures and numerical results, final
 author affiliation, R Journal checks, and stable CRAN 0.2.0 release remain
 pending.
+
+## Evaluated R Journal case study
+
+The deterministic manuscript case study has been executed and frozen under
+`paper/manuscript/rjournal/results/case-study/` and
+`paper/manuscript/rjournal/figures/case-study/`. It covers validation,
+preparation, state and transition summaries, motifs, bounded subsequences,
+dissimilarity, clustering, transition networks, structural centrality, and
+an explicitly observational permutation contrast.
+
+The remaining article gates are rendering, official R Journal checks, final
+affiliation and copyediting, and a stable CRAN 0.2.0 release.

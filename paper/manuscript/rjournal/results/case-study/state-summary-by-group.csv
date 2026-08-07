@@ -1,0 +1,7 @@
+"group","state","n_observations","group_observations","observation_proportion"
+"comparison","A",432,864,0.5
+"comparison","C",432,864,0.5
+"reference","A",216,864,0.25
+"reference","B",216,864,0.25
+"reference","C",216,864,0.25
+"reference","D",216,864,0.25

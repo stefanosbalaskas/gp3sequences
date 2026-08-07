@@ -13,6 +13,7 @@ Package: `gp3sequences` 0.2.0.9000
 | R Journal manuscript | NOT STARTED | PDF and HTML render from R Markdown |
 | Submission audit | NOT STARTED | `rjtools::initial_check_article()` passes |
 | R Journal manuscript scaffold | COMPLETE | Rmd, bibliography, scripts, verified table inputs, and deterministic case-study skeleton created |
+| Evaluated R Journal case study | COMPLETE | Deterministic workflow executed; tables, figures, inference, manifest, and manuscript integration frozen |
 
 The package is ready for manuscript development. Submission remains blocked
 until CRAN 0.2.0, comparison evidence, benchmarks, and replication are complete.
