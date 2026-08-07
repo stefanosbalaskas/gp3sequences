@@ -33,7 +33,7 @@ handoffs relevant to the current gp3sequences development series."><meta propert
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Report gp3sequences capabilities and optional integrations</h1>
-      <small class="dont-index">Source: <a href="https://github.com/stefanosbalaskas/gp3sequences/blob/HEAD/R/sequence-capabilities.R" class="external-link"><code>R/sequence-capabilities.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/stefanosbalaskas/gp3sequences/blob/master/R/sequence-capabilities.R" class="external-link"><code>R/sequence-capabilities.R</code></a></small>
       <div class="d-none name"><code>sequence_capabilities.Rd</code></div>
     </div>
 
@@ -70,9 +70,45 @@ attaches, or loads optional packages.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">capabilities</span> <span class="op">&lt;-</span> <span class="fu">sequence_capabilities</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in sequence_capabilities():</span> could not find function "sequence_capabilities"</span>
 <span class="r-in"><span><span class="va">capabilities</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"family"</span>, <span class="st">"capability"</span>, <span class="st">"role"</span>, <span class="st">"available"</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in capabilities[c("family", "capability", "role", "available")]:</span> object of type 'closure' is not subsettable</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    family                                capability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1              Clustering           Native clustering and stability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           Data contract                Validation and preparation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3               Distances                 Native sequence distances</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4               Distances             Reference distance validation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                Graphics                     Sequence-plot handoff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                Graphics                Seriation/ordering handoff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                    HMMs                  HMM reference validation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                    HMMs                   Native categorical HMMs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9               Inference Permutation/distance reference validation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10            Missingness               Sequence-imputation handoff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Model-based clustering Specialist model-based clustering handoff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12               Networks                    Graph interoperability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13               Networks             Markov-chain interoperability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14               Networks                Native transition networks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15               Patterns     Frequent pattern reference validation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16               Patterns       String/AOI pattern interoperability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17            Performance                              Benchmarking</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18       Property testing                    Property-based testing</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               role available</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           native     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           native      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3           native      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4        reference     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          handoff      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          handoff     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        reference      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8           native      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        reference     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10         handoff     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11         handoff     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12         adapter      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 planned_adapter     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14          native      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15       reference      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16         adapter      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17     development     FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18     development     FALSE</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
