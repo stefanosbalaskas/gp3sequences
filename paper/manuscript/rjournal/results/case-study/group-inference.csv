@@ -1,0 +1,2 @@
+"group_1","group_2","mean_group_1","mean_group_2","difference_group_2_minus_group_1","p_value","alternative","n_permutations","lower","upper","level","n_boot","interpretation"
+"comparison","reference",0.5,0.25,-0.25,0.001,"two.sided",999,-0.25,-0.25,0.95,999,"Associational permutation contrast; causal interpretation is not supported."

@@ -1,0 +1,2 @@
+"n_sequences","n_clusters","average_silhouette","minimum_silhouette","dunn_index","within_between_ratio","singleton_clusters"
+72,2,0.803361,0.697479,1.7,0.196639,0

@@ -1,0 +1,13 @@
+"group","from_state","to_state","n_transitions","origin_total","origin_transition_proportion"
+"comparison","A","A",18,414,0.043478
+"comparison","A","C",396,414,0.956522
+"comparison","C","A",396,414,0.956522
+"comparison","C","C",18,414,0.043478
+"reference","A","B",180,198,0.909091
+"reference","A","C",18,198,0.090909
+"reference","B","C",180,216,0.833333
+"reference","B","D",36,216,0.166667
+"reference","C","A",18,198,0.090909
+"reference","C","D",180,198,0.909091
+"reference","D","A",180,216,0.833333
+"reference","D","B",36,216,0.166667

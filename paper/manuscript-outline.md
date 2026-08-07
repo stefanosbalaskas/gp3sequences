@@ -68,3 +68,19 @@ outputs, session information, open data, and generated figures.
 
 The next manuscript milestone will execute and freeze the complete package
 case study rather than adding public functions solely for the article.
+
+## Evaluated-case-study mapping
+
+| Evidence component | Frozen location |
+|---|---|
+| Validation and preparation | `paper/manuscript/rjournal/results/case-study/validation-summary.csv` |
+| State and transition summaries | `paper/manuscript/rjournal/results/case-study/` |
+| Motifs and subsequences | `paper/manuscript/rjournal/results/case-study/` |
+| Dissimilarity and clustering | `paper/manuscript/rjournal/results/case-study/` |
+| Transition network and centrality | `paper/manuscript/rjournal/results/case-study/` |
+| Observational permutation contrast | `paper/manuscript/rjournal/results/case-study/group-inference.csv` |
+| Reproducible figures | `paper/manuscript/rjournal/figures/case-study/` |
+| Provenance manifest | `paper/manuscript/rjournal/results/case-study/case-study-manifest.csv` |
+
+The next manuscript milestone will render the article and run the official
+R Journal checks without changing the public package API.

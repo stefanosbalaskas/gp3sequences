@@ -79,6 +79,7 @@ stopifnot(
 
 source("dev/validation/audit-comparator-matrix.R")
 source("dev/validation/audit-rjournal-manuscript-scaffold.R")
+source("dev/validation/audit-rjournal-evaluated-case-study.R")
 
 release_ready <- identical(version, "0.2.0")
 
