@@ -2,6 +2,7 @@
 title: "gp3sequences: Transparent, Reproducible, and Auditable Analysis of Ordered Categorical Sequences in R"
 abstract: >
   Ordered categorical sequences arise in longitudinal, behavioral, interaction, and process data, but reproducible analysis often requires researchers to coordinate incompatible representations, preprocessing choices, specialist methods, and reporting conventions. gp3sequences is an R package for transparent, reproducible, and auditable analysis of ordered categorical sequences stored in ordinary long-format data frames. It integrates explicit validation and preparation, descriptive summaries, contiguous and bounded noncontiguous pattern extraction, sequence dissimilarities, clustering and stability assessment, transition networks, higher-order and time-varying models, categorical hidden Markov models, declared-design inference, and guarded interoperability with specialist software. Common result structures retain settings, diagnostics, capabilities, provenance, and interpretation boundaries across analytical families. The package is positioned as an integration and audit layer rather than a replacement for specialist packages. A deterministic synthetic case study demonstrates the intended end-to-end workflow, while a primary-source-backed comparison clarifies overlap and delegation across seven established sequence-analysis packages. The software is designed to make analytical decisions inspectable and replayable without treating structural sequence outputs as evidence of psychological mechanisms or causal processes.
+date: "2026-08-07"
 author:
   - name: Stefanos Balaskas
     affiliation: "Affiliation to be confirmed before submission"
@@ -85,7 +86,7 @@ knitr::kable(
     "gp3sequences_functions",
     "scaffold_status"
   )],
-  caption = "Planned integrated case-study workflow."
+  caption = "Integrated evaluated case-study workflow."
 )
 ```
 
@@ -161,7 +162,7 @@ sequences distribute observations across all four states. These differences
 are properties of the deterministic generator and are not estimates of an
 external population.
 
-```{r evaluated-states}
+```{r evaluated-states, fig.alt="Grouped bars show equal A and C proportions in comparison sequences and equal A, B, C, and D proportions in reference sequences."}
 state_result <- read.csv("results/case-study/state-summary-by-group.csv")
 knitr::kable(
   state_result,
@@ -231,7 +232,7 @@ predeclared two-cluster solution. Silhouette and separation metrics are used
 as descriptive diagnostics. They do not establish latent classes or recover
 substantive types beyond the deterministic construction.
 
-```{r evaluated-clustering}
+```{r evaluated-clustering, fig.alt="Silhouette bars are positive for all 72 sequences and indicate strong separation in the predeclared two-cluster solution."}
 distance_result <- read.csv("results/case-study/distance-summary.csv")
 cluster_result <- read.csv("results/case-study/cluster-validation.csv")
 cluster_composition <- read.csv("results/case-study/cluster-composition.csv")
@@ -263,7 +264,7 @@ independent unit. Its permutation p-value tests an exchangeability-based
 association in the synthetic data; causal interpretation is explicitly
 unsupported.
 
-```{r evaluated-network-inference}
+```{r evaluated-network-inference, fig.alt="Boxplots show a higher sequence-level prevalence of state A in the comparison group than in the reference group."}
 centrality_result <- read.csv("results/case-study/transition-centrality.csv")
 inference_result <- read.csv("results/case-study/group-inference.csv")
 knitr::kable(

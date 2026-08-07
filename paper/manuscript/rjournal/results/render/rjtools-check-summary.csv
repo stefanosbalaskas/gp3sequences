@@ -1,0 +1,2 @@
+"successes","notes","warnings","accepted_warnings","unresolved_warnings","errors","pdf_pages","checked_on","rjtools_version","date_check"
+13,1,1,1,0,0,13,"2026-08-07","1.0.21","path-safe equivalent of rjtools::check_date()"

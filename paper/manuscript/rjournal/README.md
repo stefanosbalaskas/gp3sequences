@@ -13,8 +13,8 @@ Ordered Categorical Sequences in R**
 - case-study analytical plan: executed
 - evaluated package case study: complete and frozen
 - final author affiliation and address: pending
-- HTML/PDF rendering: pending after frozen-output review
-- `rjtools` initial checks: pending until a `.tex` file exists
+- HTML/PDF rendering: complete (13-page local build)
+- R Journal automated checks: 0 errors, 0 unresolved warnings; 1 documented `Rjournal.sty` template warning
 - CRAN 0.2.0 submission gate: blocked
 
 ## Structure
@@ -65,5 +65,11 @@ The manifest records canonical MD5 hashes and byte counts: text files are
 normalized to LF before hashing, while binary files retain raw-byte hashes.
 It also records the repository base commit and the canonical MD5 of the
 analysis script used to generate the frozen outputs.
-NA
-analysis script used to generate the frozen outputs.
+
+## Local rendered paper
+
+The real article products are generated under the ignored `build/`
+directory. A successful run creates `gp3sequences.pdf`,
+`gp3sequences.html`, `gp3sequences.tex`, and `gp3sequences.R`, together
+with compact render and R Journal check reports. These products are local
+submission artifacts and are not included in the R package tarball.

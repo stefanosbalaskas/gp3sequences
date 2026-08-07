@@ -20,7 +20,8 @@ required <- file.path(article_dir, c(
   "scripts/02-build-case-study-data.R",
   "scripts/03-refresh-session-info.R",
   "scripts/04-render-article.R",
-  "scripts/05-check-article.R"
+  "scripts/05-check-article.R",
+  "scripts/07-render-and-check-article.R"
 ))
 
 missing <- required[!file.exists(required)]
@@ -124,6 +125,21 @@ generated_outputs <- list.files(
   full.names = TRUE,
   ignore.case = TRUE
 )
+
+if (length(generated_outputs) > 0L) {
+  article_norm <- normalizePath(
+    article_dir,
+    winslash = "/",
+    mustWork = TRUE
+  )
+  generated_relative <- substring(
+    normalizePath(generated_outputs, winslash = "/", mustWork = TRUE),
+    nchar(article_norm) + 2L
+  )
+  generated_outputs <- generated_outputs[
+    !startsWith(generated_relative, "build/")
+  ]
+}
 
 stopifnot(length(generated_outputs) == 0L)
 

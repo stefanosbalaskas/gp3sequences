@@ -1,0 +1,5 @@
+"output","bytes","md5","build_date","source_commit","r_version","rjtools_version","rmarkdown_version","pandoc_version"
+"gp3sequences.pdf",159958,"ee223818ba254e9e15d300ec22be2860","2026-08-07","b5e79b8fea7ac05ea5f0f72d48ea435cb9bca358","R version 4.6.1 (2026-06-24 ucrt)","1.0.21","2.31","3.10"
+"gp3sequences.html",603690,"fc59842085cfb76443316eae16cb4949","2026-08-07","b5e79b8fea7ac05ea5f0f72d48ea435cb9bca358","R version 4.6.1 (2026-06-24 ucrt)","1.0.21","2.31","3.10"
+"gp3sequences.tex",26359,"58b47c3343c0e4562e1c9767c4e7001b","2026-08-07","b5e79b8fea7ac05ea5f0f72d48ea435cb9bca358","R version 4.6.1 (2026-06-24 ucrt)","1.0.21","2.31","3.10"
+"gp3sequences.R",5344,"f00a3264c91ce26b50de8267ccaf115a","2026-08-07","b5e79b8fea7ac05ea5f0f72d48ea435cb9bca358","R version 4.6.1 (2026-06-24 ucrt)","1.0.21","2.31","3.10"
