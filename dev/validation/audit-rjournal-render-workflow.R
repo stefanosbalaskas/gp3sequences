@@ -1,4 +1,41 @@
-setwd("C:/Users/Stefanos-PC/Documents/Rstudio/gp3sequences")
+find_repo_root <- function(start = getwd()) {
+  current <- normalizePath(start, winslash = "/", mustWork = TRUE)
+
+  repeat {
+    description <- file.path(current, "DESCRIPTION")
+
+    if (file.exists(description)) {
+      metadata <- tryCatch(
+        read.dcf(description),
+        error = function(e) NULL
+      )
+
+      if (
+        !is.null(metadata) &&
+        "Package" %in% colnames(metadata) &&
+        identical(
+          unname(metadata[1L, "Package"]),
+          "gp3sequences"
+        )
+      ) {
+        return(current)
+      }
+    }
+
+    parent <- dirname(current)
+
+    if (identical(parent, current)) {
+      stop(
+        "Could not locate the gp3sequences repository root.",
+        call. = FALSE
+      )
+    }
+
+    current <- parent
+  }
+}
+
+setwd(find_repo_root())
 
 article_dir <- file.path("paper", "manuscript", "rjournal")
 build_dir <- file.path(article_dir, "build")
@@ -54,18 +91,43 @@ stopifnot(
   any(readme == "## Local rendered paper")
 )
 
+# Regenerate the manuscript and R Journal checks from the current
+# repository source before validating any generated evidence.
+source(file.path(article_dir, "scripts", "07-render-and-check-article.R"))
+
+local_evidence_dir <- file.path(build_dir, "evidence")
+
+required_local <- c(
+  file.path(build_dir, c(
+    "gp3sequences.pdf",
+    "gp3sequences.html",
+    "gp3sequences.tex",
+    "gp3sequences.R"
+  )),
+  file.path(local_evidence_dir, c(
+    "render-summary.csv",
+    "rjtools-check-summary.csv",
+    "rjtools-check-results.csv"
+  ))
+)
+
+stopifnot(
+  all(file.exists(required_local)),
+  all(file.info(required_local)$size > 0L)
+)
+
 render_summary <- read.csv(
-  file.path(results_dir, "render-summary.csv"),
+  file.path(local_evidence_dir, "render-summary.csv"),
   stringsAsFactors = FALSE
 )
 
 check_summary <- read.csv(
-  file.path(results_dir, "rjtools-check-summary.csv"),
+  file.path(local_evidence_dir, "rjtools-check-summary.csv"),
   stringsAsFactors = FALSE
 )
 
 check_results <- read.csv(
-  file.path(results_dir, "rjtools-check-results.csv"),
+  file.path(local_evidence_dir, "rjtools-check-results.csv"),
   stringsAsFactors = FALSE
 )
 
@@ -149,24 +211,8 @@ if (length(generated_outputs) > 0L) {
   stopifnot(length(outside_build) == 0L)
 }
 
-required_local <- c(
-  file.path(build_dir, c(
-    "gp3sequences.pdf",
-    "gp3sequences.html",
-    "gp3sequences.tex",
-    "gp3sequences.R"
-  )),
-  file.path(build_dir, "evidence", c(
-    "render-summary.csv",
-    "rjtools-check-summary.csv",
-    "rjtools-check-results.csv"
-  ))
-)
-
-stopifnot(
-  all(file.exists(required_local)),
-  all(file.info(required_local)$size > 0L)
-)
+# Current local render/check artefacts were generated and
+# validated before the evidence tables were read above.
 
 cat(
   "PASS: R Journal render-and-check workflow is complete.\n",

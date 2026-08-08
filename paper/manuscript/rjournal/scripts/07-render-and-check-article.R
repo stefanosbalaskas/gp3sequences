@@ -19,18 +19,10 @@ root <- find_repo_root()
 article_dir <- file.path(root, "paper", "manuscript", "rjournal")
 build_dir <- file.path(article_dir, "build")
 
-required_render <- file.path(build_dir, c(
-  "gp3sequences.pdf",
-  "gp3sequences.html",
-  "gp3sequences.tex",
-  "gp3sequences.R"
-))
-
-if (!all(file.exists(required_render))) {
-  source(file.path(article_dir, "scripts", "04-render-article.R"))
-} else {
-  cat("Using existing successful local article render.\n")
-}
+# Always rebuild from the current repository source.
+# Reusing an earlier build can silently validate stale manuscript
+# artefacts after the source, bibliography, or case study changes.
+source(file.path(article_dir, "scripts", "04-render-article.R"))
 
 source(file.path(article_dir, "scripts", "05-check-article.R"))
 

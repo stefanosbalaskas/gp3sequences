@@ -96,6 +96,35 @@ options(
   check.log.output = "cli"
 )
 
+# The two CRAN-availability checks require a concrete repository URL.
+# Rscript --vanilla may expose the unresolved @CRAN@ placeholder.
+# Scope any temporary mirror configuration to the individual check so
+# the caller's repository options are restored even when that check fails.
+with_cran_repo <- function(fun, ...) {
+  old_repos <- getOption("repos")
+  on.exit(options(repos = old_repos), add = TRUE)
+
+  check_repos <- old_repos
+
+  if (is.null(check_repos) || length(check_repos) == 0L) {
+    check_repos <- c(CRAN = "https://cloud.r-project.org")
+  } else if (is.null(names(check_repos)) || !"CRAN" %in% names(check_repos)) {
+    check_repos <- c(
+      CRAN = "https://cloud.r-project.org",
+      check_repos
+    )
+  } else if (
+    is.na(check_repos[["CRAN"]]) ||
+    !nzchar(check_repos[["CRAN"]]) ||
+    identical(check_repos[["CRAN"]], "@CRAN@")
+  ) {
+    check_repos[["CRAN"]] <- "https://cloud.r-project.org"
+  }
+
+  options(repos = check_repos)
+  fun(...)
+}
+
 checks <- list(
   check_filenames = function() rjtools::check_filenames(build_dir_abs),
   check_structure = function() rjtools::check_structure(build_dir_abs),
@@ -112,12 +141,14 @@ checks <- list(
     build_dir_abs,
     dic = "en_US"
   ),
-  check_proposed_pkg = function() rjtools::check_proposed_pkg(
+  check_proposed_pkg = function() with_cran_repo(
+    rjtools::check_proposed_pkg,
     "gp3sequences",
     ask = FALSE
   ),
   check_pkg_label = function() rjtools::check_pkg_label(build_dir_abs),
-  check_packages_available = function() rjtools::check_packages_available(
+  check_packages_available = function() with_cran_repo(
+    rjtools::check_packages_available,
     build_dir_abs,
     ignore = "gp3sequences"
   ),

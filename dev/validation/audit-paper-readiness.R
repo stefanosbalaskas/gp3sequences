@@ -1,4 +1,41 @@
-setwd("C:/Users/Stefanos-PC/Documents/Rstudio/gp3sequences")
+find_repo_root <- function(start = getwd()) {
+  current <- normalizePath(start, winslash = "/", mustWork = TRUE)
+
+  repeat {
+    description <- file.path(current, "DESCRIPTION")
+
+    if (file.exists(description)) {
+      metadata <- tryCatch(
+        read.dcf(description),
+        error = function(e) NULL
+      )
+
+      if (
+        !is.null(metadata) &&
+        "Package" %in% colnames(metadata) &&
+        identical(
+          unname(metadata[1L, "Package"]),
+          "gp3sequences"
+        )
+      ) {
+        return(current)
+      }
+    }
+
+    parent <- dirname(current)
+
+    if (identical(parent, current)) {
+      stop(
+        "Could not locate the gp3sequences repository root.",
+        call. = FALSE
+      )
+    }
+
+    current <- parent
+  }
+}
+
+setwd(find_repo_root())
 
 required <- c(
   ".Rbuildignore",
