@@ -72,7 +72,7 @@ rmd <- readLines(
 )
 
 stopifnot(
-  any(rmd == 'date: "2026-08-07"'),
+  any(rmd == 'date: "2026-08-09"'),
   any(grepl("^```\\{r evaluated-states,", rmd) & grepl("fig.alt=", rmd, fixed = TRUE)),
   any(grepl("^```\\{r evaluated-clustering,", rmd) & grepl("fig.alt=", rmd, fixed = TRUE)),
   any(grepl("^```\\{r evaluated-network-inference,", rmd) & grepl("fig.alt=", rmd, fixed = TRUE)),
