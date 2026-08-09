@@ -15,9 +15,10 @@ not replacement of established specialist packages. A primary-source-backed
 comparison defines the boundaries between gp3sequences and TraMineR, seqHMM,
 arulesSequences, WeightedCluster, ClickClust, PST, and march.
 
-The final submission will provide fully reproducible code, deterministic
-example data, generated tables and figures, and a stable CRAN release matching
-the version described in the article.
+The submission provides reproducible code, deterministic example data,
+generated tables and figures, and an explicit software-version boundary.
+gp3sequences is publicly available through CRAN, while the evaluated
+development snapshot is identified by package version and repository commit.
 
 [Confirm before submission: the manuscript is not submitted elsewhere.]
 
@@ -25,4 +26,4 @@ Sincerely,
 
 Stefanos Balaskas
 
-[Affiliation and address to be confirmed before submission]
+eGovernment & eCommerce Lab (Innovation & Entrepreneurship), Department of Business Administration, University of Patras, 26504 Patras, Greece; s.balaskas@ac.upatras.gr

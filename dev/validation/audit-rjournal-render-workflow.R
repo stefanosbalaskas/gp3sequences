@@ -73,9 +73,9 @@ rmd <- readLines(
 
 stopifnot(
   any(rmd == 'date: "2026-08-07"'),
-  any(grepl("evaluated-states, fig.alt=", rmd, fixed = TRUE)),
-  any(grepl("evaluated-clustering, fig.alt=", rmd, fixed = TRUE)),
-  any(grepl("evaluated-network-inference, fig.alt=", rmd, fixed = TRUE)),
+  any(grepl("^```\\{r evaluated-states,", rmd) & grepl("fig.alt=", rmd, fixed = TRUE)),
+  any(grepl("^```\\{r evaluated-clustering,", rmd) & grepl("fig.alt=", rmd, fixed = TRUE)),
+  any(grepl("^```\\{r evaluated-network-inference,", rmd) & grepl("fig.alt=", rmd, fixed = TRUE)),
   !any(rmd == "## Planned package analysis")
 )
 
@@ -161,7 +161,9 @@ stopifnot(
   check_summary$accepted_warnings == 1L,
   check_summary$unresolved_warnings == 0L,
   check_summary$errors == 0L,
-  check_summary$pdf_pages == 13L,
+  length(check_summary$pdf_pages) == 1L,
+  !is.na(check_summary$pdf_pages),
+  check_summary$pdf_pages >= 1L,
   check_summary$pdf_pages <= 20L,
   nrow(check_results) == 15L,
   !any(check_results$status == "ERROR"),

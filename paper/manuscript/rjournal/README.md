@@ -1,21 +1,21 @@
 # gp3sequences R Journal manuscript
 
-This directory contains the submission-oriented manuscript scaffold for:
+This directory contains the submission-oriented manuscript workspace for:
 
 **gp3sequences: Transparent, Reproducible, and Auditable Analysis of
 Ordered Categorical Sequences in R**
 
 ## Current state
 
-- R Journal R Markdown scaffold: complete
+- R Journal R Markdown manuscript: active editorial revision
 - verified software-comparison data: connected
 - deterministic case-study data: created
 - case-study analytical plan: executed
 - evaluated package case study: complete and frozen
-- final author affiliation and address: pending
+- final author affiliation and address: complete
 - HTML/PDF rendering: complete (13-page local build)
 - R Journal automated checks: 0 errors, 0 unresolved warnings; 1 documented `Rjournal.sty` template warning
-- CRAN 0.2.0 submission gate: blocked
+- software-version boundary: CRAN 0.1.0 available; evaluated manuscript snapshot 0.2.0.9000
 
 ## Structure
 

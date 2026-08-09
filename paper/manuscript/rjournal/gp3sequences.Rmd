@@ -5,11 +5,11 @@ abstract: >
 date: "2026-08-07"
 author:
   - name: Stefanos Balaskas
-    affiliation: "Affiliation to be confirmed before submission"
-    address: "Greece"
+    affiliation: "eGovernment & eCommerce Lab (Innovation & Entrepreneurship), Department of Business Administration, University of Patras"
+    address: "26504 Patras, Greece"
     url: "https://sites.google.com/view/stefbalaskas/"
     orcid: "0000-0003-2444-9796"
-    email: "stefbalaskas@gmail.com"
+    email: "s.balaskas@ac.upatras.gr"
 output:
   rjtools::rjournal_article:
     toc: false
@@ -19,57 +19,572 @@ bibliography: gp3sequences.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = TRUE,
+  echo = FALSE,
   message = FALSE,
   warning = FALSE,
-  fig.path = "figures/"
+  fig.path = "figures/",
+  fig.align = "center"
 )
+
 options(width = 80)
+
+# Publication-only table formatting; analytical objects are unchanged.
+journal_table <- function(x, caption = NULL, digits = 3L, ...) {
+  x <- as.data.frame(x, check.names = FALSE)
+  row.names(x) <- NULL
+
+  # FINAL PUBLICATION DISPLAY TRANSFORMS
+  # These alter printed presentation only; source evidence remains unchanged.
+
+  normalise_display_name <- function(z) {
+    z <- gsub("[^A-Za-z0-9]+", "_", z)
+    z <- gsub("^_+|_+$", "", z)
+    tolower(z)
+  }
+
+  # Table 2: concise three-column publication positioning.
+  if (identical(
+    caption,
+    "Primary-source-backed positioning of gp3sequences and specialist comparators."
+  )) {
+
+    package_col <- which(
+      normalise_display_name(names(x)) == "package"
+    )
+
+    stopifnot(length(package_col) == 1L)
+
+    compact_comparison <- data.frame(
+      Package = c(
+        "gp3sequences",
+        "TraMineR",
+        "seqHMM",
+        "arulesSequences",
+        "WeightedCluster",
+        "ClickClust",
+        "PST",
+        "march"
+      ),
+      Specialist.role = c(
+        "Integrated auditable sequence workflows",
+        "State sequences, visualization, and dissimilarities",
+        "Categorical and mixture hidden Markov models",
+        "Frequent sequential-pattern mining",
+        "Clustering and typology validation",
+        "Finite-mixture Markov clustering",
+        "Probabilistic suffix trees",
+        "Markov-family models"
+      ),
+      Positioning.relative.to.gp3sequences = c(
+        "Focal integration and audit layer; structural outputs are not psychological or causal evidence",
+        "Specialist state-sequence environment; no equivalent cross-family audit layer documented",
+        "Specialist latent-state engine; not a general motif, distance, or network workflow",
+        "Specialist pattern-mining engine; not a general sequence-analysis workflow",
+        "Specialist clustering engine focused on clustering and typology validation",
+        "Specialist model-based clustering engine focused on finite-mixture Markov clustering",
+        "Specialist variable-memory engine focused on suffix-tree models",
+        "Specialist Markov modelling engine focused on Markov-family models"
+      ),
+      stringsAsFactors = FALSE,
+      check.names = FALSE
+    )
+
+    names(compact_comparison) <- c(
+      "Package",
+      "Specialist role",
+      "Positioning"
+    )
+
+    package_values <- as.character(
+      x[[package_col]]
+    )
+
+    order_idx <- match(
+      package_values,
+      compact_comparison$Package
+    )
+
+    stopifnot(
+      !anyNA(order_idx),
+      length(order_idx) == nrow(x)
+    )
+
+    x <- compact_comparison[
+      order_idx,
+      ,
+      drop = FALSE
+    ]
+  }
+
+  # TABLE 1 DISPLAY ROW EXPANSION
+  # Display only: underlying workflow CSV remains unchanged.
+  if (identical(
+    caption,
+    "Integrated evaluated case-study workflow."
+  )) {
+
+    nms <- normalise_display_name(names(x))
+
+    stage_col <- which(nms == "stage")
+    step_col <- which(nms == "manuscript_step")
+    function_col <- which(nms == "gp3sequences_functions")
+
+    stopifnot(
+      length(stage_col) == 1L,
+      length(step_col) == 1L,
+      length(function_col) == 1L
+    )
+
+    function_parts <- strsplit(
+      as.character(x[[function_col]]),
+      ";[[:space:]]*",
+      perl = TRUE
+    )
+
+    function_parts <- lapply(
+      function_parts,
+      trimws
+    )
+
+    stopifnot(
+      all(lengths(function_parts) >= 1L),
+      all(vapply(
+        function_parts,
+        function(z) all(nzchar(z)),
+        logical(1L)
+      ))
+    )
+
+    source_row <- rep(
+      seq_len(nrow(x)),
+      lengths(function_parts)
+    )
+
+    continuation <- unlist(
+      lapply(
+        lengths(function_parts),
+        function(n) seq_len(n) > 1L
+      ),
+      use.names = FALSE
+    )
+
+    expanded <- x[
+      source_row,
+      ,
+      drop = FALSE
+    ]
+
+    expanded[[function_col]] <- unlist(
+      function_parts,
+      use.names = FALSE
+    )
+
+    expanded[[stage_col]] <- as.character(
+      expanded[[stage_col]]
+    )
+
+    expanded[[step_col]] <- as.character(
+      expanded[[step_col]]
+    )
+
+    expanded[[stage_col]][continuation] <- ""
+    expanded[[step_col]][continuation] <- ""
+
+    row.names(expanded) <- NULL
+    x <- expanded
+  }
+
+  # Table 5: turn internal policy tokens into reader-facing labels.
+  if (identical(
+    caption,
+    "Explicit preparation decisions applied before analysis."
+  )) {
+
+    nms <- normalise_display_name(names(x))
+
+    step_col <- which(nms == "step")
+    policy_col <- which(nms == "policy")
+
+    stopifnot(
+      length(step_col) == 1L,
+      length(policy_col) == 1L
+    )
+
+    x[[step_col]] <- tools::toTitleCase(
+      gsub(
+        "_",
+        " ",
+        as.character(x[[step_col]]),
+        fixed = TRUE
+      )
+    )
+
+    x[[policy_col]] <- tools::toTitleCase(
+      gsub(
+        "_",
+        " ",
+        as.character(x[[policy_col]]),
+        fixed = TRUE
+      )
+    )
+  }
+
+  # Tables 8 and 9: shorten technical display headings.
+  if (caption %in% c(
+    "Most prevalent contiguous motifs within each synthetic group.",
+    "Most prevalent bounded noncontiguous subsequences."
+  )) {
+
+    nms <- normalise_display_name(names(x))
+
+    replacements <- c(
+      motif_length = "Length",
+      subsequence_length = "Length",
+      n_occurrences = "Occurrences",
+      occurrence_count = "Occurrences",
+      sequence_count = "Sequences",
+      n_sequences = "Sequences",
+      sequence_prevalence = "Prevalence"
+    )
+
+    for (key in names(replacements)) {
+      hit <- which(nms == key)
+
+      if (length(hit) == 1L) {
+        names(x)[[hit]] <- replacements[[key]]
+      }
+    }
+  }
+
+  # Table 14: compact inferential summary for the article.
+  if (identical(
+    caption,
+    "Declared observational contrast in sequence-level prevalence of state A."
+  )) {
+
+    nms <- normalise_display_name(names(x))
+
+    pick_one <- function(pattern) {
+      hit <- grep(pattern, nms, perl = TRUE)
+
+      if (length(hit) != 1L) {
+        stop(
+          paste0(
+            "Could not uniquely identify inference column: ",
+            pattern
+          ),
+          call. = FALSE
+        )
+      }
+
+      hit
+    }
+
+    group1_col <- pick_one("^group_?1$")
+    group2_col <- pick_one("^group_?2$")
+    mean1_col <- pick_one("^mean(_group)?_?1$")
+    mean2_col <- pick_one("^mean(_group)?_?2$")
+    diff_col <- pick_one(
+      "^difference(_group)?_?2_minus(_group)?_?1$|^difference$"
+    )
+    p_col <- pick_one("^p(_value)?$")
+    permutation_col <- pick_one("^(n_?)?permutations$")
+    lower_col <- pick_one("^(ci_)?lower(_bound)?$")
+    upper_col <- pick_one("^(ci_)?upper(_bound)?$")
+
+    lower_value <- as.numeric(x[[lower_col]])
+    upper_value <- as.numeric(x[[upper_col]])
+
+    x <- data.frame(
+      "Group 1" = x[[group1_col]],
+      "Group 2" = x[[group2_col]],
+      "Mean 1" = x[[mean1_col]],
+      "Mean 2" = x[[mean2_col]],
+      "Difference (2-1)" = x[[diff_col]],
+      "p" = x[[p_col]],
+      "Permutations" = x[[permutation_col]],
+      "95% CI" = sprintf(
+        "[%.3f, %.3f]",
+        lower_value,
+        upper_value
+      ),
+      check.names = FALSE,
+      stringsAsFactors = FALSE
+    )
+  }
+
+  pretty <- c(
+    sequence_id = "Sequence",
+    position = "Position",
+    state = "State",
+    group = "Group",
+    channel = "Channel",
+    weight = "Weight",
+    gp3sequences_functions = "Functions",
+    from_state = "From",
+    to_state = "To",
+    n_transitions = "Transitions",
+    origin_total = "Origin total",
+    origin_transition_proportion = "Origin prop.",
+    n_observations = "Observations",
+    group_total = "Group total",
+    proportion = "Proportion",
+    prevalence = "Prevalence",
+    n_sequences = "Sequences",
+    n_pairs = "Pairs",
+    avg_silhouette = "Avg. silhouette",
+    average_silhouette = "Avg. silhouette",
+    min_silhouette = "Min. silhouette",
+    minimum_silhouette = "Min. silhouette",
+    dunn_index = "Dunn index",
+    within_between_ratio = "Within/between",
+    singleton_count = "Singletons",
+    out_degree = "Out deg.",
+    in_degree = "In deg.",
+    total_degree = "Total deg.",
+    out_strength = "Out strength",
+    in_strength = "In strength",
+    total_strength = "Total strength",
+    closeness = "Closeness",
+    betweenness = "Between.",
+    pagerank = "PageRank",
+    n_permutations = "Permutations",
+    n_boot = "Bootstraps",
+    interpretation = "Interpretation",
+    Primary.contribution = "Primary contribution",
+    Relationship.to.gp3sequences = "Relationship to gp3sequences",
+    Comparison.boundary = "Comparison boundary"
+  )
+
+  nm <- names(x)
+
+  mapped <- ifelse(
+    nm %in% names(pretty),
+    unname(pretty[nm]),
+    tools::toTitleCase(gsub('[._]+', ' ', nm))
+  )
+
+  names(x) <- mapped
+
+  if (knitr::is_html_output()) {
+    return(
+      knitr::asis_output(
+        as.character(
+          knitr::kable(
+            x,
+            format = "html",
+            caption = caption,
+            digits = digits,
+            row.names = FALSE,
+            ...
+          )
+        )
+      )
+    )
+  }
+
+  tab <- knitr::kable(
+    x,
+    format = "latex",
+    booktabs = TRUE,
+    caption = caption,
+    digits = digits,
+    row.names = FALSE,
+    escape = TRUE,
+    ...
+  )
+
+  tab_lines <- strsplit(
+    paste(as.character(tab), collapse = '\n'),
+    '\n',
+    fixed = TRUE
+  )[[1L]]
+
+  tab_start <- which(
+    startsWith(tab_lines, "\\begin{tabular}")
+  )
+
+  tab_end <- which(
+    tab_lines == "\\end{tabular}"
+  )
+
+  stopifnot(
+    length(tab_start) == 1L,
+    length(tab_end) == 1L
+  )
+
+  # FINAL TABLE FLOAT PLACEMENT
+  table_env <- which(
+    tab_lines == "\\begin{table}"
+  )
+
+  if (length(table_env) == 1L) {
+    tab_lines[[table_env]] <- "\\begin{table}[!htbp]"
+  }
+
+  spec <- NULL
+
+  if (identical(
+    caption,
+    "Integrated evaluated case-study workflow."
+  )) {
+    spec <- "p{0.05\\linewidth}p{0.22\\linewidth}p{0.53\\linewidth}"
+  }
+
+  if (identical(
+    caption,
+    "Primary-source-backed positioning of gp3sequences and specialist comparators."
+  )) {
+    spec <- "p{0.20\\linewidth}p{0.26\\linewidth}p{0.40\\linewidth}"
+  }
+
+  if (identical(
+    caption,
+    "Explicit preparation decisions applied before analysis."
+  )) {
+    spec <- "p{0.15\\linewidth}p{0.16\\linewidth}p{0.12\\linewidth}p{0.37\\linewidth}"
+  }
+
+  if (!is.null(spec)) {
+    tab_lines[[tab_start]] <- paste0(
+      "\\begin{tabular}{",
+      spec,
+      "}"
+    )
+  } else {
+    needs_scale <-
+      ncol(x) >= 6L ||
+      sum(nchar(names(x))) > 70L
+
+    if (isTRUE(needs_scale)) {
+      tab_lines[[tab_start]] <- paste0(
+        "\\resizebox{0.98\\linewidth}{!}{%\n",
+        tab_lines[[tab_start]]
+      )
+
+      tab_lines[[tab_end]] <- paste0(
+        tab_lines[[tab_end]],
+        "\n}"
+      )
+    }
+  }
+
+  knitr::asis_output(
+    paste(tab_lines, collapse = '\n')
+  )
+}
 ```
 
 # Introduction
 
-Ordered categorical sequences are used to represent state histories,
-behavioral paths, event streams, interaction traces, and other processes in
-which order matters. Existing R software provides strong specialist methods,
-but applied workflows can become fragmented across data representations,
-preprocessing conventions, model-specific outputs, and reporting practices.
+Ordered categorical sequences describe histories in which both the states
+observed and their ordering are analytically relevant. Sequence-oriented
+methods study whole trajectories rather than isolated observations and can
+represent differences in ordering, timing, and duration
+[@AbbottTsay2000; @StuderRitschard2016]. Although much of this methodological
+literature developed around longitudinal social research, the representation
+also applies to ordered behavioral paths, interaction traces, and event streams.
 
-This article presents `gp3sequences`, an integration and audit layer for
-ordered categorical sequence analysis. Its contribution is not a claim to
-replace specialist software. Instead, it provides a common long-format data
-contract, explicit preparation policies, consistent result structures,
-machine-readable diagnostics, interpretation boundaries, guarded adapters,
-and provenance comparison across analytical families.
+The R ecosystem already contains mature specialist software for major parts of
+this problem. `TraMineR` provides state-sequence definition, description,
+visualization, and dissimilarity analysis [@Gabadinho2011TraMineR], whereas
+`seqHMM` provides hidden and mixture hidden Markov modelling for categorical
+and multichannel sequences [@Helske2019seqHMM]. Other packages specialize in
+frequent sequential patterns, clustering and typology validation, finite-mixture
+Markov clustering, variable-memory models, or other Markov-family models.
+This specialization is a strength of the R ecosystem rather than a deficiency.
+
+A different problem arises when one applied analysis spans several of these
+methodological families. Data may move between representations; preparation
+choices may be encoded differently across methods; result objects expose
+different diagnostics; and analytical settings can become difficult to compare
+after multiple transformations. Sequence-analysis scholarship similarly
+emphasizes complementarity between analytical approaches rather than a single
+universally sufficient method [@RitschardStuder2018].
+
+This article presents `gp3sequences` [@gp3sequences] as an integration and audit
+layer for ordered categorical sequence workflows. Its contribution is not a new
+universal sequence model and not a claim to replace specialist software.
+Instead, the package provides a neutral long-format data contract, explicit
+preparation policies, structured results, machine-readable diagnostics,
+provenance records, interpretation boundaries, and guarded adapters that keep
+heterogeneous analytical stages connected.
+
+The contribution is evaluated in three ways. First, the article describes the
+data and analysis contracts that organize the package. Second, it positions
+`gp3sequences` against seven specialist packages using a primary-source-backed
+comparison. Third, a deterministic synthetic case study exercises an end-to-end
+workflow from validation and pattern extraction through dissimilarity,
+clustering, transition networks, and predeclared observational inference.
 
 # Design goals and scope
 
-The package is organized around five design goals: neutral data input,
-explicit analytical decisions, deterministic and inspectable computation,
-consistent structured outputs, and cautious interpretation. Structural
-sequence results are not automatically treated as psychological constructs,
-behavioral mechanisms, or causal effects.
+The package is organized around five design goals. First, input remains in
+ordinary long-format data until a specialist representation is required.
+Second, preparation decisions are explicit rather than embedded in downstream
+model calls. Third, stochastic procedures expose seeds and relevant settings.
+Fourth, analyses return structured diagnostics and provenance alongside their
+principal numerical output. Fifth, interpretation is deliberately bounded:
+structural patterns, clusters, communities, and latent states do not acquire
+psychological, behavioral, or causal meaning from the software alone.
 
-The public API covers validation and preparation, descriptive summaries,
-motif and subsequence extraction, dissimilarities, clustering, transition
-networks, latent-state models, longitudinal comparisons, time-varying
-models, declared-design inference, and analysis auditing.
+These goals separate workflow governance from methodological choice.
+`gp3sequences` does not attempt to infer the correct distance, clustering
+solution, transition order, or latent-state model automatically. Such choices
+depend on the research question and on which characteristics of sequence
+difference are substantively relevant. Comparative work on sequence
+dissimilarities shows that measures vary in their sensitivity to sequencing,
+timing, and duration, so method selection remains tied to the analytical
+objective [@StuderRitschard2016]. The package therefore records analytical
+choices rather than presenting them as universally appropriate defaults.
+
+The public API spans validation and preparation, descriptive summaries,
+contiguous motifs and bounded noncontiguous subsequences, dissimilarities,
+clustering and stability assessment, transition networks, higher-order and
+time-varying models, categorical hidden Markov workflows, declared-design
+inference, and analysis auditing. Specialist engines remain appropriate when
+their deeper model-specific functionality is the principal analytical need.
 
 # Package architecture
 
 ## Data contract
 
 The primary interface uses ordinary long-format data frames with explicit
-sequence identifiers, within-sequence order, and categorical states. This
-keeps raw observations inspectable and permits preparation decisions to be
-recorded before conversion to specialist representations.
+sequence identifiers, within-sequence order, and categorical states. Optional
+metadata remain attached at the observation or sequence level. This design
+keeps analytical input inspectable and allows ordering, coding, missingness,
+and preparation policies to be resolved before conversion to method-specific
+objects.
+
+The neutral representation is deliberately narrower than the object systems of
+specialist packages. Its purpose is not to reproduce every specialist-object
+attribute but to provide a stable boundary at which assumptions can be checked
+and recorded. Conversion is postponed until a specialist representation is
+actually required.
 
 ## Analysis contracts and provenance
 
-Analysis objects retain settings, capabilities, diagnostics, and
-interpretation boundaries. These fields allow related results to be checked
-and compared without assuming that outputs from different analytical
-families are interchangeable.
+Analysis results retain settings, capabilities, diagnostics, and interpretation
+boundaries together with their principal numerical outputs. Provenance
+utilities can inspect an individual result or compare related analyses without
+assuming that outputs from distinct analytical families are interchangeable.
+Choices such as distance normalization, clustering specification, transition
+order, resampling counts, seeds, and declared comparison design therefore
+remain available for later audit.
+
+## Guarded delegation and interpretation
+
+Interoperability is treated as explicit delegation. Adapters prepare inputs for
+specialist packages where that delegation is useful, while dependency guards
+keep optional software optional. This architecture is consistent with the
+broader view that sequence analysis can profit from complementary longitudinal
+methods rather than forcing every question through one model family
+[@RitschardStuder2018].
+
+The same boundary applies to interpretation. A cluster is reported as a
+cluster, an HMM state as a model state, and a transition-network community as
+a structural partition unless external theory and study design justify a
+stronger interpretation.
 
 # Integrated workflow
 
@@ -79,12 +594,11 @@ auditing and provenance comparison.
 
 ```{r workflow-plan}
 workflow <- read.csv("data/case-study-workflow.csv", stringsAsFactors = FALSE)
-knitr::kable(
+journal_table(
   workflow[, c(
     "stage",
     "manuscript_step",
-    "gp3sequences_functions",
-    "scaffold_status"
+    "gp3sequences_functions"
   )],
   caption = "Integrated evaluated case-study workflow."
 )
@@ -93,14 +607,29 @@ knitr::kable(
 # Software comparison
 
 The comparison is based on documented software purpose rather than raw
-function counts. A capability classified as `not_documented` was not found in
-the reviewed primary sources; this is not proof that every package version
-lacks that capability. A classification of `outside_scope` records a mismatch
-between the comparison dimension and a package's specialist purpose.
+function counts. `TraMineR` provides the principal general state-sequence
+environment in the comparison [@Gabadinho2011TraMineR], whereas `seqHMM`
+specializes in hidden and mixture hidden Markov models
+[@Helske2019seqHMM]. `arulesSequences` exposes frequent sequential-pattern
+mining [@Buchta2026arulesSequences], including the cSPADE route whose
+algorithmic foundation is SPADE [@Zaki2001SPADE]. `WeightedCluster` provides
+dedicated clustering and cluster-quality tools
+[@Studer2025WeightedCluster; @Studer2013WeightedCluster]. `ClickClust` focuses
+on finite-mixture Markov clustering [@Melnykov2016ClickClust], `PST` on
+probabilistic suffix trees and variable-length Markov models
+[@Gabadinho2016PST], and `march` on Markov-family modelling
+[@Maitre2020march; @BerchtoldMaitreEmery2020].
+
+A capability classified as `not_documented` was not located in the reviewed
+primary sources; this is not evidence that every historical or development
+version lacks that capability. Likewise, `outside_scope` records that a
+comparison dimension does not match the specialist purpose of a package.
+The resulting matrix is therefore a positioning device rather than a league
+table.
 
 ```{r software-comparison}
 comparison <- read.csv("data/software-comparison.csv", check.names = TRUE)
-knitr::kable(
+journal_table(
   comparison[, c(
     "Package",
     "Primary.contribution",
@@ -111,14 +640,35 @@ knitr::kable(
 )
 ```
 
+The comparison identifies a division of labour rather than a claim of
+supremacy. When a study is centered on a specialist task, the corresponding
+specialist package can provide a deeper and more direct interface. The
+distinctive role of `gp3sequences` is instead the connection of preparation,
+multiple analytical families, diagnostics, explicit design declarations, and
+provenance within one inspectable workflow.
+
 # Reproducible case study
+
+## Executed workflow interface
+
+The evaluated case-study script loads the repository source and invokes the
+exported API directly. Validation preserves `analysis_unit` as metadata;
+`compute_sequence_distance()` uses Levenshtein dissimilarity normalized by
+maximum sequence length; `cluster_sequences()` applies the predeclared
+two-cluster hierarchical solution; and
+`declare_sequence_comparison_design()` explicitly identifies `analysis_unit`
+as the independent-unit field. The subsequent
+`test_sequence_group_difference()` call uses 999 permutations and fixed seed
+`20260807`. In this synthetic design, `analysis_unit` is an explicit metadata
+copy of `sequence_id`, making the independence declaration inspectable rather
+than implicit.
 
 ## Data and declared design
 
-The scaffold includes a deterministic synthetic data set with 72 sequences,
+The case study uses a deterministic synthetic data set with 72 sequences,
 24 ordered observations per sequence, four categorical states, and two
-declared groups. It is intended to support a compact end-to-end example
-without embedding private or proprietary data in the manuscript.
+declared groups. It provides a compact end-to-end example without
+embedding private or proprietary data in the manuscript.
 
 ```{r case-data}
 case_data <- read.csv("data/case-study-sequences.csv", stringsAsFactors = FALSE)
@@ -128,7 +678,7 @@ stopifnot(
   setequal(unique(case_data$state), c("A", "B", "C", "D"))
 )
 
-knitr::kable(
+journal_table(
   utils::head(case_data, 12L),
   caption = "First observations in the deterministic synthetic case study."
 )
@@ -144,11 +694,11 @@ structural properties rather than silently removed.
 ```{r evaluated-validation}
 validation_result <- read.csv("results/case-study/validation-summary.csv")
 preparation_result <- read.csv("results/case-study/preparation-decisions.csv")
-knitr::kable(
+journal_table(
   validation_result,
   caption = "Validation status for the deterministic case-study data."
 )
-knitr::kable(
+journal_table(
   preparation_result,
   caption = "Explicit preparation decisions applied before analysis."
 )
@@ -162,9 +712,9 @@ sequences distribute observations across all four states. These differences
 are properties of the deterministic generator and are not estimates of an
 external population.
 
-```{r evaluated-states, fig.alt="Grouped bars show equal A and C proportions in comparison sequences and equal A, B, C, and D proportions in reference sequences."}
+```{r evaluated-states, fig.align="center", fig.pos="!htbp", out.width="70%", fig.cap="Observation proportions by state and declared synthetic group.", fig.alt="Grouped bars compare observation proportions across states and the two declared synthetic groups."}
 state_result <- read.csv("results/case-study/state-summary-by-group.csv")
-knitr::kable(
+journal_table(
   state_result,
   digits = 3,
   caption = "State frequencies and proportions by declared synthetic group."
@@ -188,7 +738,7 @@ transition_top <- do.call(
   rbind,
   lapply(split(transition_top, transition_top$group), utils::head, 6L)
 )
-knitr::kable(
+journal_table(
   transition_top,
   digits = 3,
   caption = "Most frequent adjacent transitions within each synthetic group."
@@ -213,12 +763,12 @@ subsequence_top <- do.call(
   rbind,
   lapply(split(subsequence_result, subsequence_result$group), utils::head, 5L)
 )
-knitr::kable(
+journal_table(
   motif_top,
   digits = 3,
   caption = "Most prevalent contiguous motifs within each synthetic group."
 )
-knitr::kable(
+journal_table(
   subsequence_top,
   digits = 3,
   caption = "Most prevalent bounded noncontiguous subsequences."
@@ -228,25 +778,28 @@ knitr::kable(
 ## Dissimilarity and descriptive clustering
 
 Normalized Levenshtein dissimilarities were clustered hierarchically with a
-predeclared two-cluster solution. Silhouette and separation metrics are used
-as descriptive diagnostics. They do not establish latent classes or recover
-substantive types beyond the deterministic construction.
+predeclared two-cluster solution. The average silhouette was 0.803361,
+showing strong descriptive separation under the deliberately structured
+synthetic generator. This is a partition diagnostic, not evidence that two
+latent populations exist. Typologies derived from clustering remain
+descriptive constructions whose interpretation depends on the analytical
+objective [@Studer2013WeightedCluster].
 
-```{r evaluated-clustering, fig.alt="Silhouette bars are positive for all 72 sequences and indicate strong separation in the predeclared two-cluster solution."}
+```{r evaluated-clustering, fig.align="center", fig.pos="!htbp", out.width="70%", fig.cap="Silhouette values for the predeclared hierarchical two-cluster solution.", fig.alt="Silhouette values for all synthetic sequences under the predeclared two-cluster solution."}
 distance_result <- read.csv("results/case-study/distance-summary.csv")
 cluster_result <- read.csv("results/case-study/cluster-validation.csv")
 cluster_composition <- read.csv("results/case-study/cluster-composition.csv")
-knitr::kable(
+journal_table(
   distance_result,
   digits = 3,
   caption = "Pairwise normalized Levenshtein dissimilarity summary."
 )
-knitr::kable(
+journal_table(
   cluster_result,
   digits = 3,
   caption = "Descriptive validation of the two-cluster solution."
 )
-knitr::kable(
+journal_table(
   cluster_composition,
   digits = 3,
   caption = "Declared-group composition of the resulting clusters."
@@ -259,20 +812,22 @@ knitr::include_graphics(
 ## Transition network and declared group contrast
 
 A first-order directed transition network summarizes structural connectivity.
-The group contrast was declared as observational and uses the sequence as the
-independent unit. Its permutation p-value tests an exchangeability-based
-association in the synthetic data; causal interpretation is explicitly
-unsupported.
+The group contrast was declared as observational and uses `analysis_unit` as
+the independent-unit field. For sequence-level prevalence of state A, the
+predeclared permutation analysis returned `p = 0.001`. Because the data are
+deterministic and the design is observational, this value characterizes an
+exchangeability-based association under the synthetic construction; it does
+not establish a causal effect or population-level evidence.
 
-```{r evaluated-network-inference, fig.alt="Boxplots show a higher sequence-level prevalence of state A in the comparison group than in the reference group."}
+```{r evaluated-network-inference, fig.align="center", fig.pos="!htbp", out.width="68%", fig.cap="Sequence-level prevalence of state A by declared synthetic group.", fig.alt="Bars compare sequence-level state-A prevalence between the two declared synthetic groups."}
 centrality_result <- read.csv("results/case-study/transition-centrality.csv")
 inference_result <- read.csv("results/case-study/group-inference.csv")
-knitr::kable(
+journal_table(
   centrality_result,
   digits = 3,
   caption = "Structural centrality in the pooled first-order transition network."
 )
-knitr::kable(
+journal_table(
   inference_result,
   digits = 3,
   caption = "Declared observational contrast in sequence-level prevalence of state A."
@@ -290,38 +845,101 @@ row counts, package version, canonical content hashes, repository base commit, a
 The evaluated workflow demonstrates package behavior under known synthetic
 structure; it does not supply empirical evidence about people, behavior, or
 causal processes.
+
 # Discussion
 
-The package addresses a practical gap between specialist analytical methods
-and the requirements of transparent applied research. Its principal value is
-workflow integration: data preparation, structural analysis, diagnostics,
-interoperability, and reporting evidence remain connected through explicit
-contracts and provenance.
+The contribution of `gp3sequences` is primarily architectural. Specialist
+sequence methods already exist in mature R packages; the practical problem
+addressed here is keeping heterogeneous analytical stages connected to their
+input assumptions, resolved preparation policies, diagnostics, declared
+design, and provenance. A common long-format boundary and structured result
+contracts reduce the amount of implicit state that has to be reconstructed
+when an analysis crosses methodological families.
 
-The comparison also clarifies where delegation is preferable. TraMineR,
-seqHMM, arulesSequences, WeightedCluster, ClickClust, PST, and march retain
-distinct specialist roles. gp3sequences should therefore be evaluated by the
-coherence and auditability of the integrated workflow rather than by a claim
-to subsume all specialist methods.
+The software comparison also identifies when this integration layer should not
+be the endpoint. `TraMineR`, `seqHMM`, `arulesSequences`, `WeightedCluster`,
+`ClickClust`, `PST`, and `march` each provide specialist depth that would be
+counterproductive to duplicate incompletely. `gp3sequences` therefore treats
+interoperability and delegation as part of the architecture rather than as
+evidence that one interface should subsume the surrounding ecosystem.
+
+The deterministic case study exercises this distinction. Validation, explicit
+preparation, motifs, bounded subsequences, normalized Levenshtein
+dissimilarities, clustering, transition-network summaries, and declared-design
+inference are connected through one reproducible analysis. The strong
+two-cluster separation and permutation result are expected consequences of the
+known generator. Their role is to demonstrate coherent propagation of
+settings, diagnostics, and interpretation boundaries, not superior statistical
+power or scientific discovery.
+
+A further implication concerns method choice. Sequence dissimilarity, cluster
+specification, transition order, model complexity, and inferential design
+remain scientific decisions. Different dissimilarity measures emphasize
+different combinations of sequencing, timing, and duration
+[@StuderRitschard2016], illustrating why an auditable workflow cannot
+substitute for substantive justification. The package is designed to make
+these choices visible and reproducible, not to remove them.
 
 # Limitations
 
-The case study is deterministic and synthetic, so its numerical separation
-reflects the known generator rather than sampling from an external
-population. The evaluated workflow is intended to test integration,
-reproducibility, diagnostics, and interpretation boundaries. Some specialist
-capabilities remain available only through optional packages, and documented
-absence in reviewed sources is not proof of feature nonexistence. Submission
-also remains gated on a stable CRAN release matching the version described
-in the article.
+Several limitations follow directly from the package's scope. First, the
+evaluated case study is deterministic and synthetic. It provides a controlled
+integration test but no external-validity evidence, and its separation metrics
+must not be generalized to empirical populations. Second, this article does
+not present a computational benchmark against specialist packages;
+consequently, no performance-superiority claim is made.
+
+Third, an integration layer necessarily introduces conventions of its own.
+Long-format normalization and structured result contracts can add conversion
+work when an analysis already lives entirely within a specialist object
+system. Optional adapters also depend on the availability and semantics of
+external packages. For analyses requiring the deepest model-specific
+functionality, a specialist interface may therefore be simpler and more
+expressive.
+
+Fourth, breadth does not imply automatic method selection. The package does not
+decide which sequence distance is substantively appropriate, how many clusters
+exist in an empirical population, what an HMM state means, or whether a group
+contrast is causal. These conclusions require study design, theory,
+sensitivity analysis, and domain evidence outside the software.
+
+Finally, the software comparison is deliberately source-bounded. A
+`not_documented` classification means that the capability was not established
+in the reviewed source set; it is not proof of universal feature absence.
+Software evolves, so this boundary should be retained when the comparison is
+updated.
+
+At manuscript preparation, the public CRAN release of `gp3sequences` is 0.1.0,
+whereas the computational evidence reported here was generated from
+development version 0.2.0.9000 at repository commit
+`d863b95a9a05cc2ef8bad00c47a6d2d553dd0772`. These software states are
+reported separately rather than presented as identical.
+
+# Conclusion
+
+`gp3sequences` provides an auditable integration layer for ordered categorical
+sequence analysis in R. Its contribution is the connection of explicit data
+preparation, heterogeneous analytical families, structured diagnostics,
+guarded interoperability, declared-design inference, and provenance rather
+than the replacement of specialist sequence-analysis software. The evaluated
+synthetic workflow demonstrates that these contracts can be carried through
+an end-to-end analysis while preserving explicit limits on interpretation.
+
 # Reproducibility statement
 
-All manuscript data, scripts, comparison evidence, and generated results are
-stored under the package repository's excluded `paper/` workspace. The
-submitted article will include the code and data required to reproduce every
-reported table and figure. Package and environment information will be
-refreshed immediately before submission.
+The public package availability record is provided by the CRAN release
+[@gp3sequences]. The numerical results in this article correspond to the
+evaluated development snapshot 0.2.0.9000 at commit
+`d863b95a9a05cc2ef8bad00c47a6d2d553dd0772`. Manuscript data, comparison
+evidence, scripts, generated tables, figure sources, and case-study outputs are
+stored under the repository's excluded `paper/` workspace.
+
+The authoritative case-study script uses fixed seed `20260807` and records 20
+frozen outputs with content hashes and provenance metadata. The
+render-and-check workflow rebuilds the article from current manuscript source,
+regenerates the submission products, and records journal-check evidence rather
+than treating a previously rendered PDF as proof of reproducibility.
 
 # Acknowledgements
 
-Acknowledgements will be completed before submission.
+The author thanks the developers and maintainers of R and of the specialist sequence-analysis packages considered in this article.

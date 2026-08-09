@@ -73,5 +73,6 @@ preparation, state and transition summaries, motifs, bounded subsequences,
 dissimilarity, clustering, transition networks, structural centrality, and
 an explicitly observational permutation contrast.
 
-The remaining article gates are rendering, official R Journal checks, final
-affiliation and copyediting, and a stable CRAN 0.2.0 release.
+The remaining article work is substantive copyediting, citation integration,
+and final visual QA. CRAN availability and the evaluated development snapshot
+are documented separately rather than treated as a release-match gate.

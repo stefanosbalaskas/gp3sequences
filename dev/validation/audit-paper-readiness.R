@@ -119,15 +119,16 @@ source("dev/validation/audit-rjournal-manuscript-scaffold.R")
 source("dev/validation/audit-rjournal-render-workflow.R")
 source("dev/validation/audit-rjournal-evaluated-case-study.R")
 
-release_ready <- identical(version, "0.2.0")
+snapshot_ready <- identical(version, "0.2.0.9000")
+stopifnot(snapshot_ready)
 
 cat(
   "PASS: paper workspace is structurally complete.\n",
   "Version: ", version, "\n",
   "Exports: ", exports, "\n",
   "Articles: ", articles, "\n",
-  "CRAN 0.2.0 release gate: ",
-  if (release_ready) "PASS" else "BLOCKED",
+  "Manuscript software snapshot: ",
+  if (snapshot_ready) "PASS" else "MISMATCH",
   "\n",
   sep = ""
 )

@@ -1,15 +1,22 @@
-# CRAN 0.2.0 release gate
+# Software availability and manuscript version boundary
 
-The manuscript should describe a stable version that readers can install
-from CRAN. The repository currently develops version 0.2.0.9000 while the
-public CRAN release is 0.1.0.
+`gp3sequences` is publicly available through CRAN. At manuscript
+preparation, the public CRAN release is version 0.1.0, while the article's
+evaluated computational snapshot is development version 0.2.0.9000 at
+repository commit `d863b95a9a05cc2ef8bad00c47a6d2d553dd0772`.
 
-## Required sequence
+The manuscript therefore distinguishes package availability from the exact
+software state used to generate its computational evidence. Submission is
+not conditioned on moving or recreating a historical release tag solely to
+make the CRAN version string equal the evaluated development version.
 
-1. Freeze public API and manuscript scope.
-2. Review reverse dependencies and current CRAN checks.
-3. Set DESCRIPTION and current-facing metadata to 0.2.0.
-4. Run tests, pkgdown, R CMD check, and external platform checks.
-5. Build and submit the source tarball through the CRAN web form.
-6. After acceptance, tag and permanently archive the exact release.
-7. Make the paper replication bundle verify that exact version.
+## Required submission boundary
+
+1. Keep the exact evaluated repository commit identifiable.
+2. Report the public CRAN release separately from the evaluated snapshot.
+3. Include the scripts, deterministic data, generated evidence, and
+   environment information required to reproduce manuscript results.
+4. Re-run the manuscript render and journal checks from current source.
+5. Do not move or recreate historical release tags for manuscript purposes.
+6. If a later CRAN release is published before acceptance, update the
+   availability statement without silently changing the evaluated snapshot.
