@@ -1,5 +1,13 @@
 # CRAN submission comments
 
+## Candidate version
+
+Version prepared for source-package validation: `0.3.0`.
+
+## Submission
+
+This is an update to the CRAN package `gp3sequences`, from version 0.1.0 to version 0.3.0.
+
 ## CRAN release status
 
 `gp3sequences` 0.1.0 was published on CRAN on 2026-07-30.

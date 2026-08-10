@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use gp3sequences in your work, please cite the software using the metadata below."
 type: software
 title: "gp3sequences: Transparent Analysis of Ordered Categorical Sequences"
-version: "0.2.0.9000"
+version: "0.3.0"
 license: "MIT"
 abstract: >-
   gp3sequences provides transparent, reproducible, and auditable tools for
