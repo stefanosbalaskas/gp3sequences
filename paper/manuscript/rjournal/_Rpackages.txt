@@ -1,0 +1,7 @@
+callr
+cli
+devtools
+knitr
+qpdf
+rjtools
+rmarkdown
