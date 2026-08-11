@@ -52,22 +52,22 @@ capabilities[c("family", "capability", "role", "available")]
 #> 17            Performance                              Benchmarking
 #> 18       Property testing                    Property-based testing
 #>               role available
-#> 1           native     FALSE
+#> 1           native      TRUE
 #> 2           native      TRUE
 #> 3           native      TRUE
-#> 4        reference     FALSE
+#> 4        reference      TRUE
 #> 5          handoff      TRUE
-#> 6          handoff     FALSE
+#> 6          handoff      TRUE
 #> 7        reference      TRUE
 #> 8           native      TRUE
-#> 9        reference     FALSE
-#> 10         handoff     FALSE
-#> 11         handoff     FALSE
+#> 9        reference      TRUE
+#> 10         handoff      TRUE
+#> 11         handoff      TRUE
 #> 12         adapter      TRUE
-#> 13 planned_adapter     FALSE
+#> 13 planned_adapter      TRUE
 #> 14          native      TRUE
 #> 15       reference      TRUE
 #> 16         adapter      TRUE
-#> 17     development     FALSE
-#> 18     development     FALSE
+#> 17     development      TRUE
+#> 18     development      TRUE
 ```
