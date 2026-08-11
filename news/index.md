@@ -1,14 +1,14 @@
 # Changelog
 
-## gp3sequences 0.2.0.9000
+## gp3sequences 0.3.0
 
 - Added CRAN status, download, DOI, GitHub Actions, pkgdown, and license
   badges; added canonical CRAN, website, source, issue, and CRAN-check
   links; and documented CRAN and GitHub installation paths.
 
 - Synchronized README, package description, citation metadata, and
-  pkgdown-facing development status for 0.2.0.9000; README counts are
-  now derived from the public NAMESPACE and vignette sources.
+  pkgdown-facing release status for 0.3.0; README counts are now derived
+  from the public NAMESPACE and vignette sources.
 
 - Added a common analysis-contract and provenance foundation for
   systematic 0.3.0 hardening.

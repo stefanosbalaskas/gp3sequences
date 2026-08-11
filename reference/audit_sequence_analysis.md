@@ -50,7 +50,7 @@ distance <- compute_sequence_distance(
 audit_sequence_analysis(distance)
 #> $summary
 #>     family         primary_class package_version contract_version      method
-#> 1 distance gp3_sequence_distance      0.2.0.9000 0.3.0-contract-1 levenshtein
+#> 1 distance gp3_sequence_distance           0.3.0 0.3.0-contract-1 levenshtein
 #>   n_sequence_ids n_state_levels seed_recorded n_issues status
 #> 1              3              3         FALSE        0   pass
 #> 
@@ -63,7 +63,7 @@ audit_sequence_analysis(distance)
 #> [1] "gp3sequences"
 #> 
 #> $provenance$package_version
-#> [1] "0.2.0.9000"
+#> [1] "0.3.0"
 #> 
 #> $provenance$contract_version
 #> [1] "0.3.0-contract-1"
