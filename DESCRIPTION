@@ -1,6 +1,6 @@
 Package: gp3sequences
 Title: Transparent Analysis of Ordered Categorical Sequences
-Version: 0.3.0
+Version: 0.3.1
 Authors@R:
     person(
       given = "Stefanos",

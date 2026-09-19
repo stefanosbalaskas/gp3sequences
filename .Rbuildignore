@@ -15,3 +15,7 @@
 ^tests/smoke$
 ^dev$
 ^paper$
+^gp3sequences-mdpi\.Rmd$
+^gp3sequences-mdpi\.docx$
+^references\.bib$
+^Figure 1\. Software architecture of gp3sequences\. Ordered categorical data pass through explicit validation and preparation before entering a canonical sequence representation\. Heterogeneous analytical families operate\.png$

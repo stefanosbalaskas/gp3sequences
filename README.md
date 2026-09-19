@@ -43,13 +43,13 @@ pak::pak("stefanosbalaskas/gp3sequences")
 ```
 
 The CRAN release is version **0.1.0**, published on **30 July 2026**.
-The source repository currently contains release version **0.3.0**.
+The source repository currently contains release version **0.3.1**.
 
 ## Current release status
 
-The current release version is **0.3.0**, building on the
-**0.2.0** release. The package currently exposes **81 public functions**
-and the website provides **15 synthetic, reproducible articles**.
+The current release version is **0.3.1**, building on the **0.2.0**
+release. The package currently exposes **81 public functions** and the
+website provides **16 synthetic, reproducible articles**.
 
 The 0.3.0 release combines the audited sequence-data contract with
 consensus and group comparisons, sequence distances, clustering and
@@ -138,7 +138,8 @@ prepared <- prepare_sequence_data(
 
 ## Analysis contracts and provenance
 
-The 0.3.0 release adds three public functions for machine-readable capability, contract, provenance, and reproducibility auditing:
+The 0.3.0 release adds three public functions for machine-readable
+capability, contract, provenance, and reproducibility auditing:
 
 - `sequence_capabilities()` inventories native, adapter, reference,
   handoff, and development capabilities without loading optional backend
@@ -269,7 +270,7 @@ plot_sequence_motif_positions(
 
 ## Documentation
 
-The package website now provides **15 synthetic, reproducible
+The package website now provides **16 synthetic, reproducible
 articles**:
 
 - getting started with the complete structural workflow;
@@ -349,7 +350,10 @@ The 0.2.0 release established:
 - categorical HMMs, mixture HMMs, and state decoding;
 - optional adapters to specialist sequence-analysis packages.
 
-The 0.3.0 release extends that foundation with longitudinal and panel workflows, bounded non-contiguous subsequences, time-varying models, multichannel and covariate HMMs, design-aware inference, extended visualisations, and analysis-contract/provenance auditing.
+The 0.3.0 release extends that foundation with longitudinal and panel
+workflows, bounded non-contiguous subsequences, time-varying models,
+multichannel and covariate HMMs, design-aware inference, extended
+visualisations, and analysis-contract/provenance auditing.
 
 These outputs are structural and statistical. They do not independently
 establish emotion, cognition, comprehension, personality, intention,

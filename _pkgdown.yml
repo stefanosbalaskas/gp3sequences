@@ -163,3 +163,7 @@ articles:
   - multichannel-and-covariate-hmms
   - sequence-inference-and-randomization
   - extended-sequence-visualisations
+
+- title: Ecosystem updates
+  contents:
+  - ecosystem-update-2026-09
