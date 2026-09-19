@@ -30,13 +30,13 @@ pak::pak("stefanosbalaskas/gp3sequences")
 ```
 
 The CRAN release is version **0.1.0**, published on **30 July 2026**.
-The source repository currently contains release version **0.3.0**.
+The source repository currently contains release version **0.3.1**.
 
 ## Current release status
 
-The current release version is **0.3.0**, building on the **0.2.0**
+The current release version is **0.3.1**, building on the **0.2.0**
 release. The package currently exposes **81 public functions** and the
-website provides **15 synthetic, reproducible articles**.
+website provides **16 synthetic, reproducible articles**.
 
 The 0.3.0 release combines the audited sequence-data contract with
 consensus and group comparisons, sequence distances, clustering and
@@ -278,7 +278,7 @@ plot_sequence_motif_positions(
 
 ## Documentation
 
-The package website now provides **15 synthetic, reproducible
+The package website now provides **16 synthetic, reproducible
 articles**:
 
 - getting started with the complete structural workflow;
@@ -617,3 +617,8 @@ diagnosis, deception, causality, or other psychological attributes.
   Inference](https://stefanosbalaskas.github.io/gp3sequences/articles/sequence-inference-and-randomization.md):
 - [Extended Sequence
   Visualisations](https://stefanosbalaskas.github.io/gp3sequences/articles/extended-sequence-visualisations.md):
+
+### Ecosystem updates
+
+- [Ecosystem update — September
+  2026](https://stefanosbalaskas.github.io/gp3sequences/articles/ecosystem-update-2026-09.md):

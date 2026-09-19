@@ -44,3 +44,8 @@
   Inference](https://stefanosbalaskas.github.io/gp3sequences/articles/sequence-inference-and-randomization.md):
 - [Extended Sequence
   Visualisations](https://stefanosbalaskas.github.io/gp3sequences/articles/extended-sequence-visualisations.md):
+
+### Ecosystem updates
+
+- [Ecosystem update — September
+  2026](https://stefanosbalaskas.github.io/gp3sequences/articles/ecosystem-update-2026-09.md):

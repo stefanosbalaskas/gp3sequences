@@ -1,6 +1,21 @@
 # Changelog
 
+## gp3sequences 0.3.1
+
+### Release maintenance
+
+- Registers the September 2026 ecosystem-methods article in the pkgdown
+  article index so the complete documentation site builds successfully.
+- Adds exact-tag R CMD check triggering for immutable `v*` release tags
+  and extends the matrix with Ubuntu oldrel-1.
+- Preserves the complete 0.3.0 scientific API, defaults, estimands,
+  analysis contracts, modelling semantics, and interpretation
+  boundaries.
+- The existing annotated `v0.3.0` tag remains immutable and unchanged.
+
 ## gp3sequences 0.3.0
+
+CRAN release: 2026-08-23
 
 - Added CRAN status, download, DOI, GitHub Actions, pkgdown, and license
   badges; added canonical CRAN, website, source, issue, and CRAN-check
