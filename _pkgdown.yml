@@ -164,6 +164,10 @@ articles:
   - sequence-inference-and-randomization
   - extended-sequence-visualisations
 
+- title: Visualization and estimand boundaries
+  contents:
+  - estimation-visualization-boundaries
+
 - title: Ecosystem updates
   contents:
   - ecosystem-update-2026-09
