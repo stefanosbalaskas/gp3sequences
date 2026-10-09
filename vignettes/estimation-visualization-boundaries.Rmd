@@ -22,7 +22,7 @@ resampling contract.
 
 For time-varying transitions, HMM state probabilities, scanpath
 distances and repeated trials, retain the current
-\`plot_sequence_group_inference\`, \`plot_time_varying_sequence_model\`,
+`plot_sequence_group_inference`, `plot_time_varying_sequence_model`,
 and other estimator-specific uncertainty visualizations. Generic raw
 mean differences cannot reproduce their temporal, compositional
 or hierarchical estimands.
