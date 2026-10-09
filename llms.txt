@@ -618,6 +618,11 @@ diagnosis, deception, causality, or other psychological attributes.
 - [Extended Sequence
   Visualisations](https://stefanosbalaskas.github.io/gp3sequences/articles/extended-sequence-visualisations.md):
 
+### Visualization and estimand boundaries
+
+- [Effect-size visualizations for sequence analysis: design
+  boundaries](https://stefanosbalaskas.github.io/gp3sequences/articles/estimation-visualization-boundaries.md):
+
 ### Ecosystem updates
 
 - [Ecosystem update — September

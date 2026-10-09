@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Ecosystem update — September 2026 • gp3sequences</title>
+<title>Effect-size visualizations for sequence analysis: design boundaries • gp3sequences</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -15,7 +15,7 @@
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Ecosystem update — September 2026">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Effect-size visualizations for sequence analysis: design boundaries">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -55,46 +55,34 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.svg" class="logo" alt=""><h1>Ecosystem update — September 2026</h1>
+      <img src="../logo.svg" class="logo" alt=""><h1>Effect-size visualizations for sequence analysis: design boundaries</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/stefanosbalaskas/gp3sequences/blob/master/vignettes/ecosystem-update-2026-09.Rmd" class="external-link"><code>vignettes/ecosystem-update-2026-09.Rmd</code></a></small>
-      <div class="d-none name"><code>ecosystem-update-2026-09.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/stefanosbalaskas/gp3sequences/blob/master/vignettes/estimation-visualization-boundaries.Rmd" class="external-link"><code>vignettes/estimation-visualization-boundaries.Rmd</code></a></small>
+      <div class="d-none name"><code>estimation-visualization-boundaries.Rmd</code></div>
     </div>
 
     
     
-<div class="section level2">
-<h2 id="related-crossed-repeated-measures-method">Related crossed repeated-measures method<a class="anchor" aria-label="anchor" href="#related-crossed-repeated-measures-method"></a>
-</h2>
-<p>The related Python package <strong>gpbiometricspy</strong> now
-includes a fully exact-main-certified crossed participant–item Gaussian
-hierarchical location–scale model with <strong>one location random slope
-for each crossed factor</strong>.</p>
-<p>This is an ecosystem-level addition, not a new
-<code>gp3sequences</code> sequence model. <code>gp3sequences</code>
-remains focused on ordered categorical sequences, scanpaths, motifs,
-transition structure, distances, clustering, randomization, and
-latent-state workflows. The gpbiometricspy method instead models
-continuous outcomes with crossed participant/item heterogeneity in
-conditional location and residual scale.</p>
-<p>Certified gpbiometricspy PR #129 is pinned to merge SHA
-<code>d078e0366ace49c3ebeb2f6800bad6394d70631e</code>: 14/14 exact-main
-push workflow families, 12/12 OS/Python matrix lanes, 782/782 tests,
-14,015/14,015 statements, and 6,757/6,776 raw branches (99.7196%). The
-frozen <code>gpbiometrics 2.0.0</code> parity surface remains 406/406
-and is unchanged.</p>
-<ul>
-<li><a href="https://stefanosbalaskas.github.io/gpbiometricspy/methods/crossed-random-slopes-location-scale/" class="external-link">Crossed
-participant–item random-slope guide</a></li>
-<li><a href="https://github.com/stefanosbalaskas/gpbiometricspy/pull/129" class="external-link">gpbiometricspy
-PR #129</a></li>
-</ul>
-<p>A study can therefore use sequence methods for ordered process
-structure and, where scientifically justified, a separate gpbiometricspy
-location–scale model for continuous repeated outcomes without conflating
-the two inferential targets.</p>
-</div>
+<p><a href="https://acclab.github.io/DABEST-python/" class="external-link">DABEST estimation
+plots</a> make sense for <em>scalar</em> outcomes extracted from ordered
+sequences, such as participant-level transition probability, dwell
+fraction or entropy under explicitly declared exposure denominators.
+They do not justify treating transitions from the same participant as
+independent observations.</p>
+<p>Use the maintained R <a href="https://acclab.github.io/dabestr/" class="external-link">dabestr package</a> directly to
+show a Gardner–Altman or Cumming plot if a scalar participant-level mean
+difference is the scientific target. For a paired design use the same
+person in both groups and a paired resampling contract.</p>
+<p>For time-varying transitions, HMM state probabilities, scanpath
+distances and repeated trials, retain the current
+<code>plot_sequence_group_inference</code>,
+<code>plot_time_varying_sequence_model</code>, and other
+estimator-specific uncertainty visualizations. Generic raw mean
+differences cannot reproduce their temporal, compositional or
+hierarchical estimands.</p>
+<p>This article adds no speculative sequence estimator and does not
+modify the published package public namespace.</p>
   </main>
 </div>
 
