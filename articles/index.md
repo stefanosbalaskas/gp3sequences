@@ -49,6 +49,8 @@
 
 - [Effect-size visualizations for sequence analysis: design
   boundaries](https://stefanosbalaskas.github.io/gp3sequences/articles/estimation-visualization-boundaries.md):
+- [Who counts? Transition-weighted and participant-equal sequence
+  summaries](https://stefanosbalaskas.github.io/gp3sequences/articles/transition-unit-audit-october-2026.md):
 
 ### Ecosystem updates
 

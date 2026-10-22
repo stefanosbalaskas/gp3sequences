@@ -29,8 +29,12 @@ Install the current release version from GitHub:
 pak::pak("stefanosbalaskas/gp3sequences")
 ```
 
-The CRAN release is version **0.1.0**, published on **30 July 2026**.
-The source repository currently contains release version **0.3.1**.
+The **CRAN** release is version **0.3.0**, published on **23 August
+2026**; the **GitHub** stable maintenance release is **0.3.1** (19
+September 2026). These are distinct publication records. The October
+2026 transition-weighting audit is research-only and not included in
+either published release. The source repository currently contains
+release version **0.3.1**.
 
 ## Current release status
 
@@ -622,6 +626,8 @@ diagnosis, deception, causality, or other psychological attributes.
 
 - [Effect-size visualizations for sequence analysis: design
   boundaries](https://stefanosbalaskas.github.io/gp3sequences/articles/estimation-visualization-boundaries.md):
+- [Who counts? Transition-weighted and participant-equal sequence
+  summaries](https://stefanosbalaskas.github.io/gp3sequences/articles/transition-unit-audit-october-2026.md):
 
 ### Ecosystem updates
 
