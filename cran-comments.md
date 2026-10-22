@@ -1,39 +1,19 @@
-# CRAN submission comments
+# CRAN submission comments — RELEASE CANDIDATE, NOT SUBMITTED
 
-## Candidate version
+Package: gp3sequences
+Candidate source version: 0.3.2
+Currently verified CRAN version: 0.3.0
 
-Version prepared for source-package validation: `0.3.0`.
+## Scope
 
-## Submission
+Non-exported participant-weighted versus transition-weighted audit, tests and two synthetic figures.
 
-This is an update to the CRAN package `gp3sequences`, from version 0.1.0 to version 0.3.0.
+## Release qualification (not complete)
 
-## CRAN release status
+* Candidate exact-head GitHub Actions: inspect current PR run results before promotion.
+* `R CMD build` source archive: not independently generated/verified in this campaign.
+* `R CMD check --as-cran` against the exact intended submission tarball: not independently verified.
+* Reverse-dependency and cross-platform CRAN policy audit: pending release review.
+* CRAN maintainer confirmation: not requested; no CRAN submission or new GitHub Release made.
 
-`gp3sequences` 0.1.0 was published on CRAN on 2026-07-30.
-
-- Canonical package page: https://CRAN.R-project.org/package=gp3sequences
-- Package DOI: https://doi.org/10.32614/CRAN.package.gp3sequences
-
-## Submission history
-
-Version 0.1.0 was the first CRAN submission of `gp3sequences`.
-
-## Test environments
-
-* Local: Windows 11 x64, R 4.6.1
-* GitHub Actions:
-  * macOS latest, R release
-  * Windows latest, R release
-  * Ubuntu latest, R release
-  * Ubuntu latest, R devel
-
-## R CMD check results
-
-0 errors | 0 warnings | 0 notes
-
-## Additional notes
-
-* All examples, tests, and vignettes use synthetic data.
-* The package does not require proprietary hardware, software, or data.
-* There are currently no reverse dependencies.
+**Replace this draft with observed test environments and exact results before any CRAN upload.**
