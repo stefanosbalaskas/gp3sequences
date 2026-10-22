@@ -1,5 +1,19 @@
 # Changelog
 
+## gp3sequences 0.3.2 — release candidate (not published)
+
+### October 2026 documentation and reproducibility
+
+- Adds a non-exported participant-versus-transition-weighted
+  state-fraction audit, executable tests, and a two-figure synthetic
+  article. No public sequence estimand or API is changed.
+- Release gate: complete exact-source R CMD check –as-cran, review
+  installed source tarball and cross-platform tests, audit publication
+  metadata, then publish an immutable GitHub tag and submit to CRAN with
+  maintainer confirmation.
+- Current CRAN baseline at candidate preparation: 0.3.0. The candidate
+  has **not** been submitted to CRAN or published as a GitHub Release.
+
 ## gp3sequences 0.3.1
 
 ### Release maintenance

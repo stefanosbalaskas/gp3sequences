@@ -11,13 +11,13 @@ Source:
 [`inst/CITATION`](https://github.com/stefanosbalaskas/gp3sequences/blob/master/inst/CITATION)
 
 Balaskas S (2026). *gp3sequences: Transparent Analysis of Ordered
-Categorical Sequences*. R package version 0.3.1,
+Categorical Sequences*. R package version 0.3.2,
 <https://stefanosbalaskas.github.io/gp3sequences/>.
 
     @Manual{,
       title = {{gp3sequences}: Transparent Analysis of Ordered Categorical Sequences},
       author = {Stefanos Balaskas},
       year = {2026},
-      note = {R package version 0.3.1},
+      note = {R package version 0.3.2},
       url = {https://stefanosbalaskas.github.io/gp3sequences/},
     }
