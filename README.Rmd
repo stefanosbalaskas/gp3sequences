@@ -59,7 +59,7 @@ Install the current release version from GitHub:
 pak::pak("stefanosbalaskas/gp3sequences")
 ```
 
-The CRAN release is version **0.1.0**, published on **30 July 2026**.
+The **CRAN** release is version **0.3.0**, published on **23 August 2026**; the **GitHub** stable maintenance release is **0.3.1** (19 September 2026). These are distinct publication records. The October 2026 transition-weighting audit is research-only and not included in either published release.
 The source repository currently contains release version **`r package_version`**.
 
 ## Current release status
