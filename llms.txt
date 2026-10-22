@@ -13,6 +13,17 @@ It is designed for ordinary long-format data frames and is not
 restricted to Gazepoint exports, eye-tracking data, particular hardware,
 or proprietary software.
 
+## October 2026 illustrated research
+
+The [participant-weighted versus pooled transition summaries
+article](https://stefanosbalaskas.github.io/gp3sequences/articles/transition-unit-audit-october-2026.html)
+contains original synthetic R figures, reproducible methods and explicit
+inference limitations. These demonstrations do not establish empirical
+validation or statistical calibration.
+
+**Publication channels:** GitHub **0.3.2** (22 October 2026) and CRAN
+**0.3.0** (earlier published version). They are distinct sources.
+
 ## Installation
 
 Install the current CRAN release:
@@ -30,10 +41,10 @@ pak::pak("stefanosbalaskas/gp3sequences")
 ```
 
 The **CRAN** release is version **0.3.0**, published on **23 August
-2026**; the **GitHub** stable maintenance release is **0.3.1** (19
-September 2026). These are distinct publication records. The October
-2026 transition-weighting audit is research-only and not included in
-either published release. The source repository currently contains
+2026**; the **GitHub** stable maintenance release is **0.3.2** (22
+October 2026). These are distinct publication records. The October 2026
+synthetic transition-weighting audit is included in GitHub 0.3.2, but
+has not been submitted to CRAN. The source repository currently contains
 release version **0.3.1**.
 
 ## Current release status
